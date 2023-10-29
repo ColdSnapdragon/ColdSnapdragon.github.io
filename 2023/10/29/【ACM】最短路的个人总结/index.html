@@ -1,0 +1,313 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>【ACM】最短路的个人总结 | 四方.io</title><meta name="author" content="Blover"><meta name="copyright" content="Blover"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="最短路（一）DijkstraDijkstra算法可求任一点到定点的最短路，适于有向图和无向图（对有向图有用的就一定对无向图有用），其边权不可为负（一条边都不行）。数组vis标记访问过的点，数组dis记录结果，一般初始化为无穷。dis[起点]要提前赋值，以保证在for循环中第一个目标点是起点。 对于稀疏图（即边的数量E远小于n*(n-1)），Dijkstra算法可以优化至(V+E)logV，称为堆优">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【ACM】最短路的个人总结">
+<meta property="og:url" content="http://example.com/2023/10/29/%E3%80%90ACM%E3%80%91%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%9A%84%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="四方.io">
+<meta property="og:description" content="最短路（一）DijkstraDijkstra算法可求任一点到定点的最短路，适于有向图和无向图（对有向图有用的就一定对无向图有用），其边权不可为负（一条边都不行）。数组vis标记访问过的点，数组dis记录结果，一般初始化为无穷。dis[起点]要提前赋值，以保证在for循环中第一个目标点是起点。 对于稀疏图（即边的数量E远小于n*(n-1)），Dijkstra算法可以优化至(V+E)logV，称为堆优">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/cover/acm.jpg">
+<meta property="article:published_time" content="2023-10-29T14:26:27.000Z">
+<meta property="article:modified_time" content="2023-10-29T15:10:00.056Z">
+<meta property="article:author" content="Blover">
+<meta property="article:tag" content="ACM">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/cover/acm.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/10/29/%E3%80%90ACM%E3%80%91%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%9A%84%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体中文","cht_to_chs":"你已切换为简体中文","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '【ACM】最短路的个人总结',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-10-29 23:10:00'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/head.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/cover/acm.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="四方.io"></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">【ACM】最短路的个人总结</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-29T14:26:27.000Z" title="发表于 2023-10-29 22:26:27">2023-10-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-29T15:10:00.056Z" title="更新于 2023-10-29 23:10:00">2023-10-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">7.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>27分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="【ACM】最短路的个人总结"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="最短路"><a href="#最短路" class="headerlink" title="最短路"></a>最短路</h2><h3 id="（一）Dijkstra"><a href="#（一）Dijkstra" class="headerlink" title="（一）Dijkstra"></a>（一）Dijkstra</h3><p>Dijkstra算法可求任一点到定点的最短路，适于有向图和无向图（对有向图有用的就一定对无向图有用），<strong>其边权不可为负（一条边都不行）</strong>。数组vis标记访问过的点，数组dis记录结果，一般初始化为无穷。dis[起点]要提前赋值，以保证在for循环中第一个目标点是起点。</p>
+<p>对于稀疏图（即边的数量E远小于n*(n-1)），Dijkstra算法可以优化至(V+E)logV，称为堆优化。具体就是用优先队列，直接弹出待选结点中d[x]最小的点。普通二叉堆优化后的复杂度为O((V+E)logV)，而若使用斐波那契堆，由于压入操作为O(1)，可将复杂度优化至O(E+VlogV)（但是过程复杂，比赛中不使用）。在稀疏图中，使用二叉堆实现的 Dijkstra 算法较 Bellman-Ford 算法具有较大的效率优势；而在稠密图中，这时候使用暴力$O(n^2)$做法较二叉堆实现更优。</p>
+<p>当边权均为一常数时，可用bfs搜寻；当边权为0和1时，可用双端队列+bfs搜寻。如果要还原路径，这时需要引入父点数组。由于除了起点外每个点都有唯一的父结点，这时所有路径便形成了一棵树，称最短路径树。在这棵树上，根节点到任意结点的路径最短。</p>
+<p>当存在多个起点时（即多源最短路），可设置一“超级源点”，通过边权为0的边连接所有起点，则图上任一点到最近源点的距离即为到超级源点的距离，“超级汇点”同理。当某些点能通过特殊方式走到其他任何点时，可让它连接到一个虚点，这个虚点再连接到图中所有点。</p>
+<p>在某一点到源点的路径长度最短的前提下，处理一些<em>二级条件</em>，我们需要在dis[to]&#x3D;&#x3D;dis[index]+G[index][to]时：①使得路径上的点权和最小：当wg[to]&gt;wg[index]+w[to]时更新wg[to]和fa[to]。（<em>如果希望是希望点权和最小时使路径最短，那么我们把一二级条件互换即可</em>）②使得路径上的最大点权最小：当wg[to]&gt;max(wg[index],w[to])时更新wg[to]和fa[to]（与①不同，②的一二级条件不可互换）。③统计最短路数量：tot[to]+&#x3D;tot[index]。④使得路径上的额外边权和最小：参考①即可。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(dis[to]&gt;=dis[now]+w)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(dis[to]&gt;dis[now]+w)</span><br><span class="line">    &#123;</span><br><span class="line">        dis[to]=dis[now]+w;</span><br><span class="line">        wg[to]=wg[now]+w[to];  <span class="comment">//wg[x]为1~x的路径点权和</span></span><br><span class="line">    	fa[to]=now;            <span class="comment">//fa[x]为x在最短路径树上的父节点</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(wg[to]&gt;wg[index]+w[to])</span><br><span class="line">    &#123;</span><br><span class="line">        wg[to]=wg[now]+w[to];</span><br><span class="line">        fa[to]=now;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>一些最优路径问题并不是简单的权和最短，Dijkstra可以描述为在未标记的点中找到最优点，将其标记后优化其相邻点，这种优化&#x2F;松弛是单调的，就像边权一样只可非负，以确保被已标记的点不可能再被优化更新。比如说，假设边权点权均为正数时，求1到任一点i的路径的最大的“最小点权&#x2F;路径长度”、最小的“路径最大值最小值之差”等，这些值在点与点转移时，必然始终增加或减少（也就是转移边权恒大于0或小于0，具体值可以未知），而当边权恒正时求最小、边权恒负时求最大，我们就可以采用Dijkstra算法；若需边权可正求最大、边权可负求最小，则要用到spfa。</p>
+<p>有向图中的最小环问题：枚举s&#x3D;1-n，更新s所有的出边所连接的点v，设置dis[v]为边权，然后正常地跑一遍dijkstra，dis[s]就是经过s的最小环。</p>
+<p>dijkstra算法的核心在于三角不等式$dis[to]≤dis[now]+w$，基于此，以下将介绍几种拓展应用。</p>
+<hr>
+<p><em><strong>差分约束</strong></em></p>
+<p>差分约束系统是一种特殊的N元一次不等式组。它包含N个变量$X_1$~$X_N$以及M个约束条件，每个约束条件都是由两个变量作差构成的，形如$x_i;-x_j;≤c_k$,其中$c_k$是常数(可以是非负数，也可以是负数)，1≤i, j≤N,1≤k≤M。我们要解决的问题就是：求一组解$x_1&#x3D;a_1,x_2&#x3D;a_2,…,x_N&#x3D; a_N$，使所有约束条件都得到满足。</p>
+<p>差分约束系统的每个约束条件$x_i;-x_j;≤c_k$，可以变形为$x_i;≤c_k;+x_j$，这与单源最短路径问题中的三角形不等式dist[y] ≤dist[x]+z非常相似。因此，可以把每个变量$x_i$看作有向图中的一个节点 i , 对于每个约束条件$x_i;-x_j;≤c_k$，从节点 j 向节点 i 连一条长度为Ck的有向边。</p>
+<p>注意到如果{a1,a2, … ,an} 是一组解，那么对任意的常数△，{a1+△,a2+△, … ,an+△}也是一组解。这样如果我们想把一组含负数的解转换为正整数解，那么令上式中△为|最小的负数-1|即可。我们还可以设置一个虚点$x_0&#x3D;0$并增设约束条件$x_i;-x_0;&gt;0$，从而达到控制所有解的下限。如果差分约束系统中存在有向环，</p>
+<p>不等号的方向可以自由选择，这要根据在具体问题中，求最短路还是求最长路更适合我们。注意不能在存在负边权的图中使用dijkstra算法求最短路（等价于不能在存在正边权的图中求最长路），也最好不要在非稀疏图中使用SPFA算法。另外，所求得的一组解只是针对一个连通块（底图连通，不含虚点）而言的，如果不止一个连通块，我们需要对每组解独立处理。</p>
+<p>若$x_i-x_j≥k$表示$x_i$比$x_j$至少多 k ，$x_i-x_j≤k$表示$x_i$比$x_j$至少少 k 。我们将不等号统一方向，作由 j 向 i 的权值为k的有向边，<em>如果差分约束系统中存在有向环，设环上边权和为 S，当求最短路时必须 S≥0，当求最长路时必须 S≤0</em>。这意味着在非负边权图中，强连通分量对最长路的贡献只能为0，我们可以将图变成DAG图。</p>
+<p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/364/">362. 区间 - AcWing题库</a> </p>
+<p>我们设$x_i$为0~i的前缀和，重点注意隐藏的约束条件。对于i&gt;j，$x_i-x_j &gt;&#x3D;0$，且$x_j+1&gt;&#x3D;x_i$。</p>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3275">P3275 SCOI2011]糖果</a> </p>
+<hr>
+<p><em><strong>同余最短路</strong></em></p>
+<p>同余最短路常用于解决这样一类问题：</p>
+<p>有n个正整数$a_1,a_2,a_3,⋯ ,a_n$，设$x_1a_1+x_2a_2+…+x_na_n&#x3D;k（x_1,x_2..x_n∈N）$ 。即 <strong>使用无限个$a_1,a_2,a_3,⋯ ,a_n$进行拼凑，然后对k的可能值进行各种询问</strong>（例如询问k在[ l , r ]区间内的可能值个数；询问k最大的无法拼凑的值；询问某个定值k能否被拼凑出……）（类似于超大完全背包）</p>
+<p>算法思路</p>
+<p>取其中一个正整数作为剩余系，例如取$a_1$，设$f(i)&#x3D;min{k|k % a_1&#x3D;i}$，其中$i&#x3D;0,1,2..a_1-1$，$f(i)$即为<strong>令$k&#x3D;x_2a_2+x_3a_3+…+x_na_n$且$k % a_1 &#x3D;i$的最小的k</strong>。（虽然少了一项$x_1a_1$，但有和没有是一样的）（通俗点讲，就是选任意数量的$a_2到a_n$，凑成k使得$k%a_1&#x3D;i$，$f(i)$即这个最小的k。**如果这个k不存在，则$f(i)&#x3D;inf$**）。</p>
+<p>由定义易知：$f((i+a_j)%a_1)&#x3D;min{f(i)+a_j}$。其中$f(0)&#x3D;0$。我们发现这可以转换为最短路的更新方程：$$f((i+a_j)%a_1)&lt;&#x3D;f(i)+a_j$$。</p>
+<p>建图：显然共$V&#x3D;a_1$个节点（从0到$a_1-1$），每个节点均有n条边，利用堆优化Dijkstra算法求最短路时间复杂度为$O(nVlogV)$。若n个正整数有重复值，则最好要去重，且为了使节点数更少，我们应当取最小的$a_i$作为剩余系。</p>
+<p>求出所有的$f(i)$后：</p>
+<p>（1）所有可拼凑出的值的集合即为${k|f(i)+t\cdot a_1,t∈N}$。由简单的数论知识可知，<strong>当$i,t$不同时，k唯一</strong>。若限制k&lt;h，则可由n个正整数组成的所有不同数的总量为$\sum_{i&#x3D;0}^{a_1-1}f(i)&#x2F;a_1+1$，其中$f(i)!&#x3D;inf$且$f(i)&lt;&#x3D;h$。（+1的情况是指d[i]本身，也就是一个a1都不取）</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;P;++i) <span class="comment">//P=a1</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(d[i]!=inf &amp;&amp; d[i]&lt;=h)</span><br><span class="line">        res+=(h-d[i])/P+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>（2）最大的无法拼凑出的值为$\max{k|k &#x3D; f(i)-a_1}$，若为−1则表示所有值均可拼凑出来（仅当$a_1&#x3D;1$时），若为$inf-a_1$则表示不可拼凑出来的数有无穷个。例如有三个整数4,3,4，我们排序去重后取$a_1&#x3D;3$，则$f(0)&#x3D;0,f(1)&#x3D;4,f(2)&#x3D;8$，最大的不可拼凑的数即为$f(2)-3&#x3D;5$。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//求最大</span></span><br><span class="line">sum=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;t;i++)	sum=<span class="built_in">max</span>(sum,d[i]-P);<span class="comment">//P系数为1</span></span><br><span class="line"><span class="comment">//求最小</span></span><br><span class="line">sum=inf;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;t;i++)	sum=<span class="built_in">min</span>(sum,d[i]-(d[i]/P)*P);<span class="comment">//P系数为d[i]/P</span></span><br></pre></td></tr></table></figure>
+
+<p>（3）对于一个定值k，若需要知道其具体的拼凑方案，则还需记录最短路的具体路径。</p>
+<p>（4）判断一个数 x 能不能由$a_1,a_2,a_3,⋯ ,a_n$组成，因为 f 中存的是最小值，如果$x&gt;&#x3D;f[x%a_1]$，则一定能保证x由$f[x%a_1]$加上若干$a_1$得到，否则说明k&#x3D;x无解。</p>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3403">P3403 跳楼机</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2371">P2371 国家集训队 墨墨的等式</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2662">P2662 牛场围栏 - 洛谷</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.51nod.com/Challenge/Problem.html#problemId=1326">遥远的旅途 (51nod.com)</a> 图上超大完全背包</p>
+<p>假设一条从0到n-1的路径长度为a，<strong>任取一条</strong>连接n-1的无向边，w为其长度，如果题目所述的长度恰好为T的路径存在，那么<strong>一定</strong>可以表示成：$T&#x3D;a+k*2w;;(k∈N)$，即$T%2w&#x3D;a%2w$。若k为0表示不需要在此边上重复走。理解这个“一定”：<strong>不管路径a走得多么复杂，我们只关心它对于2w的余数，这对所有a都是唯一的</strong>。</p>
+<p>于是取P&#x3D;2w为剩余系，设b为从起点到 i 的某一路径长度，我们令$dp[i][j]$表示使得b%P&#x3D;j的<strong>最小的</strong>b，状态之间通过连接两点的无向边转移。初始化dp[0][0]&#x3D;0，跑一遍Dijkstra就能处理出dp[n-1][0~p-1]。在点n-1上，若$T&gt;&#x3D;dp[n-1][T%P]$，说明 T 一定可以由记录在$dp[n-1][T%P]$上的路径a加上若干2w得到。</p>
+<p>如此，我们使用了同余模型来优化极大的数据范围。这里之所以选取连接n-1的边，<em>是因为一定可以保证这条边接入所有路径</em>，所以按这来分析的话，我们还可以选连接起点0的一条边作为剩余系。</p>
+<h3 id="（二）Floyd"><a href="#（二）Floyd" class="headerlink" title="（二）Floyd"></a>（二）Floyd</h3><p>Floyd算法是解决任意两点间的最短路径的一种算法，是一种插点算法，可以正确处理有向图或带负权非回路的最短路径算法 同时也被用于计算有向图的传递闭包 Floyd时间复杂度为$O(N^3)$ ，复杂度为$O(N^2)$。</p>
+<p><img src="https://cdn.acwing.com/media/article/image/2022/03/07/64858_e59ca6389e-Floyd%E6%8E%A8%E7%90%86.png" alt="Floyd推理.png"><br>状态表示 ： <strong>$f[k][i][j]$表示所有从i出发，最终走到j，只允许经过结点1到k的所有路径的最小值</strong><br>阶段划分 ： 节点编号k的不同<br>转移方程 ： $f[k][i][j] &#x3D; min(f[k][i][j], f[k - 1][i][k] + f[k - 1][k][j])$</p>
+<p>初值$f[0][i][j]$<strong>为原图的邻接矩阵</strong>。</p>
+<p>$f[k][i][j]$可以从$f[k-1][i][j]$转移来，表示i到j不经过k这个节点，也可以从$f[k-1][i][k]+f[k-1][k][j]$转移过来，表示经过k这个点。意思即$f[k][i][j]&#x3D;min(f[k−1][i][j],f[k−1][i][k]+f[k−1][k][j])$。通过滚动数组思想，我们约掉了第一维，进而表示成如今的Floyd。</p>
+<p>（k作为第一维阶段状态，这也是它必须放在最外的原因）</p>
+<p><em><strong>任意两点最短路</strong></em></p>
+<p>Floyd可求任意两点间的最短路，代码简单，允许边权为负（但不能存在权和为负的环），可以作图的预处理。k, i, j都是对所有点的枚举，且第一个for为对k枚举。记录结果的二维数组d初始化为无穷大，若i,j有边，则设置d[i][j]**和dis[j][i]**为边长。memset(d,0x3f,sizeof(d))可使每个元素被初始化为1061109567（0x3f3f3f3f…），属于1e9级数，两个0x3f相加恰好比int_max小一点，因此是初始化“无穷大”的不错选择（多次调用Floyd时，最好摒弃这种做法）。注意，不要在两个0x3f3f3f3f相加后再加数值，可能会造成溢出。</p>
+<p>使用一个path数组来记录i到j经过的某个中间点，也就是说，当d[i][j]&gt;d[i][k]+d[k][j]时，设置path[i][j]&#x3D;k，然后采用分治递归，便可还原路径。注意，在有多条等长路径时，若采用“&gt;”，所记录路径经过的顶点&#x2F;边最少；若采用“≥”，所记录路径经过的顶点&#x2F;边最多。如果两点p,q在i到j所记录的最短路径上，那么p到q的路径也一定记录在这条路径中。还可以设置path[i][j]为自i向j出发的下一个点，初始化path[i][j]&#x3D;j（对无向图还需初始化path[j][i]&#x3D;i），当dis[i][j]&gt;dis[i][k]+dis[k][j]时，设置path[i][j]&#x3D;path[i][k]，打印时循环输出即可。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">func</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!pt[a][b])</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">func</span>(pt[a][b],b);</span><br><span class="line">    cout&lt;&lt;pt[a][b])&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    <span class="built_in">func</span>(a,pt[a][b]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于点比较多的<strong>稀疏图</strong>，一个直观的想法就是，对每个点执行一次Dijkstra算法来求出任意两点最短路，复杂度为O(nmlogn)，然而Dijkstra算法不能处理含负边权的图。1977年，Donald B.Johnson提出了对所有的边权进行”re-weight”的算法，使得所有边权非负进而可以使用Dijkstra算法进行最短路的计算。</p>
+<p><em><strong>最小环问题</strong></em></p>
+<p>由上述可知，当外层的 k 刚循环到点 t 时，点t一定只存在于所有当前记录的path的端点上，而不出现在任何path的途中，也就是说，<strong>当前所有$dis[i][j]$表示由i向j出发不经过点集t~n的最短路</strong>。此时$dis[i][j]+dis[i][k]+dis[k][j]$构成了一个经过i,j,k的最小环，因此可在floyd的过程中求出(无向图)最小环。</p>
+<p><em><strong>传递闭包</strong></em></p>
+<p>在交际网络中，给定若干个元素和若干对二元关系，且关系具有<strong>传递性</strong>。我们可以使用邻接矩阵来表示变量间的关系，比如说当$g[i][j]&#x3D;true$代表 <strong>i 和 j 有关系</strong>，然后，我们可以使用Floyd算法解决传递闭包问题。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(k)</span><br><span class="line">	<span class="keyword">for</span>(i)</span><br><span class="line">		<span class="keyword">for</span>(j)</span><br><span class="line">			g[i][j]|=g[i][k]&amp;g[k][j];</span><br></pre></td></tr></table></figure>
+
+<p>再比如说当$g[i][j]&#x3D;true$代表 <strong>i&lt;j</strong> ，这时我们有：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">矛盾:        g[i][j]==<span class="number">1</span>&amp;&amp;g[j][i]==<span class="number">1</span>  =&gt; a&gt;b &amp;&amp; b&gt;a</span><br><span class="line">不能确定大小： g[i][j]==<span class="number">0</span>&amp;&amp;g[j][i]==<span class="number">0</span>  =&gt; a?b &amp;&amp; b?a </span><br></pre></td></tr></table></figure>
+
+<p>如果一个描述大小关系的传递闭包中没有矛盾和歧义，那么总会呈现例如这种形式：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  A B C D</span></span><br><span class="line"><span class="comment">//A 0 1 1 1</span></span><br><span class="line"><span class="comment">//B 0 0 1 0</span></span><br><span class="line"><span class="comment">//C 0 0 0 0</span></span><br><span class="line"><span class="comment">//D 0 1 1 0</span></span><br></pre></td></tr></table></figure>
+
+<p>可见每一行的1的数量都不相同，假设元素x所在行的1的数量为k，那么在将所有元素按从大到小的顺序排列后，x就排在第k个，且整个顺序是一定确定的。</p>
+<p>我们可以再进一步用 bitset 优化，复杂度可以到$O(n^3&#x2F;32)$</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// std::bitset&lt;SIZE&gt; g[SIZE];</span></span><br><span class="line"><span class="keyword">for</span> (k = <span class="number">1</span>; k &lt;= n; k++)</span><br><span class="line">  <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">    <span class="keyword">if</span> (g[i][k]) g[i] = g[i] | g[k]; <span class="comment">//表示g[i]可以继承g[k]的所有关系</span></span><br></pre></td></tr></table></figure>
+
+<p><em><strong>矩阵快速幂</strong></em></p>
+<p>（数学水平不足，待更新）<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/347/">345. 牛站 </a></p>
+<p><em><strong>点权排序</strong></em></p>
+<p>我们已经知道，当外层的k刚循环到t时，点t一定只存在于当前所有所记录的最短路径的端点上（注意只是当前的最短路径，不是最终）。点的遍历顺序并不影响Floyd算法，于是，如果将点1~n按点权大小进行排序，那么在所有最终最短路径的生成过程中，一定能保证路径最大&#x2F;最小点权的单调性。详细地讲，对固定的两点$i,j$，其当前最短路径$f[k][i][j]$的最大&#x2F;最小点权一定只来自w[i],w[j],w[k]，其中w[i], w[j]是常数，故而路径点权最值是单调变化的。</p>
+<p>既然保证了点权最值单调，那么就可以维护一些与点权和边权都相关的值。比如说：</p>
+<p>（1）求任意指定的两点路径中，最大点权不超过k的最短路径。点权排序后，任意两点的最短路径在生成过程中，最大点权递增而最短路径递减，我们可以把所有询问，按k的大小排序，在Floyd算法的过程中顺便解决，或者开二维map[N][N]，用mp[i][j][w]记录当$i,j$的路径最大点权为w时的最短路径，这样在每次最短路更新时，$w&#x3D;max(w[i],w[j],w[k])$，直接设置$mp[i][j][w]&#x3D;d[i][j]$即可。注意一开始如果$i,j$有边，要么初始化mp[i][j]，<strong>或者在更新值时采用“≥”</strong>。</p>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1119">P1119 灾后重建</a></p>
+<p>（2）求任意指定的两点路径中，最大点权乘以最大边权的最小值。对于固定的两点$i,j$，在最短路径生成的过程中，为了使乘积最小，当最大点权递增时，我们更新最大边权的最小值（相当于剔除掉最大边权跟着递增的没有贡献意义的部分），这样就使得路径$i,j$在此过程中最大点权递增而最大边权递减，每次更新时维护最小乘积res[i][j]即可。注意一开始如果$i,j$有边，要么初始化res[i][j]，<em>或者在更新值时采用“≥”</em>。</p>
+<p><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/problem/229577">阿强的路 (nowcoder.com)</a></p>
+<h3 id="（三）Bellman-Ford"><a href="#（三）Bellman-Ford" class="headerlink" title="（三）Bellman-Ford"></a>（三）Bellman-Ford</h3><p>Bellman-Ford 算法是一种基于松弛（relax）操作的最短路算法，可以求出有负权的图的最短路，并可以对最短路不存在的情况进行判断。它的代码实现极为简单——对所有的边松弛n-1次。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(k = <span class="number">1</span>; k &lt;= n - <span class="number">1</span>; k++)</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">1</span>; i &lt;= m; i++)</span><br><span class="line">        <span class="keyword">if</span>(dis[v[i]] &gt; dis[u[i]] + w[i])</span><br><span class="line">            dis[v[i]] = dis[u[i]] + w[i];</span><br></pre></td></tr></table></figure>
+
+<p>此后可再对所有边尝试一次松弛，倘若成功松弛了某条边，说明存在负环。</p>
+<p>负环的定义是：一条边权之和为负数的回路。最短路下的负环和最长路下的正环都会导致问题无解。另外，对于涉及“环上绝对值最小”的问题（如01分数规划），也可以考虑对负环性质的运用。</p>
+<p><em><strong>SPFA</strong></em></p>
+<p>很多时候我们并不需要那么多无用的松弛操作。很显然，只有上一次被松弛的结点，所连接的边，才有可能引起下一次的松弛操作。那么我们用队列来维护“哪些结点可能会引起松弛操作”，就能只访问必要的边了。这种优化手段（在国内）被称作SPFA算法。</p>
+<p>必须说明的是，SPFA算法虽然跑得更快，但其最坏情况下的时间复杂度为O(nm)，没有负权边时最好使用 Dijkstra 算法。在有负权边且题目中的图没有特殊性质时，若 SPFA 是标算的一部分，题目不应当给出 Bellman-Ford 算法无法通过的数据范围。</p>
+<p>关于SPFA的两种优化：</p>
+<ul>
+<li>LLL 优化：将普通队列换成双端队列，每次将入队结点距离和队内距离平均值比较，如果更大则插入至队尾，否则插入队首。</li>
+<li>SLF 优化：将普通队列换成双端队列，每次将入队结点距离和队首比较，如果更大则插入至队尾，否则插入队首。</li>
+</ul>
+<p>我们可以把LLL和SLF结合到一起：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> vis[maxn],dis[maxn];</span><br><span class="line">vector&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt; &gt; G[maxn]; <span class="comment">//邻接表</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">spfa</span><span class="params">(<span class="type">int</span> st)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    deque&lt;<span class="type">int</span>&gt; q;</span><br><span class="line">    q.<span class="built_in">push_back</span>(st);</span><br><span class="line">    dis[st]=<span class="number">0</span>;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> sum=<span class="number">0</span>,num=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(!q.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> t=q.<span class="built_in">front</span>();</span><br><span class="line">        <span class="keyword">while</span>(dis[t]*num&gt;sum) <span class="comment">//LLL优化</span></span><br><span class="line">        &#123;</span><br><span class="line">            q.<span class="built_in">pop_front</span>();</span><br><span class="line">            q.<span class="built_in">push_back</span>(t);</span><br><span class="line">            t=q.<span class="built_in">front</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        vis[t]=<span class="number">0</span>;</span><br><span class="line">        q.<span class="built_in">pop_front</span>();</span><br><span class="line">        --num;</span><br><span class="line">        sum-=dis[t];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> i:G[t])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(dis[i.first]&gt;dis[t]+i.second)</span><br><span class="line">            &#123;</span><br><span class="line">                dis[i.first]=dis[t]+i.second;</span><br><span class="line">                <span class="keyword">if</span>(!vis[i.first])</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span>(!q.<span class="built_in">empty</span>() &amp;&amp; dis[i.first]&gt;dis[q.<span class="built_in">front</span>()]) <span class="comment">//SLF优化</span></span><br><span class="line">                        q.<span class="built_in">push_back</span>(i.first);</span><br><span class="line">                    <span class="keyword">else</span>   </span><br><span class="line">                        q.<span class="built_in">push_front</span>(i.first);</span><br><span class="line">                    ++num;</span><br><span class="line">                    sum+=dis[i.first];</span><br><span class="line">                    vis[i.first]=<span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其他优化手段：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/xsx-blog/p/11344654.html">spfa的魔改方法 - ETO组织成员 - 博客园 (cnblogs.com)</a></p>
+<p>SPFA可以通过两种方式来判断负环：（1）一个点是否入队达到n次（2）起点到某点的最短路径边数是否达到n。需要注意的是，以S点为源点跑 SPFA 算法时，如果没有给出存在负环的结果，<strong>只能说明从S点出发不能抵达一个负环</strong>，而不能说明图上不存在负环。因此如果需要判断整个图上是否存在负环，最严谨的做法是执行 Bellman-Ford 算法，或者建立一个超级源点，向图上每个节点连一条权值为 0 的边，然后以超级源点为起点执行SPFA算法。</p>
+<p>虽然是介绍SPFA的章节，但我们却要着重地讨论“如何不用SPFA”。考虑在哪些情况下，可以绕开SPFA解决含负边权的最短路问题。</p>
+<hr>
+<p><em><strong>SCC缩点</strong></em></p>
+<p>众所周知，将有向图中的强连通分量（SCC）缩点后，便将图转换为了有向无环图。在DAG上，无论进行拓扑排序+DP还是记忆化搜索，都有十分理想的时间复杂度。<strong>如果一个强连通分量对所有穿过它的图上路径的贡献是确定的，我们就能将其缩为DAG上的一点</strong>。此类问题一般允许经过重复点。</p>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3387">P3387 缩点</a> SCC对经过它的路径的贡献，就是每个SCC中的点权总和。</p>
+<p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/344/">342. 道路与航线 </a></p>
+<p>题意描述：一幅由有向边和无向边构成的图，其中无向边权为正数，有向边权可负，保证任何环中都不含有向边，求从起点S到任一点的最短路。</p>
+<p>如果我们将所有的无向边连通块缩成一个点（把有向边视作断开作dfs即可，用不到Tarjan），那么这个图就变成了一个DAG。此时我们就可以对这个图进行拓扑排序了，然后再根据拓扑序进行递推，最终就可以求出到达每个点的最短路径。由于无向边权为正，每个缩点内部的最短路我们可以直接用dijkstra算出。</p>
+<p>（直到起点在某次djjkstra算法从堆中被弹出前，所有点的dis值都是inf。）</p>
+<p><img src="https://img-blog.csdnimg.cn/20201114092838335.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpX3dlbl96aHVv,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1073">NOIP2009 提高组] 最优贸易</a> 尽管这道题的正解是双向SPFA，但我们有更多时间复杂度更优秀的解法。</p>
+<p>只需分别求出起点到任一点的最大路径点权和终点到任一点的最小路径点权即可，然而这两者都无法采用djjkstra算法得出（根据定义仔细想想）。缩为DAG后，比如在求路径最大点权时，每个SCC的贡献就是自身的最大点权。</p>
+<hr>
+<p>在DAG图中找最长路，我们可以在拓扑排序后，遍历每个点，沿着其出边松弛其他点的dp值，或者更直观地，我们建立反图，从各个终点进行记忆化搜索，（建立反图是因为记忆化搜索自底向上，更适合表示 i 到 n 的最长路），复杂度为边数。</p>
+<p>值得一提的是，所有路径规划算法本质都是在图上进行动态规划，每种算法有对应的状态转移方程（dis数组实际就是起到dp数组的作用），并利用边进行状态转移。不过动态规划问题一般都是基于DAG图（即无后效性），当存在环且不是负环时（换句话说，不会出现沿着一个环一直刷小&#x2F;刷大状态值），用spfa算法一遍遍地沿每条边松弛，就能得到每个点的dp值。例如在“通信线路”中，设dp[i][p]表示从1到i的路径第p大的边的最小值，则对于权值为z的边x-&gt;y，有$dp[y][p]&#x3D;min(max(dp[x][p],z) ,dp[x][p-1])$,显然沿着一个环（边权为正）不会使dp[y][p]一直减小（包括无向边的来回），因此可以使用SPFA算法。</p>
+<h3 id="（四）分层图"><a href="#（四）分层图" class="headerlink" title="（四）分层图"></a>（四）分层图</h3><p><em><strong>基础运用——</strong></em></p>
+<p>分层图是指有很多个平行的图，各个平行的图之间有特殊的连接边。分层图只是建图时有区别，但诸如跑最短路板子都是一样的，只要有合适的建图方法，那么问题就很简单了。</p>
+<p>为了更好地配合dijkstra等算法，一般的建图方式是把第x（0~k-1）层的i点表示为$i+x<em>n$，其中最后一层$（i+k</em>n）$为终点层或虚层。分层图的点数近似kn，边数近似km，以此来计算时间复杂度。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;++i)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> x,y,z;<span class="comment">//有向边的起点、终点、边权</span></span><br><span class="line">	cin&gt;&gt;x&gt;&gt;y&gt;&gt;z;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;=k;++j)<span class="comment">//在每一层图上建立相同的边</span></span><br><span class="line">	&#123;</span><br><span class="line">		G[x+j*n].<span class="built_in">push_back</span>(&#123;y+j*n,z&#125;);</span><br><span class="line">		G[y+j*n].<span class="built_in">push_back</span>(&#123;x+j*n,z&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>分层图的几种使用场景：</strong></p>
+<p>1、 有k套不同边集建立在同一点集上，允许在某点消耗代价切换到另一边集上移动。有多种情况。</p>
+<p><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/problem/26257">小雨坐地铁 (nowcoder.com)</a> 换乘问题。可以将每个集合内的边建成一张图，再建立第k+1个图，是一个虚层，这个虚层的i点作为中转站，连接了前面k层所有的i点（双向边，指向虚层的边权为0），从而不需要去把每一层的同一点两两连边。如果任意一层图的某一位点$i$，切换到第$t$层的$i_t$需消耗x，可令虚层指向$i_t$的边权为x。这样任意层图就可以通过虚层转移到另一层图中。</p>
+<p><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/problem/22600">Rinne Loves Dynamic Graph (nowcoder.com)</a> 边权变化具有周期性，为每套边权建立分层图。</p>
+<p><a target="_blank" rel="noopener" href="https://acm.hdu.edu.cn/showproblem.php?pid=7145">Problem - 7145 (hdu.edu.cn)</a>  入边的不同，决定了每个点接下来的出边。此题的有向图中如果由A型边到一点，接下来可走A&#x2F;B型边，如果由B型边到一点，接下来只能走A型边，我们建立两层图，第一层的点只接受A型入边，第二层的点只接受B型入边。（但是我不太理解这道题的时间复杂度）</p>
+<p>2、 有k个机会使得走当前此边不花费代价或花费特殊的代价，可以建立k张相同的该图，对于边i-j，让上一层的i指向下一层的j，其代价是0或是特殊的值。每向下走一层，就代表用了一次机会，使得当前的路花费为0，最多可以走k次（注意如果这k次不必用完的话，每一层的终点可能更新答案）。如<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4568">JLOI2011] 飞行路线</a></p>
+<p>3、 有k个机会逆向走动，我们可以建k张相同的该图，将每层图之间有边的两个点用的逆向的边连接。每向下走一层，就代表用了一次机会逆向走了一次，最多可以走k次。</p>
+<hr>
+<p><em><strong>分层图与动态规划——</strong></em></p>
+<p>经典题：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3953">NOIP2017 提高组] 逛公园</a></p>
+<p>建立k+1张分层图，每一层图完全相同。称第0层的起点为<strong>始祖源点</strong>，第t层的所有点都代表了从祖源点到这里要多走t距离。</p>
+<p>设dp[i]为从祖源点到任意层$i$点的路径数，我们的目标就是统计$dp[n]+ dp[n+n]+…+dp[n+kn]$。<br>在正式开始前，设dis[i]为<strong>i到n</strong>的最短路，我们建立反图，做一次dijkstra算法。<em>1≤i≤n，dis[i]是一个全局量，跟在哪层无关</em>。</p>
+<p>假设现在在第0层，设连接$x$到$y$的有向边边长$w$，若$dis[y]-dis[x]&lt;w$，说明沿此边多走了$c&#x3D;w-(dis[y]-dis[x])$，于是我们断开本层x-y，建立一条从$x$到$y+c<em>n$的有向边（也不必物理断开，只要强制优先向下走就行了）。把第0层换作第t层也一样，我们建立一条从$x$到$y+(t+c)<em>n$的有向边。<br>现在，我们从祖源点出发沿着有向边自由走动，以任一层的n为终点。显然，路径上不会出现环（成环之前一定会向下移动，0环除外）。也就是说</em></em><em>这些自由移动的路径形成了有向无环图</em><strong>，</strong>我们可以进行记忆化搜索或拓扑排序DP。*<em>例如对记忆化搜索而言，总复杂度为$O(KM)$。</em>没有必要用SPFA进行DAG动态规划。*</p>
+<p>本题还需要对零环进行判断。事先说明，前面之所以选用i到n的最短路，是因为所有合法路径的终点是n，如果dis[i]&#x3D;inf，说明走到i就到不了终点了，因此我们不向i移动（选用1到i的最短路也可以正确转移状态，但是会在不合法的路上浪费时间）。至于0环，我们在记忆化搜索时标记正处在递归状态中的节点，如果dfs到一个还未退出递归的节点，说明“DAG图”上出现了环，这个环一定是所求的零环。</p>
+<p>还有一个问题，我们真的需要建立这K+1层图吗？<strong>注意到每层图的边集完全相同，因此我们用$dp[k][i]$来表达第k层的i点，在原始图上进行动态规划</strong>。</p>
+<p>有了这种分层图DP的思想后，看待很多在有向图（有环）上的动态规划时，就不难以理解了。</p>
+<p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/342/">340. 通信线路 - AcWing题库</a> （尝试用动态规划）</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/ACM/">ACM</a><a class="post-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a></div><div class="post_share"><div class="social-share" data-image="/images/cover/acm.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/10/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%B0%A2%E5%B8%8C%E4%BB%81-%E7%AC%94%E8%AE%B0%E6%A2%B3%E7%90%86/" title="计算机网络(谢希仁)笔记梳理"><img class="cover" src="/images/cover/network.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">计算机网络(谢希仁)笔记梳理</div></div></a></div><div class="next-post pull-right"><a href="/2023/10/29/Golang%E4%B9%8BServerMux/" title="Golang之ServerMux"><img class="cover" src="/images/cover/Golang.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Golang之ServerMux</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/10/29/%E5%86%B0%E9%BE%99%E8%8D%89%E7%9A%84%E5%9B%BE%E8%AE%BA%E7%AC%94%E8%AE%B0/" title="冰龙草的图论笔记"><img class="cover" src="/images/cover/icegrass.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-29</div><div class="title">冰龙草的图论笔记</div></div></a></div><div><a href="/2023/10/29/%E5%86%B0%E9%BE%99%E8%8D%89%E7%9A%84%E7%AE%97%E6%B3%95%E9%9A%8F%E7%AC%94/" title="冰龙草的算法随笔"><img class="cover" src="/images/cover/icegrass.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-29</div><div class="title">冰龙草的算法随笔</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E7%9F%AD%E8%B7%AF"><span class="toc-number">1.</span> <span class="toc-text">最短路</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89Dijkstra"><span class="toc-number">1.1.</span> <span class="toc-text">（一）Dijkstra</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89Floyd"><span class="toc-number">1.2.</span> <span class="toc-text">（二）Floyd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%88%E4%B8%89%EF%BC%89Bellman-Ford"><span class="toc-number">1.3.</span> <span class="toc-text">（三）Bellman-Ford</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%88%E5%9B%9B%EF%BC%89%E5%88%86%E5%B1%82%E5%9B%BE"><span class="toc-number">1.4.</span> <span class="toc-text">（四）分层图</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/10/29/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%8BClickHouse-%E5%88%9D%E5%AD%A6/" title="【数据库】初学ClickHouse"><img src="/images/cover/ck.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【数据库】初学ClickHouse"/></a><div class="content"><a class="title" href="/2023/10/29/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%8BClickHouse-%E5%88%9D%E5%AD%A6/" title="【数据库】初学ClickHouse">【数据库】初学ClickHouse</a><time datetime="2023-10-29T14:39:24.000Z" title="发表于 2023-10-29 22:39:24">2023-10-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/29/%E5%86%B0%E9%BE%99%E8%8D%89%E7%9A%84%E5%9B%BE%E8%AE%BA%E7%AC%94%E8%AE%B0/" title="冰龙草的图论笔记"><img src="/images/cover/icegrass.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="冰龙草的图论笔记"/></a><div class="content"><a class="title" href="/2023/10/29/%E5%86%B0%E9%BE%99%E8%8D%89%E7%9A%84%E5%9B%BE%E8%AE%BA%E7%AC%94%E8%AE%B0/" title="冰龙草的图论笔记">冰龙草的图论笔记</a><time datetime="2023-10-29T14:35:32.000Z" title="发表于 2023-10-29 22:35:32">2023-10-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/29/%E5%86%B0%E9%BE%99%E8%8D%89%E7%9A%84%E7%AE%97%E6%B3%95%E9%9A%8F%E7%AC%94/" title="冰龙草的算法随笔"><img src="/images/cover/icegrass.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="冰龙草的算法随笔"/></a><div class="content"><a class="title" href="/2023/10/29/%E5%86%B0%E9%BE%99%E8%8D%89%E7%9A%84%E7%AE%97%E6%B3%95%E9%9A%8F%E7%AC%94/" title="冰龙草的算法随笔">冰龙草的算法随笔</a><time datetime="2023-10-29T14:31:56.000Z" title="发表于 2023-10-29 22:31:56">2023-10-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%B0%A2%E5%B8%8C%E4%BB%81-%E7%AC%94%E8%AE%B0%E6%A2%B3%E7%90%86/" title="计算机网络(谢希仁)笔记梳理"><img src="/images/cover/network.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机网络(谢希仁)笔记梳理"/></a><div class="content"><a class="title" href="/2023/10/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%B0%A2%E5%B8%8C%E4%BB%81-%E7%AC%94%E8%AE%B0%E6%A2%B3%E7%90%86/" title="计算机网络(谢希仁)笔记梳理">计算机网络(谢希仁)笔记梳理</a><time datetime="2023-10-29T14:29:05.000Z" title="发表于 2023-10-29 22:29:05">2023-10-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/29/%E3%80%90ACM%E3%80%91%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%9A%84%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" title="【ACM】最短路的个人总结"><img src="/images/cover/acm.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【ACM】最短路的个人总结"/></a><div class="content"><a class="title" href="/2023/10/29/%E3%80%90ACM%E3%80%91%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%9A%84%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" title="【ACM】最短路的个人总结">【ACM】最短路的个人总结</a><time datetime="2023-10-29T14:26:27.000Z" title="发表于 2023-10-29 22:26:27">2023-10-29</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Blover</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"></div><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

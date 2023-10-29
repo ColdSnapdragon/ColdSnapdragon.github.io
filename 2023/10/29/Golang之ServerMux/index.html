@@ -1,0 +1,232 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Golang之ServerMux | 四方.io</title><meta name="author" content="Blover"><meta name="copyright" content="Blover"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="ServerMuxServeMux详解 - 掘金 (juejin.cn) 03.4. Go 的 http 包详解 | 第三章. Web 基础 |《Go Web 编程》 以下实现了一个http服务。编译运行后访问http:&#x2F;&#x2F;127.0.0.1:8080&#x2F;。 12345678910func main() &amp;#123;	http.HandleFunc(&quot;&#x2F;&quot;, handler)	l">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Golang之ServerMux">
+<meta property="og:url" content="http://example.com/2023/10/29/Golang%E4%B9%8BServerMux/index.html">
+<meta property="og:site_name" content="四方.io">
+<meta property="og:description" content="ServerMuxServeMux详解 - 掘金 (juejin.cn) 03.4. Go 的 http 包详解 | 第三章. Web 基础 |《Go Web 编程》 以下实现了一个http服务。编译运行后访问http:&#x2F;&#x2F;127.0.0.1:8080&#x2F;。 12345678910func main() &amp;#123;	http.HandleFunc(&quot;&#x2F;&quot;, handler)	l">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/cover/Golang.jpg">
+<meta property="article:published_time" content="2023-10-29T14:09:52.000Z">
+<meta property="article:modified_time" content="2023-10-29T14:11:22.600Z">
+<meta property="article:author" content="Blover">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="Golang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/cover/Golang.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/10/29/Golang%E4%B9%8BServerMux/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体中文","cht_to_chs":"你已切换为简体中文","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Golang之ServerMux',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-10-29 22:11:22'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/head.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/cover/Golang.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="四方.io"></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Golang之ServerMux</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-29T14:09:52.000Z" title="发表于 2023-10-29 22:09:52">2023-10-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-29T14:11:22.600Z" title="更新于 2023-10-29 22:11:22">2023-10-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Golang之ServerMux"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="ServerMux"><a href="#ServerMux" class="headerlink" title="ServerMux"></a>ServerMux</h2><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6975144762818953246">ServeMux详解 - 掘金 (juejin.cn)</a></p>
+<p><a target="_blank" rel="noopener" href="https://learnku.com/docs/build-web-application-with-golang/034-gos-http-package-detailed-solution/3171">03.4. Go 的 http 包详解 | 第三章. Web 基础 |《Go Web 编程》</a></p>
+<p>以下实现了一个http服务。编译运行后访问<a target="_blank" rel="noopener" href="http://127.0.0.1:8080/%E3%80%82">http://127.0.0.1:8080/。</a></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	http.HandleFunc(<span class="string">&quot;/&quot;</span>, handler)</span><br><span class="line">	log.Fatal(http.ListenAndServe(<span class="string">&quot;localhost:8080&quot;</span>, <span class="literal">nil</span>)) <span class="comment">// 启动服务</span></span><br><span class="line">	<span class="comment">// ListenAndServe always returns a non-nil error.</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">handler</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">    <span class="comment">// 写入回应(实现了io.Writer)</span></span><br><span class="line">	fmt.Fprintf(w, <span class="string">&quot;hello world&quot;</span>) </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>http包中，Handler是一个接口，规定了作为处理器需要有<strong>ServeHTTP方法</strong>。</p>
+<p>HandlerFunc是一个类型，实现了ServeHTTP方法。通过把一个<code>func(ResponseWriter, *Request)</code>类型的函数值到HandlerFunc进行<strong>类型强转</strong>，实现了<strong>包装</strong>。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Handler <span class="keyword">interface</span> &#123;</span><br><span class="line">    ServeHTTP(ResponseWriter, *Request)  <span class="comment">// 路由实现器</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> HandlerFunc <span class="function"><span class="keyword">func</span><span class="params">(ResponseWriter, *Request)</span></span></span><br><span class="line"><span class="comment">// ServeHTTP calls f(w, r).</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(f HandlerFunc)</span></span> ServeHTTP(w ResponseWriter, r *Request) &#123;</span><br><span class="line">    f(w, r)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>Golang中，ServeMux类型实现了路由功能(将HTTP请求映射到对应的处理器)。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> ServeMux <span class="keyword">struct</span> &#123;</span><br><span class="line">    mu sync.RWMutex   <span class="comment">// 锁，由于请求涉及到并发处理，因此这里需要一个锁机制</span></span><br><span class="line">    m  <span class="keyword">map</span>[<span class="type">string</span>]muxEntry  <span class="comment">// 路由规则，一个 string 对应一个 mux 实体，这里的 string 就是注册的路由表达式</span></span><br><span class="line">    hosts <span class="type">bool</span> <span class="comment">// 是否在任意的规则中带有 host 信息</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> muxEntry <span class="keyword">struct</span> &#123;</span><br><span class="line">    h        Handler <span class="comment">// 这个路由表达式对应哪个 handler</span></span><br><span class="line">    pattern  <span class="type">string</span>  <span class="comment">// 匹配字符串</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>ServeMux的<code>Handle</code>方法通过将传入的路由和处理函数存入 ServeMux 的映射表 <code>m</code> 中来实现 “路由注册(register)”。</p>
+<p>ServeMux还有一个方便的<code>HandleFunc</code> 方法，接收一个具体的处理函数将其包装后再传给<code>Handle</code>。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(mux *ServeMux)</span></span> Handle(pattern <span class="type">string</span>, handler Handler) &#123;</span><br><span class="line">    mux.mu.Lock()</span><br><span class="line">    <span class="keyword">defer</span> mux.mu.Unlock()</span><br><span class="line">    <span class="keyword">if</span> pattern == <span class="string">&quot;&quot;</span> &#123; <span class="comment">// 检查路由路径是否为空</span></span><br><span class="line">    	<span class="built_in">panic</span>(<span class="string">&quot;http: invalid pattern&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> handler == <span class="literal">nil</span> &#123; <span class="comment">// 检查处理函数是否为空</span></span><br><span class="line">    	<span class="built_in">panic</span>(<span class="string">&quot;http: nil handler&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> _, exist := mux.m[pattern]; exist &#123; <span class="comment">// 检查该路由是否已经注册过</span></span><br><span class="line">    	<span class="built_in">panic</span>(<span class="string">&quot;http: multiple registrations for &quot;</span> + pattern)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> mux.m == <span class="literal">nil</span> &#123; <span class="comment">// 如果还没有任何路由注册，就为 mux.m 分配空间</span></span><br><span class="line">    	mux.m = <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="type">string</span>]muxEntry)</span><br><span class="line">    &#125;</span><br><span class="line">    e := muxEntry&#123;h: handler, pattern: pattern&#125; <span class="comment">// 实例化一个 muxEntry</span></span><br><span class="line">    mux.m[pattern] = e <span class="comment">// 将该路由与该 muxEntry 的实例存到 mux.m 中</span></span><br><span class="line">    <span class="comment">// 如果该路由路径以 &quot;/&quot; 结尾，就把该路由按照大到小的路径长度插入到 mux.e 中</span></span><br><span class="line">    <span class="keyword">if</span> pattern[<span class="built_in">len</span>(pattern)<span class="number">-1</span>] == <span class="string">&#x27;/&#x27;</span> &#123;</span><br><span class="line">    	mux.es = appendSorted(mux.es, e)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 如果该路由路径不以 &quot;/&quot; 开始，标记该 mux 中有路由的路径带有主机名</span></span><br><span class="line">    <span class="keyword">if</span> pattern[<span class="number">0</span>] != <span class="string">&#x27;/&#x27;</span> &#123;</span><br><span class="line">    	mux.hosts = <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>在一个ServerMux中，可以注册多个处理程序（Handler），每个处理程序对应一个URL路径。当一个HTTP请求到达ServerMux时，ServerMux会根据请求的URL路径选择对应的处理程序，并将请求传递给该处理程序进行处理。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mux := http.NewServeMux()</span><br><span class="line"></span><br><span class="line">mux.HandleFunc(<span class="string">&quot;/&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">    fmt.Fprint(w, <span class="string">&quot;Welcome to my website!&quot;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">mux.HandleFunc(<span class="string">&quot;/hello&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">    fmt.Fprint(w, <span class="string">&quot;Hello, world!&quot;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>路由器里面存储好了相应的路由规则之后，那么具体的请求又是怎么分发的？见下面的源码：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(mux *ServeMux)</span></span> ServeHTTP(w ResponseWriter, r *Request) &#123;</span><br><span class="line">    <span class="keyword">if</span> r.RequestURI == <span class="string">&quot;*&quot;</span> &#123;</span><br><span class="line">        w.Header().Set(<span class="string">&quot;Connection&quot;</span>, <span class="string">&quot;close&quot;</span>)</span><br><span class="line">        w.WriteHeader(StatusBadRequest)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    h, _ := mux.Handler(r)</span><br><span class="line">    h.ServeHTTP(w, r)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(mux *ServeMux)</span></span> Handler(r *Request) (h Handler, pattern <span class="type">string</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> r.Method != <span class="string">&quot;CONNECT&quot;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> p := cleanPath(r.URL.Path); p != r.URL.Path &#123;</span><br><span class="line">            _, pattern = mux.handler(r.Host, p)</span><br><span class="line">            <span class="keyword">return</span> RedirectHandler(p, StatusMovedPermanently), pattern</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;   </span><br><span class="line">    <span class="keyword">return</span> mux.handler(r.Host, r.URL.Path)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(mux *ServeMux)</span></span> handler(host, path <span class="type">string</span>) (h Handler, pattern <span class="type">string</span>) &#123;</span><br><span class="line">    mux.mu.RLock()</span><br><span class="line">    <span class="keyword">defer</span> mux.mu.RUnlock()</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Host-specific pattern takes precedence over generic ones</span></span><br><span class="line">    <span class="keyword">if</span> mux.hosts &#123;</span><br><span class="line">        h, pattern = mux.match(host + path)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> h == <span class="literal">nil</span> &#123;</span><br><span class="line">        h, pattern = mux.match(path)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> h == <span class="literal">nil</span> &#123;</span><br><span class="line">        h, pattern = NotFoundHandler(), <span class="string">&quot;&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>本质上根据用户请求的 URL 和路由器里面存储的 map 去匹配的，当匹配到之后返回存储的 handler，调用这个 handler 的 ServeHTTP 接口就可以执行到相应的函数了。</p>
+<p>在源码中，<strong>ServeMux类型实现了Handler 接口（ServeHTTP方法）</strong>，我们可以将它传给<code>http.ListenAndServe</code>：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">// 创建一个新的路由器</span></span><br><span class="line">    router := http.NewServeMux()</span><br><span class="line">    <span class="comment">// 将处理函数与 URL 路径进行映射</span></span><br><span class="line">    router.HandleFunc(<span class="string">&quot;/&quot;</span>, homeHandler)</span><br><span class="line">    <span class="comment">// 启动 HTTP 服务器，监听 8080 端口</span></span><br><span class="line">    http.ListenAndServe(<span class="string">&quot;:8080&quot;</span>, router)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以嵌套使用ServerMux，即一个ServerMux可以作为另一个ServerMux的处理程序，这种方式可以让我们更灵活地组织和管理HTTP请求的处理程序——</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">rootMux := http.NewServeMux()</span><br><span class="line">rootMux.HandleFunc(<span class="string">&quot;/&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">    fmt.Fprint(w, <span class="string">&quot;Welcome to my website!&quot;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">helloMux := http.NewServeMux()</span><br><span class="line">helloMux.HandleFunc(<span class="string">&quot;/&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">    fmt.Fprint(w, <span class="string">&quot;Hello, world!&quot;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">rootMux.Handle(<span class="string">&quot;/hello&quot;</span>, helloMux)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>回到最初。<code>http.HandleFunc(&quot;/&quot;, handler)</code>的实现如下：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// server.go</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">HandleFunc</span><span class="params">(pattern <span class="type">string</span>, handler <span class="keyword">func</span>(ResponseWriter, *Request)</span></span>) &#123;</span><br><span class="line">	DefaultServeMux.HandleFunc(pattern, handler)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在一个应用程序的多个文件中定义HTTP handler也是非常典型的，如果它们必须全部都显式地注册到这个应用的ServeMux实例上会比较麻烦。所以为了方便，net&#x2F;http包提供了一个<strong>全局的ServeMux实例DefaultServerMux</strong>和包级别的http.Handle和http.HandleFunc函数。</p>
+<p>http.ListenAndServe做了什么工作？它创建了Server对象，调用ListenAndServe方法启动端口监听和请求接收。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">ListenAndServe</span><span class="params">(addr <span class="type">string</span>, handler Handler)</span></span> <span class="type">error</span> &#123;</span><br><span class="line">	server := &amp;Server&#123;Addr: addr, Handler: handler&#125;</span><br><span class="line">	<span class="keyword">return</span> server.ListenAndServe()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Server <span class="keyword">struct</span> &#123;</span><br><span class="line">	<span class="comment">// 服务端的 host 和 端口号</span></span><br><span class="line">	Addr <span class="type">string</span></span><br><span class="line"></span><br><span class="line">	Handler Handler <span class="comment">// 默认为 ServeMux</span></span><br><span class="line">  <span class="comment">// 省略其他参数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Server对象使用 net.Listen 来启动监听端口。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// server.go</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(srv *Server)</span></span> ListenAndServe() <span class="type">error</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> srv.shuttingDown() &#123;</span><br><span class="line">		<span class="keyword">return</span> ErrServerClosed</span><br><span class="line">	&#125;</span><br><span class="line">	addr := srv.Addr</span><br><span class="line">	<span class="keyword">if</span> addr == <span class="string">&quot;&quot;</span> &#123;</span><br><span class="line">		addr = <span class="string">&quot;:http&quot;</span></span><br><span class="line">	&#125;</span><br><span class="line">	ln, err := net.Listen(<span class="string">&quot;tcp&quot;</span>, addr)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> err</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> srv.Serve(ln)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://cdn.learnku.com/build-web-application-with-golang/images/3.3.http.png?raw=true" alt="img"></p>
+<p>在 Serve 方法中，有一个永久for循环。接收到请之后，会为每一个请求创建一个 conn 实例，conn 表示服务端的一个 HTTP 连接，并启动一个新的 goroutine 来处理这个请求。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(srv *Server)</span></span> Serve(l net.Listener) <span class="type">error</span> &#123;</span><br><span class="line">    <span class="keyword">defer</span> l.Close()</span><br><span class="line">    <span class="keyword">var</span> tempDelay time.Duration <span class="comment">// how long to sleep on accept failure</span></span><br><span class="line">    <span class="keyword">for</span> &#123;</span><br><span class="line">        rw, e := l.Accept()</span><br><span class="line">        <span class="keyword">if</span> e != <span class="literal">nil</span> &#123;</span><br><span class="line">            ...</span><br><span class="line">            <span class="keyword">return</span> e</span><br><span class="line">        &#125;</span><br><span class="line">        tempDelay = <span class="number">0</span></span><br><span class="line">        c, err := srv.newConn(rw)</span><br><span class="line">        <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">go</span> c.serve()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 conn 的 serve 方法中，其实就只做了两件事，一件事读取请求中的数据，然后是调用 ServeHTTP 方法进行处理。</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><a class="post-meta__tags" href="/tags/Golang/">Golang</a></div><div class="post_share"><div class="social-share" data-image="/images/cover/Golang.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/10/29/%E3%80%90ACM%E3%80%91%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%9A%84%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" title="【ACM】最短路的个人总结"><img class="cover" src="/images/cover/acm.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">【ACM】最短路的个人总结</div></div></a></div><div class="next-post pull-right"><a href="/2023/10/29/Golang%E5%BA%95%E5%B1%82%E5%88%9D%E6%B6%89-%E6%85%95%E8%AF%BE/" title="Golang底层初涉(慕课)"><img class="cover" src="/images/cover/Golang.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Golang底层初涉(慕课)</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/10/29/Golang%E5%BA%95%E5%B1%82%E5%88%9D%E6%B6%89-%E6%85%95%E8%AF%BE/" title="Golang底层初涉(慕课)"><img class="cover" src="/images/cover/Golang.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-29</div><div class="title">Golang底层初涉(慕课)</div></div></a></div><div><a href="/2023/10/29/MySQL%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84-10/" title="MySQL是怎样运行的:(10)单表访问方法"><img class="cover" src="/images/cover/MySQL.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-29</div><div class="title">MySQL是怎样运行的:(10)单表访问方法</div></div></a></div><div><a href="/2023/10/29/MySQL%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84-1/" title="MySQL是怎样运行的:(1)重新认识MySQL"><img class="cover" src="/images/cover/MySQL.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-29</div><div class="title">MySQL是怎样运行的:(1)重新认识MySQL</div></div></a></div><div><a href="/2023/10/29/MySQL%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84-18/" title="MySQL是怎样运行的:(18)InnoDB的Buffer Pool"><img class="cover" src="/images/cover/MySQL.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-29</div><div class="title">MySQL是怎样运行的:(18)InnoDB的Buffer Pool</div></div></a></div><div><a href="/2023/10/29/MySQL%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84-11/" title="MySQL是怎样运行的:(11)连接的原理"><img class="cover" src="/images/cover/MySQL.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-29</div><div class="title">MySQL是怎样运行的:(11)连接的原理</div></div></a></div><div><a href="/2023/10/29/MySQL%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84-19/" title="MySQL是怎样运行的:(19)事务简介"><img class="cover" src="/images/cover/MySQL.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-29</div><div class="title">MySQL是怎样运行的:(19)事务简介</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ServerMux"><span class="toc-number">1.</span> <span class="toc-text">ServerMux</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/10/29/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%8BClickHouse-%E5%88%9D%E5%AD%A6/" title="【数据库】初学ClickHouse"><img src="/images/cover/ck.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【数据库】初学ClickHouse"/></a><div class="content"><a class="title" href="/2023/10/29/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%8BClickHouse-%E5%88%9D%E5%AD%A6/" title="【数据库】初学ClickHouse">【数据库】初学ClickHouse</a><time datetime="2023-10-29T14:39:24.000Z" title="发表于 2023-10-29 22:39:24">2023-10-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/29/%E5%86%B0%E9%BE%99%E8%8D%89%E7%9A%84%E5%9B%BE%E8%AE%BA%E7%AC%94%E8%AE%B0/" title="冰龙草的图论笔记"><img src="/images/cover/icegrass.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="冰龙草的图论笔记"/></a><div class="content"><a class="title" href="/2023/10/29/%E5%86%B0%E9%BE%99%E8%8D%89%E7%9A%84%E5%9B%BE%E8%AE%BA%E7%AC%94%E8%AE%B0/" title="冰龙草的图论笔记">冰龙草的图论笔记</a><time datetime="2023-10-29T14:35:32.000Z" title="发表于 2023-10-29 22:35:32">2023-10-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/29/%E5%86%B0%E9%BE%99%E8%8D%89%E7%9A%84%E7%AE%97%E6%B3%95%E9%9A%8F%E7%AC%94/" title="冰龙草的算法随笔"><img src="/images/cover/icegrass.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="冰龙草的算法随笔"/></a><div class="content"><a class="title" href="/2023/10/29/%E5%86%B0%E9%BE%99%E8%8D%89%E7%9A%84%E7%AE%97%E6%B3%95%E9%9A%8F%E7%AC%94/" title="冰龙草的算法随笔">冰龙草的算法随笔</a><time datetime="2023-10-29T14:31:56.000Z" title="发表于 2023-10-29 22:31:56">2023-10-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%B0%A2%E5%B8%8C%E4%BB%81-%E7%AC%94%E8%AE%B0%E6%A2%B3%E7%90%86/" title="计算机网络(谢希仁)笔记梳理"><img src="/images/cover/network.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机网络(谢希仁)笔记梳理"/></a><div class="content"><a class="title" href="/2023/10/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%B0%A2%E5%B8%8C%E4%BB%81-%E7%AC%94%E8%AE%B0%E6%A2%B3%E7%90%86/" title="计算机网络(谢希仁)笔记梳理">计算机网络(谢希仁)笔记梳理</a><time datetime="2023-10-29T14:29:05.000Z" title="发表于 2023-10-29 22:29:05">2023-10-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/29/%E3%80%90ACM%E3%80%91%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%9A%84%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" title="【ACM】最短路的个人总结"><img src="/images/cover/acm.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【ACM】最短路的个人总结"/></a><div class="content"><a class="title" href="/2023/10/29/%E3%80%90ACM%E3%80%91%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%9A%84%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" title="【ACM】最短路的个人总结">【ACM】最短路的个人总结</a><time datetime="2023-10-29T14:26:27.000Z" title="发表于 2023-10-29 22:26:27">2023-10-29</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Blover</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"></div><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

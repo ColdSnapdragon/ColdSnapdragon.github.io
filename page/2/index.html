@@ -1,0 +1,318 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>四方.io</title><meta name="author" content="Blover"><meta name="copyright" content="Blover"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="四方.io">
+<meta property="og:url" content="http://example.com/page/2/index.html">
+<meta property="og:site_name" content="四方.io">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/head.png">
+<meta property="article:author" content="Blover">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/head.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/page/2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体中文","cht_to_chs":"你已切换为简体中文","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '四方.io',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-10-29 23:12:29'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/head.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background: linear-gradient(45deg, #0081ff, #1cbbb4)"><nav id="nav"><span id="blog-info"><a href="/" title="四方.io"></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">四方.io</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/ColdSnapdragon" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/2023/10/29/MySQL%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84-22/" title="MySQL是怎样运行的:(22)undo日志（上）"><img class="post-bg" src="/images/cover/MySQL.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL是怎样运行的:(22)undo日志（上）"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/10/29/MySQL%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84-22/" title="MySQL是怎样运行的:(22)undo日志（上）">MySQL是怎样运行的:(22)undo日志（上）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-29T13:10:50.000Z" title="发表于 2023-10-29 21:10:50">2023-10-29</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-29T13:37:44.273Z" title="更新于 2023-10-29 21:37:44">2023-10-29</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/MySQL/">MySQL</a></span></div><div class="content">Session 22 undo日志（上）为了保证事务的原子性，当导致事务执行到一半就结束时，我们需要把情况改回原先的样子。这个过程就称之为&#x3D;&#x3D;回滚&#x3D;&#x3D;（英文名：rollback），这样就可以造成一个假象：这个事务看起来什么都没做，所以符合原子性要求。
+每当我们要对一条记录做改动时（这里的改动可以指INSERT、DELETE、UPDATE），都需要留一手 —— 把回滚时所需的东西都给记下来。比方说：
+
+你插入一条记录时，至少要把这条记录的主键值记下来，之后回滚的时候只需要把这个主键值对应的记录删掉
+你删除了一条记录，至少要把这条记录中的内容都记下来，这样之后回滚时再把由这些内容组成的记录插入到表中
+你修改了一条记录，至少要把修改这条记录前的旧值都记录下来，这样之后回滚时再把这条记录更新为旧值
+
+这些为了回滚而记录的内容称为撤销日志（undo日志），SELECT不需要相应的undo日志。
+本章辅助表：
+1234567CREATE TABLE undo_demo (    id INT NOT NULL,    key1 VARCHAR(100),   ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2023/10/29/MySQL%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84-21/" title="MySQL是怎样运行的:(21)redo日志（下）"><img class="post-bg" src="/images/cover/MySQL.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL是怎样运行的:(21)redo日志（下）"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/10/29/MySQL%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84-21/" title="MySQL是怎样运行的:(21)redo日志（下）">MySQL是怎样运行的:(21)redo日志（下）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-29T13:10:46.000Z" title="发表于 2023-10-29 21:10:46">2023-10-29</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-29T13:37:42.011Z" title="更新于 2023-10-29 21:37:42">2023-10-29</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/MySQL/">MySQL</a></span></div><div class="content">Session 21 redo日志（下）redo日志缓冲区的刷盘时机：
+
+log buffer空间不足时。如果当前写入log buffer的redo日志量已经占满了log buffer总容量的大约一半左右，就需要把这些日志刷新到磁盘上
+事务提交时。在事务提交时可以不把修改过的Buffer Pool页面刷新到磁盘，但是为了保证持久性，必须要把修改这些页面对应的redo日志刷新到磁盘（可通过系统变量innodb_flush_log_at_trx_commit控制）
+后台有一个线程，大约每秒都会刷新一次log buffer中的redo日志到磁盘
+正常关闭服务器时
+做所谓的checkpoint时（稍后会仔细介绍）
+
+磁盘上的redo日志文件不只一个，而是以一个日志文件组的形式出现的。这些文件以ib_logfile[数字]（数字可以是0、1、2…）的形式进行命名。（详见文章）
+redo日志文件格式
+redo日志文件其实也是由若干个512字节大小的block组成。redo日志文件组中的每个文件大小都一样，格式也一样，都是由两部分组成：
+
+前2048个字节，也就是前4个block是用来存储一些管理信 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2023/10/29/MySQL%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84-20/" title="MySQL是怎样运行的:(20)redo日志（上）"><img class="post-bg" src="/images/cover/MySQL.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL是怎样运行的:(20)redo日志（上）"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/10/29/MySQL%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84-20/" title="MySQL是怎样运行的:(20)redo日志（上）">MySQL是怎样运行的:(20)redo日志（上）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-29T13:10:43.000Z" title="发表于 2023-10-29 21:10:43">2023-10-29</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-29T13:37:39.139Z" title="更新于 2023-10-29 21:37:39">2023-10-29</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/MySQL/">MySQL</a></span></div><div class="content">Session 20 redo日志（上）在介绍事务的时候又强调过一个称之为持久性的特性，就是说对于一个已经提交的事务，在事务提交后即使系统发生了崩溃，这个事务对数据库中所做的更改也不能丢失。
+假设突然发生了某个故障，导致内存中的还没刷入的数据都失效了，那么这个已经提交了的事务对数据库中所做的更改也就跟着丢失了。那么如何保证这个持久性呢？一个很简单的做法就是【在事务提交的同时把该事务所修改的所有页面都刷新到磁盘】。
+但是这个简单粗暴的做法有些问题。有时候我们仅仅修改了某个页面中的一个字节，这样刷新一个完整的数据页太浪费了；有时一个事务可能包含很多语句，即使是一条语句也可能修改许多页面，如果这些页面不相邻，那么随机IO刷起来比较慢。
+再次回到我们的初心：我们只是想让已经提交了的事务对数据库中数据所做的修改永久生效，即使后来系统崩溃，在重启后也能把这种修改恢复出来。所以我们其实没有必要在每次事务提交时就把该事务在内存中修改过的全部页面刷新到磁盘，只需要把修改了哪些东西记录一下就好。
+redo日志格式
+作为了解，我们没必要把InnoDB中的各种类型的redo日志格式都研究的透透的，目的是为了明 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2023/10/29/MySQL%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84-19/" title="MySQL是怎样运行的:(19)事务简介"><img class="post-bg" src="/images/cover/MySQL.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL是怎样运行的:(19)事务简介"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/10/29/MySQL%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84-19/" title="MySQL是怎样运行的:(19)事务简介">MySQL是怎样运行的:(19)事务简介</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-29T13:10:39.000Z" title="发表于 2023-10-29 21:10:39">2023-10-29</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-29T13:37:36.242Z" title="更新于 2023-10-29 21:37:36">2023-10-29</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/MySQL/">MySQL</a></span></div><div class="content">Session 19 事务简介
+事务的英文是transaction，英文直译就是交易，买卖的意思，交易就是买的人付钱，卖的人交货，不能付了钱不交货，交了货不付钱把，所以交易本身就是一种不可分割的操作。不知道是哪位大神把transaction翻译成了事务（我想估计是他们也想不出什么更好的词儿，只能随便找一个了），事务这个词儿完全没有交易、买卖的意思，所以大家理解起来也会比较困难，外国人理解transaction可能更好理解一点吧
+
+为了让某些数据库操作符合现实世界中状态转换的规则，设计数据库的大佬们总结了几条规则。
+&#x3D;&#x3D;原子性(Atomicity)&#x3D;&#x3D;
+现实世界中转账操作是一个不可分割的操作，也就是说要么压根儿就没转，要么转账成功，不能存在中间的状态。**这种要么全做，要么全不做的规则称之为原子性**。但是在现实世界中的一个不可分割的操作却可能对应着数据库世界若干条不同的操作，数据库中的一条操作也可能被分解成若干个步骤（比如先修改缓存页，之后再刷新到磁盘等），最要命的是在任何一个可能的时间都可能发生意想不到的错误（可能是数据库本身的错误，或者是操作 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2023/10/29/MySQL%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84-18/" title="MySQL是怎样运行的:(18)InnoDB的Buffer Pool"><img class="post-bg" src="/images/cover/MySQL.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL是怎样运行的:(18)InnoDB的Buffer Pool"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/10/29/MySQL%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84-18/" title="MySQL是怎样运行的:(18)InnoDB的Buffer Pool">MySQL是怎样运行的:(18)InnoDB的Buffer Pool</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-29T13:10:35.000Z" title="发表于 2023-10-29 21:10:35">2023-10-29</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-29T13:37:31.173Z" title="更新于 2023-10-29 21:37:31">2023-10-29</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/MySQL/">MySQL</a></span></div><div class="content">Session 18 InnoDB的Buffer Pool当需要访问某个页的数据时，InnoDB存储引擎就会把完整的页的数据全部加载到内存中（即使我们只需要访问一个页的一条记录）。在进行完读写访问之后并不着急把该页对应的内存空间释放掉，而是将其缓存起来，这样将来有请求再次访问该页面时，就可以省去磁盘IO的开销了。
+在MySQL服务器启动时向操作系统申请了一片连续的内存，叫做Buffer Pool（中文名是缓冲池）。默认情况下Buffer Pool有128M大小，允许用户调整。
+12[server]innodb_buffer_pool_size = 268435456
+
+为了更好的管理这些在Buffer Pool中的缓存页，设计InnoDB的大佬为每一个缓存页都创建了一些所谓的控制信息，包括了【该页所属的表空间编号、页号、缓存页在Buffer Pool中的地址、链表节点信息、一些锁信息以及LSN信息】。
+控制信息占用的一块内存称为一个控制块，控制块和缓存页是一一对应的，它们都被存放到 Buffer Pool 中，其中控制块被存放到 Buffer Pool 的前面，缓存页被存放到 Buff ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2023/10/29/MySQL%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84-11/" title="MySQL是怎样运行的:(11)连接的原理"><img class="post-bg" src="/images/cover/MySQL.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL是怎样运行的:(11)连接的原理"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/10/29/MySQL%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84-11/" title="MySQL是怎样运行的:(11)连接的原理">MySQL是怎样运行的:(11)连接的原理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-29T13:10:07.000Z" title="发表于 2023-10-29 21:10:07">2023-10-29</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-29T13:37:27.985Z" title="更新于 2023-10-29 21:37:27">2023-10-29</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/MySQL/">MySQL</a></span></div><div class="content">Session 11 连接的原理连接的本质就是把各个连接表中的记录都取出来依次匹配的组合加入结果集并返回给用户。所以我们把t1和t2两个表连接起来的过程如下图所示：
+1mysql&gt; SELECT * FROM t1, t2; # 只要在FROM语句后边跟多个表名就好了(内连接)
+
+
+这个过程看起来就是把t1表的记录和t2的记录连起来组成新的更大的记录，所以这个查询过程称之为连接查询。连接查询的结果集中包含一个表中的每一条记录与另一个表中的每一条记录相互匹配的组合，像这样的结果集就可以称之为笛卡尔积。
+比如对于如下语句：
+1234567891011121314151617mysql&gt; SELECT * FROM t1;+------+------+| m1   | n1   |+------+------+|    1 | a    ||    2 | b    ||    3 | c    |+------+------+mysql&gt; SELECT * FROM t2;+------+------+| m2   | n2   |+------+------+|     ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2023/10/29/MySQL%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84-10/" title="MySQL是怎样运行的:(10)单表访问方法"><img class="post-bg" src="/images/cover/MySQL.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL是怎样运行的:(10)单表访问方法"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/10/29/MySQL%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84-10/" title="MySQL是怎样运行的:(10)单表访问方法">MySQL是怎样运行的:(10)单表访问方法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-29T13:09:42.000Z" title="发表于 2023-10-29 21:09:42">2023-10-29</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-29T13:37:24.960Z" title="更新于 2023-10-29 21:37:24">2023-10-29</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/MySQL/">MySQL</a></span></div><div class="content">Session 10 单表访问方法本章的辅助表：
+123456789101112131415CREATE TABLE single_table (    id INT NOT NULL AUTO_INCREMENT,    key1 VARCHAR(100),    key2 INT,    key3 VARCHAR(100),    key_part1 VARCHAR(100),    key_part2 VARCHAR(100),    key_part3 VARCHAR(100),    common_field VARCHAR(100),    PRIMARY KEY (id),    KEY idx_key1 (key1),    UNIQUE KEY idx_key2 (key2),    KEY idx_key3 (key3),    KEY idx_key_part(key_part1, key_part2, key_part3)) Engine=InnoDB CHARSET=utf8;
+
+
+UNIQUE KEY idx_key2 (key2)索引要求索引列key2的值 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2023/10/29/MySQL%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84-9/" title="MySQL是怎样运行的:(9)InnoDB的表空间"><img class="post-bg" src="/images/cover/MySQL.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL是怎样运行的:(9)InnoDB的表空间"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/10/29/MySQL%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84-9/" title="MySQL是怎样运行的:(9)InnoDB的表空间">MySQL是怎样运行的:(9)InnoDB的表空间</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-29T13:08:01.000Z" title="发表于 2023-10-29 21:08:01">2023-10-29</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-29T13:37:21.658Z" title="更新于 2023-10-29 21:37:21">2023-10-29</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/MySQL/">MySQL</a></span></div><div class="content">Session 9 InnoDB的表空间本章概括：
+
+本章会总览&#x3D;&#x3D;页的类型&#x3D;&#x3D;。为了方便，称呼类型时省略前缀FIL_PAGE_TYPE_。
+
+
+
+类型名称
+十六进制
+描述
+
+
+
+FIL_PAGE_TYPE_ALLOCATED
+0x0000
+最新分配，还没使用
+
+
+FIL_PAGE_UNDO_LOG
+0x0002
+Undo日志页
+
+
+FIL_PAGE_INODE
+0x0003
+段信息节点
+
+
+FIL_PAGE_IBUF_FREE_LIST
+0x0004
+Insert Buffer空闲列表
+
+
+FIL_PAGE_IBUF_BITMAP
+0x0005
+Insert Buffer位图
+
+
+FIL_PAGE_TYPE_SYS
+0x0006
+系统页
+
+
+FIL_PAGE_TYPE_TRX_SYS
+0x0007
+事务系统数据
+
+
+FIL_PAGE_TYPE_FSP_HDR
+0x0008
+表空间头部信息
+
+
+FIL_PAGE_TYPE_XDES
+0x0009
+扩展描述页
+
+
+FIL_PAGE_TYPE_BLOB
+0x000A
+BLOB页
+
+
+FIL_PAGE_ ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2023/10/29/MySQL%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84-8/" title="MySQL是怎样运行的:(8)MySQL的数据目录"><img class="post-bg" src="/images/cover/MySQL.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL是怎样运行的:(8)MySQL的数据目录"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/10/29/MySQL%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84-8/" title="MySQL是怎样运行的:(8)MySQL的数据目录">MySQL是怎样运行的:(8)MySQL的数据目录</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-29T13:07:58.000Z" title="发表于 2023-10-29 21:07:58">2023-10-29</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-29T13:37:19.199Z" title="更新于 2023-10-29 21:37:19">2023-10-29</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/MySQL/">MySQL</a></span></div><div class="content">Session 8 MySQL的数据目录像InnoDB、MyISAM这样的存储引擎都是把表存储在磁盘上的，而操作系统用来管理磁盘的那个东东又被称为文件系统，所以用专业一点的话来表述就是：像 InnoDB 、 MyISAM 这样的存储引擎都是把表存储在文件系统上的。当我们想读取数据的时候，这些存储引擎会从文件系统中把数据读出来返回给我们，当我们想写入数据的时候，这些存储引擎会把这些数据又写回文件系统。
+安装目录包含控制客户端程序和服务器程序的命令（bin目录下），而数据目录是用来存储MySQL在运行过程中产生的数据，一定要区分开。
+123456mysql&gt; SHOW VARIABLES LIKE &#x27;datadir&#x27;;+---------------+-----------------------+| Variable_name | Value                 |+---------------+-----------------------+| datadir       | /var/lib/mysql/       |  # 通常应该是/us ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2023/10/29/MySQL%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84-7/" title="MySQL是怎样运行的:(7)B+树索引的使用"><img class="post-bg" src="/images/cover/MySQL.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL是怎样运行的:(7)B+树索引的使用"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/10/29/MySQL%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84-7/" title="MySQL是怎样运行的:(7)B+树索引的使用">MySQL是怎样运行的:(7)B+树索引的使用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-29T13:07:54.000Z" title="发表于 2023-10-29 21:07:54">2023-10-29</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-29T13:37:16.850Z" title="更新于 2023-10-29 21:37:16">2023-10-29</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/MySQL/">MySQL</a></span></div><div class="content">Session 7 B+树索引的使用一个表上索引建的越多，就会占用越多的存储空间，在增删改记录的时候性能就越差。为了能建立又好又少的索引，我们需要了解这些索引在哪些条件下起作用的。
+本章的辅助表：
+123456789CREATE TABLE person_info(    id INT NOT NULL auto_increment,    name VARCHAR(100) NOT NULL,    birthday DATE NOT NULL,    phone_number CHAR(11) NOT NULL,    country varchar(100) NOT NULL,    PRIMARY KEY (id),    KEY idx_name_birthday_phone_number (name, birthday, phone_number));
+
+
+全值匹配
+我们的搜索条件中的列和索引列一致的话，这种情况就称为全值匹配。
+1SELECT * FROM person_info WHERE birthday = &#x27;1990-09-27&#x27; AND ph ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#content-inner">3</a><a class="extend next" rel="next" href="/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/10/29/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%8BClickHouse-%E5%88%9D%E5%AD%A6/" title="【数据库】初学ClickHouse"><img src="/images/cover/ck.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【数据库】初学ClickHouse"/></a><div class="content"><a class="title" href="/2023/10/29/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%8BClickHouse-%E5%88%9D%E5%AD%A6/" title="【数据库】初学ClickHouse">【数据库】初学ClickHouse</a><time datetime="2023-10-29T14:39:24.000Z" title="发表于 2023-10-29 22:39:24">2023-10-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/29/%E5%86%B0%E9%BE%99%E8%8D%89%E7%9A%84%E5%9B%BE%E8%AE%BA%E7%AC%94%E8%AE%B0/" title="冰龙草的图论笔记"><img src="/images/cover/icegrass.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="冰龙草的图论笔记"/></a><div class="content"><a class="title" href="/2023/10/29/%E5%86%B0%E9%BE%99%E8%8D%89%E7%9A%84%E5%9B%BE%E8%AE%BA%E7%AC%94%E8%AE%B0/" title="冰龙草的图论笔记">冰龙草的图论笔记</a><time datetime="2023-10-29T14:35:32.000Z" title="发表于 2023-10-29 22:35:32">2023-10-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/29/%E5%86%B0%E9%BE%99%E8%8D%89%E7%9A%84%E7%AE%97%E6%B3%95%E9%9A%8F%E7%AC%94/" title="冰龙草的算法随笔"><img src="/images/cover/icegrass.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="冰龙草的算法随笔"/></a><div class="content"><a class="title" href="/2023/10/29/%E5%86%B0%E9%BE%99%E8%8D%89%E7%9A%84%E7%AE%97%E6%B3%95%E9%9A%8F%E7%AC%94/" title="冰龙草的算法随笔">冰龙草的算法随笔</a><time datetime="2023-10-29T14:31:56.000Z" title="发表于 2023-10-29 22:31:56">2023-10-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%B0%A2%E5%B8%8C%E4%BB%81-%E7%AC%94%E8%AE%B0%E6%A2%B3%E7%90%86/" title="计算机网络(谢希仁)笔记梳理"><img src="/images/cover/network.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机网络(谢希仁)笔记梳理"/></a><div class="content"><a class="title" href="/2023/10/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%B0%A2%E5%B8%8C%E4%BB%81-%E7%AC%94%E8%AE%B0%E6%A2%B3%E7%90%86/" title="计算机网络(谢希仁)笔记梳理">计算机网络(谢希仁)笔记梳理</a><time datetime="2023-10-29T14:29:05.000Z" title="发表于 2023-10-29 22:29:05">2023-10-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/29/%E3%80%90ACM%E3%80%91%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%9A%84%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" title="【ACM】最短路的个人总结"><img src="/images/cover/acm.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【ACM】最短路的个人总结"/></a><div class="content"><a class="title" href="/2023/10/29/%E3%80%90ACM%E3%80%91%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%9A%84%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" title="【ACM】最短路的个人总结">【ACM】最短路的个人总结</a><time datetime="2023-10-29T14:26:27.000Z" title="发表于 2023-10-29 22:26:27">2023-10-29</time></div></div></div></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/" style="font-size: 1.22em; color: rgb(93, 17, 134)">课堂笔记</a><a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 1.45em; color: rgb(153, 77, 178)">笔记</a><a href="/tags/Golang/" style="font-size: 1.22em; color: rgb(66, 47, 41)">Golang</a><a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 1.38em; color: rgb(97, 35, 40)">读书笔记</a><a href="/tags/MySQL/" style="font-size: 1.38em; color: rgb(33, 105, 109)">MySQL</a><a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 1.15em; color: rgb(200, 128, 196)">测试</a><a href="/tags/ACM/" style="font-size: 1.3em; color: rgb(97, 114, 66)">ACM</a><a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.22em; color: rgb(112, 166, 162)">算法</a><a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 1.15em; color: rgb(7, 117, 161)">随笔</a><a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1.15em; color: rgb(71, 98, 131)">数据库</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">十月 2023</span><span class="card-archive-list-count">27</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">27</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">118.6k</div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-10-29T15:12:29.754Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Blover</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: (str) => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: (subtitleType) => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  }
+}
+</script><script>function subtitleType () {
+  if (true) {
+    typedJSFn.init(["凡事豫则立，不豫则废"])
+  } else {
+    document.getElementById("subtitle").textContent = "凡事豫则立，不豫则废"
+  }
+}
+typedJSFn.run(subtitleType)</script></div><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

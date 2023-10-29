@@ -1,0 +1,263 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>MySQL是怎样运行的:(25)锁 | 四方.io</title><meta name="author" content="Blover"><meta name="copyright" content="Blover"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Session 25 锁上一章介绍了事务并发执行时可能带来的各种问题，并发事务访问相同记录的情况大致可以划分为3种： （1）读-读情况：即并发事务相继读取相同的记录。   读取操作本身不会对记录有任何影响，并不会引起什么问题，所以允许这种情况的发生。 （2）写-写情况：即并发事务相继对相同的记录做出改动。   在这种情况下会发生脏写的问题，在多个未提交事务相继对一条记录做改动时，需要让它们排队执行">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL是怎样运行的:(25)锁">
+<meta property="og:url" content="http://example.com/2023/10/29/MySQL%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84-25/index.html">
+<meta property="og:site_name" content="四方.io">
+<meta property="og:description" content="Session 25 锁上一章介绍了事务并发执行时可能带来的各种问题，并发事务访问相同记录的情况大致可以划分为3种： （1）读-读情况：即并发事务相继读取相同的记录。   读取操作本身不会对记录有任何影响，并不会引起什么问题，所以允许这种情况的发生。 （2）写-写情况：即并发事务相继对相同的记录做出改动。   在这种情况下会发生脏写的问题，在多个未提交事务相继对一条记录做改动时，需要让它们排队执行">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/cover/MySQL.jpg">
+<meta property="article:published_time" content="2023-10-29T13:36:02.000Z">
+<meta property="article:modified_time" content="2023-10-29T13:37:53.786Z">
+<meta property="article:author" content="Blover">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="读书笔记">
+<meta property="article:tag" content="MySQL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/cover/MySQL.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/10/29/MySQL%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84-25/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体中文","cht_to_chs":"你已切换为简体中文","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'MySQL是怎样运行的:(25)锁',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-10-29 21:37:53'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/head.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/cover/MySQL.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="四方.io"></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">MySQL是怎样运行的:(25)锁</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-29T13:36:02.000Z" title="发表于 2023-10-29 21:36:02">2023-10-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-29T13:37:53.786Z" title="更新于 2023-10-29 21:37:53">2023-10-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>9分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="MySQL是怎样运行的:(25)锁"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="Session-25-锁"><a href="#Session-25-锁" class="headerlink" title="Session 25 锁"></a>Session 25 锁</h2><p>上一章介绍了事务并发执行时可能带来的各种问题，并发事务访问相同记录的情况大致可以划分为3种：</p>
+<p>（1）<code>读-读</code>情况：即并发事务相继读取相同的记录。</p>
+<p>  读取操作本身不会对记录有任何影响，并不会引起什么问题，所以允许这种情况的发生。</p>
+<p>（2）<code>写-写</code>情况：即并发事务相继对相同的记录做出改动。</p>
+<p>  在这种情况下会发生<code>脏写</code>的问题，在多个未提交事务相继对一条记录做改动时，需要让它们排队执行，这个排队的过程其实是通过<code>锁</code>来实现的。</p>
+<p>当一个事务想对这条记录做改动时，首先会看看内存中有没有与这条记录关联的<code>锁结构</code>，当没有的时候就会在内存中生成一个<code>锁结构</code>与之关联。（<strong>对一条记录加锁的本质就是在内存中创建一个<code>锁结构</code>与之关联</strong>）</p>
+<p><img src="/images/typora-user-images/image-20230909203045599.png" alt="image-20230909203045599"></p>
+<ul>
+<li><code>trx信息</code>：代表这个锁结构是哪个事务生成的。</li>
+<li><code>is_waiting</code>：代表当前事务是否在等待。</li>
+</ul>
+<p>在事务<code>T1</code>提交之前，另一个事务<code>T2</code>也想对该记录做改动，那么先去看看有没有<code>锁结构</code>与这条记录关联，发现有一个<code>锁结构</code>与之关联后，然后也生成了一个<code>锁结构</code>与这条记录关联，不过<code>锁结构</code>的<code>is_waiting</code>属性值为<code>true</code>，表示当前事务需要等待，我们把这个场景就称之为<strong>获取锁失败，或者加锁失败，或者没有成功的获取到锁</strong>。</p>
+<p><img src="/images/typora-user-images/image-20230909203208282.png" alt="image-20230909203208282"></p>
+<p>在事务<code>T1</code>提交之后，就会把该事务生成的<code>锁结构</code>释放掉，然后看看还有没有别的事务在等待获取锁，发现了事务<code>T2</code>还在等待获取锁，所以把事务<code>T2</code>对应的锁结构的<code>is_waiting</code>属性设置为<code>false</code>，然后把该事务对应的线程唤醒，让它继续执行。</p>
+<p>（3）<code>读-写</code>或<code>写-读</code>情况</p>
+<p>也就是一个事务进行读取操作，另一个进行改动操作。这种情况下可能发生<code>脏读</code>、<code>不可重复读</code>、<code>幻读</code>的问题。有两种可选的解决方案：</p>
+<p>方案一：读操作利用多版本并发控制（<code>MVCC</code>），写操作进行<code>加锁</code>。</p>
+<p>​		查询语句只能读到在生成<code>ReadView</code>之前已提交事务所做的更改，在生成<code>ReadView</code>之前未提交的事务或者之后才开启的事务所做的更改是看不到的。而<strong>写操作肯定针对的是最新版本的记录</strong>（写操作要事务排队），读记录的历史版本和改动记录的最新版本本身并不冲突，也就是<strong>采用<code>MVCC</code>时，<code>读-写</code>操作并不冲突</strong>。（两个并发的事务可以一个在写同时一个在读，读的内容不受写的影响）</p>
+<p>方案二：读、写操作都采用<code>加锁</code>的方式。</p>
+<p>​		在读取记录的时候也需要对记录进行<code>加锁</code>操作，这样也就意味着<code>读</code>操作和<code>写</code>操作也像<code>写-写</code>操作那样排队执行。</p>
+<p>很明显，采用<code>MVCC</code>方式的话，<code>读-写</code>操作彼此并不冲突，性能更高，采用<code>加锁</code>方式的话，<code>读-写</code>操作彼此需要排队执行，影响性能。一般情况下我们当然愿意采用<code>MVCC</code>来解决<code>读-写</code>操作并发执行的问题，但是业务在某些特殊情况下，要求必须采用<code>加锁</code>的方式执行，那也是没有办法的事。</p>
+<p><em><strong>一致性读 (Consistent Reads)</strong></em></p>
+<p>事务利用<code>MVCC</code>进行的<strong>读取操作</strong>称之为<code>一致性读</code>，或者<code>一致性无锁读</code>，有的地方也称之为<code>快照读</code>。所有普通的<code>SELECT</code>语句（<code>plain SELECT</code>）在<code>READ COMMITTED</code>、<code>REPEATABLE READ</code>隔离级别下都算是<code>一致性读</code>。<code>一致性读</code>并不会对表中的任何记录做<code>加锁</code>操作，其他事务可以自由的对表中的记录做改动。</p>
+<p><em><strong>锁定读 (Locking Reads)</strong></em></p>
+<p><strong>共享锁和独占锁</strong></p>
+<ul>
+<li><code>共享锁</code>，英文名：<code>Shared  Locks</code>，简称&#x3D;&#x3D;<code>S锁</code>&#x3D;&#x3D;。事务要读取一条记录时，需要先获取该记录的<code>S锁</code>。</li>
+<li><code>独占锁</code>，也称<code>排他锁</code>，英文名：<code>Exclusive Locks</code>，简称&#x3D;&#x3D;<code>X锁</code>&#x3D;&#x3D;。事务要改动一条记录时，需要先获取该记录的<code>X锁</code>。</li>
+</ul>
+<p>事务<code>T1</code>首先获取了一条记录的<code>S锁</code>之后，事务<code>T2</code>也可以获取该记录的<code>S锁</code>，但不能获取<code>X锁</code>。</p>
+<p>对读取的记录加<code>S锁</code>：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ... LOCK <span class="keyword">IN</span> SHARE MODE;</span><br></pre></td></tr></table></figure>
+
+<p>如果别的事务想要获取这些记录的<code>X锁</code>，那么它们会<strong>阻塞</strong>，直到<strong>当前事务提交之后</strong>将这些记录上的<code>S锁</code>释放掉。</p>
+<p><code>SELECT ... LOCK IN SHARE MODE</code>语句只在事务中有效。如果不处于任何事务中，执行该语句将不会获得共享锁（S锁）。在非事务环境下执行<code>SELECT ... LOCK IN SHARE MODE</code>语句会被视为普通的<code>SELECT</code>语句，不会对数据进行锁定。</p>
+<p>对读取的记录加<code>X锁</code>：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ... <span class="keyword">FOR</span> <span class="keyword">UPDATE</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>写操作</strong></p>
+<p>平常所用到的<code>写操作</code>无非是<code>DELETE</code>、<code>UPDATE</code>、<code>INSERT</code>这三种。其中<code>DELETE</code>、<code>UPDATE</code>都需要获取<code>X锁</code>。而一般情况下（也有特殊情况，后面介绍），新插入一条记录的操作并不加锁，<code>InnoDB</code>通过一种称之为<code>隐式锁</code>的东西来保护这条新插入的记录在本事务提交前不被别的事务访问。</p>
+<p><strong>多粒度锁</strong></p>
+<p>我们前面提到的<code>锁</code>都是针对记录的，也可以被称之为<code>行级锁</code>或者<code>行锁</code>，对一条记录加锁影响的也只是这条记录而已，我们就说这个锁的粒度<strong>比较细</strong>；其实一个事务也可以在<code>表</code>级别进行加锁，自然就被称之为<code>表级锁</code>或者<code>表锁</code>，对一个表加锁影响整个表中的记录，我们就说这个锁的粒度<strong>比较粗</strong>。给表加的锁也可以分为<code>共享锁</code>（<code>S锁</code>）和<code>独占锁</code>（<code>X锁</code>）</p>
+<p>如果一个事务给表加了<code>S锁</code>，那么别的事务可以继续获得该表的<code>S锁</code>，不可以继续获得该表的<code>X锁</code>。其余规则不赘述。</p>
+<p>在给表上<code>S锁</code>时，要先查看有没有记录被上了<code>X锁</code>。我们当然不会为此就去遍历全表。<code>InnoDB</code>提出了意向锁<code>（英文名：</code>Intention Locks&#96;）——</p>
+<ul>
+<li>意向共享锁，英文名：<code>Intention Shared Lock</code>，简称<code>IS锁</code>。当事务准备在某条记录上加<code>S锁</code>时，需要先在表级别加一个<code>IS锁</code>。</li>
+<li>意向独占锁，英文名：<code>Intention Exclusive Lock</code>，简称<code>IX锁</code>。当事务准备在某条记录上加<code>X锁</code>时，需要先在表级别加一个<code>IX锁</code>。</li>
+</ul>
+<p>总结一下：IS、IX锁是表级锁，它们的提出<strong>仅仅为了在之后加表级别的S锁和X锁时可以快速判断表中的记录是否被上锁</strong>，以避免用遍历的方式来查看表中有没有上锁的记录，也就是说其实<strong>IS锁和IX锁是兼容的，IX锁和IX锁是兼容的</strong>。（同一张表的两条记录加读锁或写锁互不相干）</p>
+<p><strong>其他存储引擎中的锁</strong></p>
+<p>对于<code>MyISAM</code>、<code>MEMORY</code>、<code>MERGE</code>这些存储引擎来说，它们只支持表级锁，而且这些引擎并不支持事务，所以使用这些存储引擎的锁一般都是针对当前会话来说的。</p>
+<p>比方说在<code>Session 1</code>中对一个表执行<code>SELECT</code>操作，就相当于为这个表加了一个表级别的<code>S锁</code>，如果在<code>SELECT</code>操作未完成时，<code>Session 2</code>中对这个表执行<code>UPDATE</code>操作，相当于要获取表的<code>X锁</code>，此操作会被阻塞，直到<code>Session 1</code>中的<code>SELECT</code>操作完成，释放掉表级别的<code>S锁</code>后，<code>Session 2</code>中对这个表执行<code>UPDATE</code>操作才能继续获取<code>X锁</code></p>
+<blockquote>
+<p>因为使用MyISAM、MEMORY、MERGE这些存储引擎的表在同一时刻只允许一个会话对表进行写操作，所以这些存储引擎实际上最好用在只读，或者大部分都是读操作，或者单用户的情景下。</p>
+</blockquote>
+<p><em><strong>InnoDB存储引擎中的锁</strong></em></p>
+<p>（表级锁详见原文）</p>
+<p><strong>行级锁</strong></p>
+<p>我们来看看都有哪些常用的<code>行锁类型</code>。</p>
+<p>（1）<code>Record Locks</code>（记录锁）</p>
+<p>我们前面提到的记录锁就是这种类型，也就是仅仅把一条记录锁上，我（注：原文作者）决定给这种类型的锁起一个比较不正经的名字：<code>正经记录锁</code>（请允许我皮一下，我实在不知道该叫什么名好）。官方的类型名称为：<code>LOCK_REC_NOT_GAP</code>。</p>
+<p><img src="/images/typora-user-images/image-20230909213305913.png" alt="image-20230909213305913"></p>
+<p>（2）<code>Gap Locks</code>（间隙锁）</p>
+<p>就是事务在第一次执行读取操作时，那些幻影记录尚不存在（还未插入），我们无法给这些幻影记录加上<code>正经记录锁</code>。</p>
+<p><code>InnoDB</code>提出了一种称之为<code>Gap Locks</code>的锁，官方的类型名称为：<code>LOCK_GAP</code>，我们也可以简称为<code>gap锁</code>。比方说我们把<code>number</code>值为<code>8</code>的那条记录加一个<code>gap锁</code>的示意图如下：</p>
+<p><img src="/images/typora-user-images/image-20230909213438008.png" alt="image-20230909213438008"></p>
+<p>如图中为<code>number</code>值为<code>8</code>的记录加了<code>gap锁</code>，意味着不允许别的事务在<code>number</code>值为<code>8</code>的记录前面的<code>间隙</code>插入新记录，其实就是<code>number</code>列的值<code>(3, 8)</code>这个区间的新记录是不允许立即插入的。</p>
+<p>这个<code>gap锁</code>的提出<strong>仅仅是为了防止插入幻影记录而提出的</strong>。对一条记录加了<code>gap锁</code>，并不会限制其他事务对这条记录加<code>正经记录锁</code>或者继续加<code>gap锁</code>。</p>
+<p>为了实现阻止其他事务插入<code>number</code>值在<code>(20, +∞)</code>这个区间的新记录，我们可以给索引中的最后一条记录，也就是<code>number</code>值为<code>20</code>的那条记录所在页面的<code>Supremum</code>记录加上一个<code>gap锁</code>，</p>
+<p>（3）<code>Next-Key Locks</code>（临键锁）</p>
+<p><code>next-key锁</code>的本质就是一个<code>正经记录锁</code>和一个<code>gap锁</code>的合体，它既能保护该条记录，又能阻止别的事务将新记录插入被保护记录前面的<code>间隙</code>。</p>
+<p><img src="/images/typora-user-images/image-20230909214413199.png" alt="image-20230909214413199"></p>
+<p>（4）<code>Insert Intention Locks</code>（插入意向锁）</p>
+<p>我们说一个事务在插入一条记录时需要判断一下插入位置是不是被别的事务加了所谓的<code>gap锁</code>（<code>next-key锁</code>也包含<code>gap锁</code>，后边就不强调了），如果有的话，插入操作需要等待，直到拥有<code>gap锁</code>的那个事务提交。但是设计<code>InnoDB</code>的大佬规定事务在等待的时候也需要在内存中生成一个<code>锁结构</code>，表明有事务想在某个<code>间隙</code>中插入新记录，但是现在在等待。</p>
+<p>这种类型的锁命名为<code>Insert Intention Locks</code>，官方的类型名称为：<code>LOCK_INSERT_INTENTION</code>。</p>
+<p><img src="/images/typora-user-images/image-20230909214644742.png" alt="image-20230909214644742"></p>
+<p>（5）隐式锁</p>
+<p>（非<code>mvcc</code>场景）对于两个同时进行的事务，如果一个事务新插入了一条记录，由于一般情况下<code>INSERT</code>操作是不加锁的（插入意向锁是例外），那么难道这条记录就可以被另一事务随便加<code>S锁</code>（脏读）或<code>X锁</code>（脏写）了吗？</p>
+<blockquote>
+<p>对于聚簇索引记录来说，有一个<code>trx_id</code>隐藏列，该隐藏列记录着最后改动该记录的<code>事务id</code>。那么如果在当前事务中新插入一条聚簇索引记录后，该记录的<code>trx_id</code>隐藏列代表的的就是当前事务的<code>事务id</code>，如果其他事务此时想对该记录添加<code>S锁</code>或者<code>X锁</code>时，首先会看一下该记录的<code>trx_id</code>隐藏列代表的事务是否是当前的活跃事务，如果是的话，那么就帮助当前事务创建一个<code>X锁</code>（也就是为当前事务创建一个锁结构，<code>is_waiting</code>属性是<code>false</code>），然后自己进入等待状态（也就是为自己也创建一个锁结构，<code>is_waiting</code>属性是<code>true</code>）</p>
+</blockquote>
+<p>总结：一个事务对新插入的记录可以不显式的加锁（生成一个锁结构），但是由于<code>事务id</code>的存在，相当于加了一个<code>隐式锁</code>。别的事务在对这条记录加<code>S锁</code>或者<code>X锁</code>时，由于<code>隐式锁</code>的存在，会先帮助当前事务生成一个锁结构，然后自己再生成一个锁结构后进入等待状态。</p>
+<p><strong>InnoDB锁的内存结构</strong></p>
+<p>（详见原文）</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><a class="post-meta__tags" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a><a class="post-meta__tags" href="/tags/MySQL/">MySQL</a></div><div class="post_share"><div class="social-share" data-image="/images/cover/MySQL.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/10/29/Golang%E5%BA%95%E5%B1%82%E5%88%9D%E6%B6%89-%E6%85%95%E8%AF%BE/" title="Golang底层初涉(慕课)"><img class="cover" src="/images/cover/Golang.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Golang底层初涉(慕课)</div></div></a></div><div class="next-post pull-right"><a href="/2023/10/29/MySQL%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84-24/" title="MySQL是怎样运行的:(24)事务的隔离级别与MVCC"><img class="cover" src="/images/cover/MySQL.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">MySQL是怎样运行的:(24)事务的隔离级别与MVCC</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/10/29/MySQL%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84-10/" title="MySQL是怎样运行的:(10)单表访问方法"><img class="cover" src="/images/cover/MySQL.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-29</div><div class="title">MySQL是怎样运行的:(10)单表访问方法</div></div></a></div><div><a href="/2023/10/29/MySQL%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84-1/" title="MySQL是怎样运行的:(1)重新认识MySQL"><img class="cover" src="/images/cover/MySQL.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-29</div><div class="title">MySQL是怎样运行的:(1)重新认识MySQL</div></div></a></div><div><a href="/2023/10/29/MySQL%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84-18/" title="MySQL是怎样运行的:(18)InnoDB的Buffer Pool"><img class="cover" src="/images/cover/MySQL.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-29</div><div class="title">MySQL是怎样运行的:(18)InnoDB的Buffer Pool</div></div></a></div><div><a href="/2023/10/29/MySQL%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84-11/" title="MySQL是怎样运行的:(11)连接的原理"><img class="cover" src="/images/cover/MySQL.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-29</div><div class="title">MySQL是怎样运行的:(11)连接的原理</div></div></a></div><div><a href="/2023/10/29/MySQL%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84-19/" title="MySQL是怎样运行的:(19)事务简介"><img class="cover" src="/images/cover/MySQL.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-29</div><div class="title">MySQL是怎样运行的:(19)事务简介</div></div></a></div><div><a href="/2023/10/29/MySQL%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%90%E8%A1%8C%E7%9A%84-2/" title="MySQL是怎样运行的:(2)启动选项和系统变量"><img class="cover" src="/images/cover/MySQL.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-29</div><div class="title">MySQL是怎样运行的:(2)启动选项和系统变量</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Session-25-%E9%94%81"><span class="toc-number">1.</span> <span class="toc-text">Session 25 锁</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/10/29/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%8BClickHouse-%E5%88%9D%E5%AD%A6/" title="【数据库】初学ClickHouse"><img src="/images/cover/ck.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【数据库】初学ClickHouse"/></a><div class="content"><a class="title" href="/2023/10/29/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%8BClickHouse-%E5%88%9D%E5%AD%A6/" title="【数据库】初学ClickHouse">【数据库】初学ClickHouse</a><time datetime="2023-10-29T14:39:24.000Z" title="发表于 2023-10-29 22:39:24">2023-10-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/29/%E5%86%B0%E9%BE%99%E8%8D%89%E7%9A%84%E5%9B%BE%E8%AE%BA%E7%AC%94%E8%AE%B0/" title="冰龙草的图论笔记"><img src="/images/cover/icegrass.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="冰龙草的图论笔记"/></a><div class="content"><a class="title" href="/2023/10/29/%E5%86%B0%E9%BE%99%E8%8D%89%E7%9A%84%E5%9B%BE%E8%AE%BA%E7%AC%94%E8%AE%B0/" title="冰龙草的图论笔记">冰龙草的图论笔记</a><time datetime="2023-10-29T14:35:32.000Z" title="发表于 2023-10-29 22:35:32">2023-10-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/29/%E5%86%B0%E9%BE%99%E8%8D%89%E7%9A%84%E7%AE%97%E6%B3%95%E9%9A%8F%E7%AC%94/" title="冰龙草的算法随笔"><img src="/images/cover/icegrass.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="冰龙草的算法随笔"/></a><div class="content"><a class="title" href="/2023/10/29/%E5%86%B0%E9%BE%99%E8%8D%89%E7%9A%84%E7%AE%97%E6%B3%95%E9%9A%8F%E7%AC%94/" title="冰龙草的算法随笔">冰龙草的算法随笔</a><time datetime="2023-10-29T14:31:56.000Z" title="发表于 2023-10-29 22:31:56">2023-10-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%B0%A2%E5%B8%8C%E4%BB%81-%E7%AC%94%E8%AE%B0%E6%A2%B3%E7%90%86/" title="计算机网络(谢希仁)笔记梳理"><img src="/images/cover/network.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机网络(谢希仁)笔记梳理"/></a><div class="content"><a class="title" href="/2023/10/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%B0%A2%E5%B8%8C%E4%BB%81-%E7%AC%94%E8%AE%B0%E6%A2%B3%E7%90%86/" title="计算机网络(谢希仁)笔记梳理">计算机网络(谢希仁)笔记梳理</a><time datetime="2023-10-29T14:29:05.000Z" title="发表于 2023-10-29 22:29:05">2023-10-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/29/%E3%80%90ACM%E3%80%91%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%9A%84%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" title="【ACM】最短路的个人总结"><img src="/images/cover/acm.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【ACM】最短路的个人总结"/></a><div class="content"><a class="title" href="/2023/10/29/%E3%80%90ACM%E3%80%91%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%9A%84%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" title="【ACM】最短路的个人总结">【ACM】最短路的个人总结</a><time datetime="2023-10-29T14:26:27.000Z" title="发表于 2023-10-29 22:26:27">2023-10-29</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Blover</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"></div><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

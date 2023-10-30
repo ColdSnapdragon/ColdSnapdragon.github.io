@@ -42,7 +42,7 @@
     buttonText: '加载更多'
   },
   isPhotoFigcaption: false,
-  islazyload: false,
+  islazyload: true,
   isAnchor: false,
   percent: {
     toc: true,
@@ -173,7 +173,7 @@
     document.addEventListener('pjax:send', () => { preloader.initLoading() })
     document.addEventListener('pjax:complete', () => { preloader.endLoading() })
   }
-})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/head.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/cover/network.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="四方.io"></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">计算机网络(谢希仁)笔记梳理</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-29T14:29:05.000Z" title="发表于 2023-10-29 22:29:05">2023-10-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-29T15:09:49.229Z" title="更新于 2023-10-29 23:09:49">2023-10-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">16k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>48分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="计算机网络(谢希仁)笔记梳理"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>参考笔记：<a target="_blank" rel="noopener" href="https://www.jianshu.com/c/f627e74e6ff3">https://www.jianshu.com/c/f627e74e6ff3</a></p>
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/head.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/cover/network.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="四方.io"></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">计算机网络(谢希仁)笔记梳理</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-29T14:29:05.000Z" title="发表于 2023-10-29 22:29:05">2023-10-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-29T15:09:49.229Z" title="更新于 2023-10-29 23:09:49">2023-10-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">16k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>48分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="计算机网络(谢希仁)笔记梳理"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>参考笔记：<a target="_blank" rel="noopener" href="https://www.jianshu.com/c/f627e74e6ff3">https://www.jianshu.com/c/f627e74e6ff3</a></p>
 <h2 id="1-2"><a href="#1-2" class="headerlink" title="1.2"></a>1.2</h2><p><strong>复习题</strong></p>
 <ol>
 <li><strong>网络由什么和什么什么组成</strong></li>
@@ -232,10 +232,10 @@
 <li><strong>何为PDU，举个例子</strong></li>
 </ol>
 <p>收发双方的应用、网卡，都是对等实体</p>
-<p><img src="https://api.bilibili.com/x/note/image?image_id=320491" alt="img"></p>
-<p><img src="https://api.bilibili.com/x/note/image?image_id=320500" alt="img"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="https://api.bilibili.com/x/note/image?image_id=320491" alt="img"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="https://api.bilibili.com/x/note/image?image_id=320500" alt="img"></p>
 <p>就像在应用层发请求回响应时，我们无需考虑运输层做了什么，能够感性地理解作两个应用在直接通信。</p>
-<p><img src="https://api.bilibili.com/x/note/image?image_id=320499" alt="img"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="https://api.bilibili.com/x/note/image?image_id=320499" alt="img"></p>
 <p>协议三要素——</p>
 <p>语法：数据报长什么样</p>
 <p>语义：拿到数据报要做什么，比如包装、解析</p>
@@ -255,7 +255,7 @@
 <li><strong>物理层的作用</strong></li>
 </ol>
 <p>两种传输媒体</p>
-<p><img src="/images/typora-user-images/image-20230717164145329.png" alt="image-20230717164145329"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230717164145329.png" alt="image-20230717164145329"></p>
 <p>物理层考虑的是怎样才能在连接各种计算机的传输媒体上传输数据比特流。</p>
 <p>解决适配各种各样的传输媒体是物理层去关注的，数据链路层无需考虑。</p>
 <h2 id="2-2-物理层下面的传输媒体"><a href="#2-2-物理层下面的传输媒体" class="headerlink" title="2.2 物理层下面的传输媒体"></a>2.2 物理层下面的传输媒体</h2><h2 id="2-3-传输方式"><a href="#2-3-传输方式" class="headerlink" title="2.3 传输方式"></a>2.3 传输方式</h2><p><strong>复习题</strong></p>
@@ -266,9 +266,9 @@
 </ol>
 <p>&#x3D;&#x3D;串行传输&#x3D;&#x3D;是一个比特一个比特依次发送的，因此在发送端与接收端之间，只需要一条数据传输线路即可；&#x3D;&#x3D;并行传输&#x3D;&#x3D;一次发送n个比特，因此，在发送端和接收端之间需要有n条传输线路，但&#x3D;&#x3D;成本高&#x3D;&#x3D;。</p>
 <p>数据在传输线路上的传输采用是<strong>串行传输</strong>，计算机内部的数据传输常用<strong>并行传输</strong></p>
-<p><img src="/images/typora-user-images/image-20230717165807708.png" alt="image-20230717165807708"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/24878825-15060e3d8de110ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/24878825-19cfd094ecef0538.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230717165807708.png" alt="image-20230717165807708"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="https://upload-images.jianshu.io/upload_images/24878825-15060e3d8de110ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="https://upload-images.jianshu.io/upload_images/24878825-19cfd094ecef0538.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
 <h2 id="2-3-编码与调制"><a href="#2-3-编码与调制" class="headerlink" title="2.3 编码与调制"></a>2.3 编码与调制</h2><p><strong>复习题</strong></p>
 <ol>
 <li><strong>理解模拟信号和数字信号</strong></li>
@@ -293,7 +293,7 @@
 <li><p>基带信号往往包含有较多的低频成分，甚至有直流成分，而许多信道并不能传输这种低频分量或直流分量。因此必须对基带信号进行<strong>调制</strong> (modulation)。</p>
 </li>
 </ul>
-<p><img src="https://upload-images.jianshu.io/upload_images/24878825-acc59055804f0890.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="https://upload-images.jianshu.io/upload_images/24878825-acc59055804f0890.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
 <h2 id="2-5、信道的极限容量"><a href="#2-5、信道的极限容量" class="headerlink" title="2.5、信道的极限容量"></a>2.5、信道的极限容量</h2><p><strong>复习题</strong></p>
 <ol>
 <li><strong>常见失真原因</strong></li>
@@ -306,14 +306,14 @@
 <li>噪声干扰越大</li>
 <li>传输媒体质量越差</li>
 </ul>
-<p><img src="https://upload-images.jianshu.io/upload_images/24878825-0a9bbf5bcd5e8226.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="https://upload-images.jianshu.io/upload_images/24878825-0a9bbf5bcd5e8226.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
 <p>涉及到了奈氏准则、香农公式。不是我的学习重点</p>
 <h2 id="2-6-总结"><a href="#2-6-总结" class="headerlink" title="2.6 总结"></a>2.6 总结</h2><p>以太网是属于物理层的一种技术，互联网就是在其上建立的。</p>
 <p>蓝牙，电话网络，卫星通信，光纤通信在物理层有自己的协议，不使用以太网。</p>
 <h2 id="3-1-数据链路层概述"><a href="#3-1-数据链路层概述" class="headerlink" title="3.1 数据链路层概述"></a>3.1 数据链路层概述</h2><p><strong>链路</strong>是从一个结点到相邻结点的一段物理线路，<strong>数据链路</strong>则是在链路的基础上增加了一些必要的硬件（如网络适配器）和软件（如协议的实现）</p>
 <p>数据链路层以<strong>帧</strong>为单位传输和处理数据。</p>
-<p><img src="/images/typora-user-images/image-20230724182848505.png" alt="image-20230724182848505"></p>
-<p><img src="/images/typora-user-images/image-20230724182908321.png" alt="image-20230724182908321"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230724182848505.png" alt="image-20230724182848505"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230724182908321.png" alt="image-20230724182908321"></p>
 <h2 id="3-2-封装成帧"><a href="#3-2-封装成帧" class="headerlink" title="3.2 封装成帧"></a>3.2 封装成帧</h2><p><strong>封装成帧</strong>是指数据链路层给上层交付的协议数据单元添加&#x3D;&#x3D;帧头&#x3D;&#x3D;和&#x3D;&#x3D;帧尾&#x3D;&#x3D;使之成为帧</p>
 <p>MAC帧和PPP帧：</p>
 <ol>
@@ -321,13 +321,13 @@
 <li>MAC帧通常用于局域网内部的通信，而PPP帧通常用于广域网之间的通信，如Internet连接。</li>
 <li>MAC帧的帧头中包含有源和目标MAC地址，而PPP帧的帧头中包含有控制信息、协议类型和数据长度等信息。</li>
 </ol>
-<p><img src="/images/typora-user-images/image-20230724183932577.png" alt="image-20230724183932577"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230724183932577.png" alt="image-20230724183932577"></p>
 <p>帧头和帧尾中包含有重要的控制信息。帧头和帧尾的作用之一就是帧定界</p>
-<p><img src="/images/typora-user-images/image-20230724184035642.png" alt="image-20230724184035642"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230724184035642.png" alt="image-20230724184035642"></p>
 <p><strong>透明传输</strong>是指<strong>数据链路层对上层交付的传输数据没有任何限制</strong>，好像数据链路层不存在一样</p>
 <p>如果在上层交付的协议数据单元中， 恰好也包含“帧界定标志”，接收方就会错误识别。但如果因此去约束上层协议，就违背了透明传输的原则。</p>
 <p><strong>面向字节</strong>的物理链路使用<strong>字节填充</strong> (byte stuffing) 或<strong>字符填充</strong> (character stuffing)来解决问题，发送端的数据链路层在数据中出现控制字符（比如界定标志）的前面<strong>插入一个转义字符“ESC”</strong></p>
-<p><img src="/images/typora-user-images/image-20230724184444997.png" alt="image-20230724184444997"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230724184444997.png" alt="image-20230724184444997"></p>
 <p><strong>面向比特</strong>的物理链路使用比特填充的方法实现透明传输。如HDLC协议对于上层数据，每遇到连续5个1就会在其后面插入一个0。</p>
 <h2 id="3-3-差错检测"><a href="#3-3-差错检测" class="headerlink" title="3.3 差错检测"></a>3.3 差错检测</h2><p><strong>复习：</strong></p>
 <ol>
@@ -350,10 +350,10 @@
 </ul>
 <p>这三种可靠传输实现机制的基本原理并不仅限于数据链路层，可以应用到计算机网络体系结构的各层协议中</p>
 <p>停止-等待协议的四个问题与解决方法：</p>
-<p><img src="/images/typora-user-images/image-20230725105115385.png" alt="image-20230725105115385"></p>
-<p><img src="/images/typora-user-images/image-20230725104956614.png" alt="image-20230725104956614"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230725105115385.png" alt="image-20230725105115385"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230725104956614.png" alt="image-20230725104956614"></p>
 <p>停止-等待协议的信道利用率</p>
-<p><img src="/images/typora-user-images/image-20230725110641917.png" alt="image-20230725110641917"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230725110641917.png" alt="image-20230725110641917"></p>
 <ul>
 <li><strong>TD</strong>：是发送方发送数据分组所耗费的发送时延</li>
 <li><strong>RTT</strong>：是收发双方之间的往返时间</li>
@@ -361,36 +361,36 @@
 </ul>
 <p>TA一般都远小于TD，可以忽略，当RTT远大于TD时，信道利用率会非常低</p>
 <p><strong>回退N帧协议GBN</strong></p>
-<p><img src="/images/typora-user-images/image-20230725110954294.png" alt="image-20230725110954294"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230725110954294.png" alt="image-20230725110954294"></p>
 <p>滑动窗口</p>
 <p>无差错情况流程：</p>
 <p>以N&#x3D;3（表示窗口长度为8，序号为0-7），WT&#x3D;5为例，发送方将序号落在发送窗口内的0~4号数据分组，依次连续发送出去。他们经过互联网传输正确到达接收方，就是没有乱序和误码，接收方按序接收它们，每接收一个，接收窗口就向前滑动一个位置，并给发送方发送针对所接收分组的确认分组（或者使用<strong>累计确认</strong>，发送ACKn表示序号n及以前的分组均已接收），在通过互联网的传输正确到达了发送方。</p>
 <p>发送方每接收一个、发送窗口就向前滑动一个位置，这样就有新的序号落入发送窗口，发送方可以将收到确认的数据分组从缓存中删除了，而接收方可以择机将已接收的数据分组交付上层处理。</p>
-<p><img src="/images/typora-user-images/image-20230725111333157.png" alt="image-20230725111333157"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230725111333157.png" alt="image-20230725111333157"></p>
 <p><strong>有差错情况</strong></p>
 <p>在传输数据分组时，5号数据分组出现误码，接收方通过数据分组中的检错码发现了错误</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/24878825-7a8c7e3ec6ebaca6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="https://upload-images.jianshu.io/upload_images/24878825-7a8c7e3ec6ebaca6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
 <p>于是丢弃该分组，而后续到达的这剩下四个分组与接收窗口的序号不匹配</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/24878825-7621ee1bc4ab1619.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="https://upload-images.jianshu.io/upload_images/24878825-7621ee1bc4ab1619.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
 <p>接收同样也不能接收它们，讲它们丢弃，并对之前按序接收的最后一个数据分组进行确认，发送ACK4，<strong>每丢弃一个数据分组，就发送一个ACK4</strong></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/24878825-c3f86dad2611e347.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="https://upload-images.jianshu.io/upload_images/24878825-c3f86dad2611e347.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
 <p>当收到重复的ACK4时，就知道之前所发送的数据分组出现了差错，于是可以不等超时计时器超时就立刻开始重传，具体收到几个重复确认就立刻重传，根据具体实现决定</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/24878825-215e8704b22ef7f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="https://upload-images.jianshu.io/upload_images/24878825-215e8704b22ef7f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
 <p>若WT超过取值范围，会导致接收方新的窗口开始位置和旧的是一样的，因此发送方没法理解发送方是重传还是继续发。</p>
-<p><img src="/images/typora-user-images/image-20230725111803734.png" alt="image-20230725111803734"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230725111803734.png" alt="image-20230725111803734"></p>
 <p><strong>选择重传协议</strong></p>
-<p><img src="/images/typora-user-images/image-20230725120843975.png" alt="image-20230725120843975"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230725120843975.png" alt="image-20230725120843975"></p>
 <p>原视频的动画演示很丰富，工作过程详见视频。</p>
 <p>以下是第一次发送0,1,2,3但是2出现误码的情形。染蓝的格子代表已发送，染绿的格子代表已接收，打标记的蓝格子代表已确认，发送方窗口仅当第一个格子打标记时才可滑动，接收方窗口仅当第一个格子染绿才可滑动。</p>
-<p><img src="/images/typora-user-images/image-20230725120812686.png" alt="image-20230725120812686"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230725120812686.png" alt="image-20230725120812686"></p>
 <h2 id="3-5-点对点协议PPP"><a href="#3-5-点对点协议PPP" class="headerlink" title="3.5 点对点协议PPP"></a>3.5 点对点协议PPP</h2><p>点对点协议PPP（Point-to-Point Protocol）是目前使用最广泛的点对点数据链路层协议。</p>
 <p>PPPoE 是为宽带上网的主机使用的链路层协议</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/24878825-fd145efb1acc73fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="https://upload-images.jianshu.io/upload_images/24878825-fd145efb1acc73fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
 <p>ppp帧包含目的地址吗？</p>
 <blockquote>
 <p> PPPFrames并不包含目的地址。这是因为PPP协议在点对点通信中仅支持两个端点（即两个设备之间的通信），因此，如果一个设备发送一个PPPFrames，则另一个设备就是它的目标。</p>
 </blockquote>
-<p><img src="/images/typora-user-images/image-20230725141320483.png" alt="image-20230725141320483"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230725141320483.png" alt="image-20230725141320483"></p>
 <p>PPP 协议已不是纯粹的数据链路层的协议，它还包含了物理层和网络层的内容。</p>
 <h2 id="3-6-媒体接入控制"><a href="#3-6-媒体接入控制" class="headerlink" title="3.6 媒体接入控制"></a>3.6 媒体接入控制</h2><p>该部分了解即可，不作深入。</p>
 <p><strong>媒体接入控制（介质访问控制）使用一对多的广播通信方式</strong></p>
@@ -400,13 +400,13 @@
 <p>为什么要媒体接入控制？</p>
 <p><strong>共享信道带来的问题</strong></p>
 <p>若多个设备在共享信道上同时发送数据，则会造成彼此干扰，导致发送失败。</p>
-<p><img src="/images/typora-user-images/image-20230725160242188.png" alt="image-20230725160242188"><img src="/images/typora-user-images/image-20230725160048801.png" alt="image-20230725160048801"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230725160242188.png" alt="image-20230725160242188"><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230725160048801.png" alt="image-20230725160048801"></p>
 <h2 id="3-7-1-MAC地址"><a href="#3-7-1-MAC地址" class="headerlink" title="3.7.1 MAC地址"></a>3.7.1 MAC地址</h2><p><strong>复习</strong></p>
 <ol>
 <li><strong>清除mac地址的含义</strong></li>
 <li><strong>清楚单播、多播、广播mac地址的运作过程</strong></li>
 </ol>
-<img src="/images/typora-user-images/image-20230725155611613.png" alt="image-20230725155611613" style="zoom: 80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230725155611613.png" alt="image-20230725155611613" style="zoom: 80%;" />
 
 <p><strong>MAC地址</strong></p>
 <blockquote>
@@ -417,7 +417,7 @@
 </li>
 </ul>
 </blockquote>
-<p><img src="https://upload-images.jianshu.io/upload_images/24878825-eabec58905a9aad1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1199/format/webp" alt="img"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="https://upload-images.jianshu.io/upload_images/24878825-eabec58905a9aad1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1199/format/webp" alt="img"></p>
 <p><strong>MAC地址又称为硬件地址或物理地址</strong>。请注意，物理地址属于数据链路层范畴。</p>
 <p>电脑、手机、蓝牙接口、wifi接口都拥有唯一的mac地址。</p>
 <p>什么是单播和多播</p>
@@ -426,41 +426,41 @@
 <p>多播：是指从一个发送端向一组接收端发送数据包的通信方式。在多播通信中，发送的数据包会被传输到一个特定的多播地址，由多个接收端共享。</p>
 </blockquote>
 <p>mac地址格式（EUI-48）</p>
-<p><img src="/images/typora-user-images/image-20230725164113001.png" alt="image-20230725164113001"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230725164113001.png" alt="image-20230725164113001"></p>
 <p><strong>单播MAC地址举例</strong></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/24878825-a69b9384665e17aa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="https://upload-images.jianshu.io/upload_images/24878825-a69b9384665e17aa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
 <p>主机B给主机C发送<strong>单播帧</strong>，主机B首先要构建该<strong>单播帧</strong>，<strong>在帧首部中的目的地址字段填入主机C的MAC地址</strong>，源地址字段填入自己的MAC地址，再加上帧首部的其他字段、数据载荷以及帧尾部，就构成了该<strong>单播帧</strong>。主机B将该<strong>单播帧</strong>发送出去，主机A和C都会收到该<strong>单播帧</strong>。</p>
 <p><strong>广播MAC地址举例</strong></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/24878825-04fe098832094ecb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="https://upload-images.jianshu.io/upload_images/24878825-04fe098832094ecb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
 <p>假设主机B要发送一个<strong>广播帧</strong>，主机B首先要构建该<strong>广播帧</strong>，<strong>在帧首部中的目的地址字段填入广播地址</strong>，也就是十六进制的全F。主机B讲该广播帧发送出去，主机A和C都会收到该广播帧，发现该帧首部中的目的地址字段的内容是广播地址，就知道该帧是广播帧，主机A和主机C都接受该帧，并将该帧交给上层处理</p>
 <p><strong>多播MAC地址举例</strong></p>
 <p>快速判断地址是不是<strong>多播地址</strong>，就是上图所示箭头所指的第十六进制数不能整除2（1,3,5,7,9,B,D,F），则该地址是<strong>多播地址</strong>。假设主机B，C和D支持多播，各用户会给自己的主机配置多播组列表。比如主机B属于两个多播组，主机C也属于两个多播组，而主机D不属于任何多播组。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/24878825-1d6c26260c21ba6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="https://upload-images.jianshu.io/upload_images/24878825-1d6c26260c21ba6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
 <p>主机A首先要构建该<strong>多播帧</strong>，<strong>在帧首部中的目的地址字段填入该多播地址</strong>，源地址点填入自己的MAC地址。主机A将该多播帧发送出去，主机B、C、D都会收到该多播帧。<strong>主机B和C发现该多播帧的目的MAC地址在自己的多播组列表中</strong>，主机B和C都会接受该帧，主机D发现该多播帧的目的MAC地址不在自己得多播组列表中，则丢弃该多播帧。</p>
 <h2 id="3-7-2-MAC、IP地址"><a href="#3-7-2-MAC、IP地址" class="headerlink" title="3.7.2 MAC、IP地址"></a>3.7.2 MAC、IP地址</h2><p><strong>复习</strong></p>
 <ol>
 <li><strong>简单了解IP地址</strong></li>
 <li><strong>清楚数据包转发过程中MAC和IP地址的变化</strong></li>
 </ol>
-<p><img src="/images/typora-user-images/image-20230725171441446.png" alt="image-20230725171441446"></p>
-<p><img src="/images/typora-user-images/image-20230725171017859.png" alt="image-20230725171017859"></p>
-<p><img src="/images/typora-user-images/image-20230725171344550.png" alt="image-20230725171344550"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230725171441446.png" alt="image-20230725171441446"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230725171017859.png" alt="image-20230725171017859"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230725171344550.png" alt="image-20230725171344550"></p>
 <p>如何从IP地址找出其对应的MAC地址？——ARP协议</p>
 <p>转发的过程中，源 IP 地址和目标 IP 地址是不会变的（前提：没有使用 NAT 网络的）</p>
 <h2 id="3-7-3-ARP协议"><a href="#3-7-3-ARP协议" class="headerlink" title="3.7.3 ARP协议"></a>3.7.3 ARP协议</h2><p><strong>复习</strong></p>
 <ol>
 <li><strong>明白通过ARP协议从IP地址找出其对应的MAC地址的过程</strong></li>
 </ol>
-<p><img src="https://upload-images.jianshu.io/upload_images/24878825-97a253fd9b87b3be.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="https://upload-images.jianshu.io/upload_images/24878825-97a253fd9b87b3be.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
 <p>当主机B要给主机C发送数据包时，会首先在自己的ARP高速缓存表中查找主机C的IP地址所对应的MAC地址，但未找到，因此，主机B需要发送<strong>ARP请求报文</strong>，来获取主机C的MAC地址。</p>
 <p>ARP请求报文有具体的格式，上图的只是简单描述。ARP请求报文被<strong>封装在广播MAC帧</strong>中发送，目的地址为广播地址。主机B发送封装有ARP请求报文的广播帧，总线上的其他主机都能收到该广播帧。</p>
 <p>收到ARP请求报文的主机A和主机C会把ARP请求报文交给<strong>上层</strong>的ARP进程（网络层）。主机A发现所询问的IP地址不是自己的IP地址，因此不用理会。主机C的发现所询问的IP地址是自己的IP地址，需要进行相应。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/24878825-87f01b333e4599d7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/24878825-a3f00154df65aac0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="https://upload-images.jianshu.io/upload_images/24878825-87f01b333e4599d7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="https://upload-images.jianshu.io/upload_images/24878825-a3f00154df65aac0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
 <p>动态：自动获取，生命周期默认为两分钟。<br>静态：手工设置，不同操作系统下的生命周期不同，例如系统重启后不存在或系统重启后依然有效。</p>
 <p>ARP表会定期自动删除记录，<strong>因为IP地址与MAC地址的对应关系不是永久性的</strong></p>
 <p><strong>ARP协议只能在一段链路或一个网络上使用，而不能跨网络使用</strong>。ARP协议的使用是逐段链路进行的</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/24878825-d5847fbcc133c6b8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="https://upload-images.jianshu.io/upload_images/24878825-d5847fbcc133c6b8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
 <p>ARP没有安全验证机制，存在ARP欺骗（攻击）问题。</p>
 <h2 id="3-8-集线器与交换机的区别"><a href="#3-8-集线器与交换机的区别" class="headerlink" title="3.8 集线器与交换机的区别"></a>3.8 集线器与交换机的区别</h2><p><strong>复习</strong></p>
 <ol>
@@ -468,7 +468,7 @@
 <li><strong>清楚交换机的工作过程，明白它与集线器的区别</strong></li>
 <li><strong>清楚冲突域和广播域的概念</strong></li>
 </ol>
-<img src="/images/typora-user-images/image-20230725214807217.png" alt="image-20230725214807217" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230725214807217.png" alt="image-20230725214807217" style="zoom:80%;" />
 
 <p><strong>集线器</strong></p>
 <ul>
@@ -482,7 +482,7 @@
 <li><strong>碰撞域（collision domain）</strong>又称为<strong>冲突域</strong>，是指网络中一个站点发出的帧会与其他站点发出的帧产生碰撞或冲突的那部分网络。</li>
 <li>碰撞域越大，发生碰撞的概率越高。</li>
 </ul>
-<p><img src="https://upload-images.jianshu.io/upload_images/24878825-001d34e299bee061.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/876/format/webp" alt="img"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="https://upload-images.jianshu.io/upload_images/24878825-001d34e299bee061.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/876/format/webp" alt="img"></p>
 <p><strong>网桥</strong></p>
 <ul>
 <li><p>网桥工作在数据链路层。</p>
@@ -499,47 +499,47 @@
 <li><p>以太网交换机实质上就是一个<strong>多接口的网桥</strong></p>
 </li>
 </ul>
-<p><img src="/images/typora-user-images/image-20230725214917255.png" alt="image-20230725214917255"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230725214917255.png" alt="image-20230725214917255"></p>
 <p><strong>以太网交换机的交换方式</strong></p>
 <ul>
 <li>存储转发方式</li>
 <li>直通 (cut-through) 方式</li>
 </ul>
-<img src="https://upload-images.jianshu.io/upload_images/24878825-2e2faba35d2d7852.png?imageMogr2/auto-orient/strip|imageView2/2/w/741/format/webp" alt="img" style="zoom:67%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="https://upload-images.jianshu.io/upload_images/24878825-2e2faba35d2d7852.png?imageMogr2/auto-orient/strip|imageView2/2/w/741/format/webp" alt="img" style="zoom:67%;" />
 
 <p>（上图忽略了ARP过程）</p>
 <p>如今集线器已基本淘汰。</p>
 <p>当多台主机同时给另一台主机发送单播帧时：</p>
 <p>​	集线器以太网：会产生碰撞，遭遇碰撞的帧会传播到总线上的各主机</p>
 <p>​	交换机以太网：会将它们缓存起来，然后<strong>逐个</strong>转发给目的主机，不会产生碰撞</p>
-<p><img src="/images/typora-user-images/image-20230725214651361.png" alt="image-20230725214651361"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230725214651361.png" alt="image-20230725214651361"></p>
 <p>广播域（broadcast domain）：指这样一部分网络，其中任何一台设备发出的广播通信都能被该部分网络中的所有其他设备所接收。</p>
 <h2 id="3-9-以太网交换机自学习和转发帧的流程"><a href="#3-9-以太网交换机自学习和转发帧的流程" class="headerlink" title="3.9 以太网交换机自学习和转发帧的流程"></a>3.9 以太网交换机自学习和转发帧的流程</h2><p><strong>复习</strong></p>
 <ol>
 <li><strong>理解交换机自学习过程</strong></li>
 </ol>
 <p>理解以下过程：</p>
-<p><img src="/images/typora-user-images/image-20230725215930470.png" alt="image-20230725215930470"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230725215930470.png" alt="image-20230725215930470"></p>
 <p>考虑到可能有时要在交换机的接口更换主机，或者主机要更换其网络适配器，这就需要更改交换表中的项目。为此，在交换表中每个项目都设有一定的<strong>有效时间</strong>。<strong>过期的项目就自动被删除</strong>。</p>
 <p><strong>以太网交换机的这种自学习方法使得以太网交换机能够即插即用，不必人工进行配置，因此非常方便。</strong></p>
 <h2 id="3-10-以太网交换机的生成树协议STP"><a href="#3-10-以太网交换机的生成树协议STP" class="headerlink" title="3.10 以太网交换机的生成树协议STP"></a>3.10 以太网交换机的生成树协议STP</h2><p><strong>复习</strong></p>
 <ol>
 <li><strong>了解为什么要引入生成树</strong></li>
 </ol>
-<p><img src="/images/typora-user-images/image-20230725221429010.png" alt="image-20230725221429010"></p>
-<img src="/images/typora-user-images/image-20230725221514913.png" alt="image-20230725221514913" style="zoom:80%;" />
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230725221429010.png" alt="image-20230725221429010"></p>
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230725221514913.png" alt="image-20230725221514913" style="zoom:80%;" />
 
-<p><img src="/images/typora-user-images/image-20230725221933708.png" alt="image-20230725221933708"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230725221933708.png" alt="image-20230725221933708"></p>
 <h2 id="3-11-虚拟局域网VLAN"><a href="#3-11-虚拟局域网VLAN" class="headerlink" title="3.11 虚拟局域网VLAN"></a>3.11 虚拟局域网VLAN</h2><p><strong>复习</strong></p>
 <ol>
 <li><strong>理解广播域的隔离</strong></li>
 <li><strong>明白VLAN的作用</strong></li>
 </ol>
 <p>（工作过程详见视频）</p>
-<p><img src="/images/typora-user-images/image-20230725222757535.png" alt="image-20230725222757535"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230725222757535.png" alt="image-20230725222757535"></p>
 <p>因此需要能够隔离广播域的方法。</p>
-<p><img src="/images/typora-user-images/image-20230725222837111.png" alt="image-20230725222837111"></p>
-<p><img src="/images/typora-user-images/image-20230725222911763.png" alt="image-20230725222911763"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230725222837111.png" alt="image-20230725222837111"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230725222911763.png" alt="image-20230725222911763"></p>
 <ul>
 <li><p>同一个VLAN内部可以广播通信，不同VLAN不可以广播通信</p>
 </li>
@@ -549,13 +549,13 @@
 </li>
 </ul>
 <p>交换机的端口类型</p>
-<p><img src="/images/typora-user-images/image-20230725223041660.png" alt="image-20230725223041660"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230725223041660.png" alt="image-20230725223041660"></p>
 <h2 id="4-1-网络层概述"><a href="#4-1-网络层概述" class="headerlink" title="4.1 网络层概述"></a>4.1 网络层概述</h2><p><strong>复习</strong></p>
 <ol>
 <li><strong>网络层的任务</strong></li>
 <li><strong>网络层和网际层的区别</strong></li>
 </ol>
-<p><img src="/images/typora-user-images/image-20230728133428191.png" alt="image-20230728133428191"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230728133428191.png" alt="image-20230728133428191"></p>
 <p>要实现网络层任务，需要解决一下主要问题：</p>
 <ul>
 <li>网络层向运输层提供怎样的服务（“可靠传输”还是“不可靠传输”）</li>
@@ -617,20 +617,20 @@
 <td>由用户主机负责</td>
 </tr>
 </tbody></table>
-<p><img src="/images/typora-user-images/image-20230728164943830.png" alt="image-20230728164943830"></p>
-<p><img src="/images/typora-user-images/image-20230728165004610.png" alt="image-20230728165004610"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230728164943830.png" alt="image-20230728164943830"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230728165004610.png" alt="image-20230728165004610"></p>
 <h2 id="4-3-1-分类编址的IPv4地址"><a href="#4-3-1-分类编址的IPv4地址" class="headerlink" title="4.3.1 分类编址的IPv4地址"></a>4.3.1 分类编址的IPv4地址</h2><p><strong>复习</strong></p>
 <ol>
 <li><strong>A, B, C类的一个网络分别可以分配多少ip地址？</strong></li>
 </ol>
 <p><strong>分类编制的IPv4地址</strong></p>
-<p><img src="/images/typora-user-images/image-20230728154722252.png" alt="image-20230728154722252"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230728154722252.png" alt="image-20230728154722252"></p>
 <p><strong>一个 IP 地址在整个互联网范围内是唯一的</strong>。</p>
-<p><img src="/images/typora-user-images/image-20230728155822436.png" alt="image-20230728155822436"><img src="/images/typora-user-images/image-20230728155834412.png" alt="image-20230728155834412"><img src="/images/typora-user-images/image-20230728155853146.png" alt="image-20230728155853146"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230728155822436.png" alt="image-20230728155822436"><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230728155834412.png" alt="image-20230728155834412"><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230728155853146.png" alt="image-20230728155853146"></p>
 <p><strong>一般不使用的特殊的 IP 地址</strong></p>
-<p><img src="/images/typora-user-images/image-20230728155412687.png" alt="image-20230728155412687"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230728155412687.png" alt="image-20230728155412687"></p>
 <p><strong>练习（理解答案）</strong></p>
-<p><img src="/images/typora-user-images/image-20230728155751906.png" alt="image-20230728155751906"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230728155751906.png" alt="image-20230728155751906"></p>
 <p><strong>IP 地址的一些重要特点</strong></p>
 <p>(1) <strong>IP 地址是一种分等级的地址结构</strong>。分两个等级的好处是：</p>
 <ul>
@@ -656,9 +656,9 @@
 <li>划分子网纯属一个<strong>单位内部的事情</strong>。单位对外仍然表现为没有划分子网的网络。</li>
 <li>从主机号<strong>借用</strong>若干个位作为<strong>子网号</strong> subnet-id，而主机号 host-id 也就相应减少了若干个位。</li>
 </ul>
-<p><img src="/images/typora-user-images/image-20230728160805387.png" alt="image-20230728160805387"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230728160805387.png" alt="image-20230728160805387"></p>
 <p>凡是从其他网络发送给本单位某个主机的 IP 数据报，仍然是根据 IP 数据报的<strong>目的网络号</strong> net-id，先找到连接在本单位网络上的路由器。然后<strong>此路由器</strong>在收到 IP 数据报后，再按<strong>目的网络号</strong> net-id 和<strong>子网号</strong> subnet-id 找到目的子网。最后就将 IP 数据报直接交付目的主机。</p>
-<img src="/images/typora-user-images/image-20230728161615212.png" alt="image-20230728161615212" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230728161615212.png" alt="image-20230728161615212" style="zoom:80%;" />
 
 <p>优点：</p>
 <ol>
@@ -666,13 +666,13 @@
 <li>使网络的组织更加灵活</li>
 <li>更便于维护和管理</li>
 </ol>
-<p><img src="/images/typora-user-images/image-20230728161046325.png" alt="image-20230728161046325"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230728161046325.png" alt="image-20230728161046325"></p>
 <p>默认掩码：</p>
-<p><img src="/images/typora-user-images/image-20230728161206904.png" alt="image-20230728161206904"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230728161206904.png" alt="image-20230728161206904"></p>
 <p>B，C类似。</p>
 <p>路由器的路由表中的每一个项目，除了要给出目的网络地址外，还必须同时给出该网络的子网掩码。路由器在和相邻路由器交换路由信息时，必须把自己所在网络（或子网）的子网掩码告诉相邻路由器。若一个路由器连接在两个子网上，就拥有两个网络地址和两个子网掩码。</p>
 <p><strong>练习（理解答案）</strong></p>
-<p><img src="/images/typora-user-images/image-20230728161442533.png" alt="image-20230728161442533"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230728161442533.png" alt="image-20230728161442533"></p>
 <h2 id="4-3-3-无分类编址的IPv4地址"><a href="#4-3-3-无分类编址的IPv4地址" class="headerlink" title="4.3.3 无分类编址的IPv4地址"></a>4.3.3 无分类编址的IPv4地址</h2><p>复习</p>
 <p>清楚CIDR的斜线记法</p>
 <p><strong>无分类域间路由选择 CIDR</strong> (Classless Inter-Domain Routing)</p>
@@ -684,9 +684,9 @@
 <li><p><strong>IP 地址从三级编址（使用子网掩码）又回到了两级编址</strong>。</p>
 </li>
 </ul>
-<p><img src="/images/typora-user-images/image-20230728161903159.png" alt="image-20230728161903159"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230728161903159.png" alt="image-20230728161903159"></p>
 <p>重要例子</p>
-<p><img src="/images/typora-user-images/image-20230728161942864.png" alt="image-20230728161942864"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230728161942864.png" alt="image-20230728161942864"></p>
 <p>路由聚合（构造超网）——与网络地址前缀有关，不详述，</p>
 <h2 id="4-3-4-IPv4地址的应用规划"><a href="#4-3-4-IPv4地址的应用规划" class="headerlink" title="4.3.4 IPv4地址的应用规划"></a>4.3.4 IPv4地址的应用规划</h2><p><strong>划分子网的IPv4就是定长的子网掩码</strong>。每个子网所分配的IP地址数量相同，不够灵活，容易造成IP地址的浪费</p>
 <p><strong>无分类编址的IPv4就是变长的子网掩码</strong>。每个子网所分配的1P地址数量可以不同，尽可能减少对P地址的浪费</p>
@@ -695,7 +695,7 @@
 <li><strong>什么是直接交付与间接交付</strong></li>
 <li><strong>如何知道目标是否与自己在同一个网络中</strong></li>
 </ol>
-<p><img src="/images/typora-user-images/image-20230730104539917.png" alt="image-20230730104539917"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230730104539917.png" alt="image-20230730104539917"></p>
 <p>可以通过<strong>目的地址IP</strong>和<strong>源地址的子网掩码</strong>进行<strong>逻辑与运算</strong>得到<strong>目的网络地址</strong></p>
 <ul>
 <li><p>如果<strong>目的网络地址</strong>和<strong>源网络地址</strong>  <strong>相同</strong>，就是<strong>在同一个网络</strong>中，属于<strong>直接交付</strong></p>
@@ -704,7 +704,7 @@
 </li>
 </ul>
 <p>用户为了让本网络中的主机能和其他网络中的主机进行通信，就必须给其指定本网络的一个路由器的接口，由该路由器帮忙进行转发，所指定的路由器，也被称为<strong>默认网关</strong>。例如。路由器的接口0的IP地址192.168.0.128做为左边网络的默认网关。（发给路由器接口，不会影响ip数据报首部的目的地址）</p>
-<p><img src="/images/typora-user-images/image-20230730104947370.png" alt="image-20230730104947370"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230730104947370.png" alt="image-20230730104947370"></p>
 <p>路由器收到IP数据报后如何转发？（&#x3D;&#x3D;查表转发&#x3D;&#x3D;）</p>
 <ul>
 <li>检查IP数据报首部是否出错：<ul>
@@ -718,7 +718,7 @@
 </ul>
 </li>
 </ul>
-<p><img src="/images/typora-user-images/image-20230730104916588.png" alt="image-20230730104916588"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230730104916588.png" alt="image-20230730104916588"></p>
 <h2 id="4-5-静态路由配置及其可能产生的路由环路问题"><a href="#4-5-静态路由配置及其可能产生的路由环路问题" class="headerlink" title="4.5 静态路由配置及其可能产生的路由环路问题"></a>4.5 静态路由配置及其可能产生的路由环路问题</h2><p><strong>复习</strong></p>
 <ol>
 <li><strong>TTL是什么，有何作用</strong></li>
@@ -726,28 +726,28 @@
 <li><strong>导致路由环路的原因</strong></li>
 </ol>
 <p><strong>总结</strong></p>
-<p><img src="/images/typora-user-images/image-20230823094622817.png" alt="image-20230823094622817"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823094622817.png" alt="image-20230823094622817"></p>
 <ul>
 <li>静态路由配置是指用户或网络管理员使用路由器的相关命令给路由器人工配置路由表。<br>这种人工配置方式简单、开销小。但不能及时适应网络状态（流量、拓扑等）的变化<br>一般只在小规模网络中采用。</li>
 <li>使用静态路由配置可能出现以下导致产生路由环路的错误<br>配置错误<br>聚合了不存在的网络<br>网络故障</li>
 </ul>
 <p><strong>默认路由</strong></p>
 <p>默认路由可以被所有网络匹配，但路由匹配有优先级，默认路由是优先级最低的</p>
-<p><img src="/images/typora-user-images/image-20230823092641071.png" alt="image-20230823092641071"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823092641071.png" alt="image-20230823092641071"></p>
 <p><strong>特定主机路由</strong></p>
 <p>我们可以给路由器添加针对某个主机的特定主机路由条目，一般用于网络管理人员对网络的管理和测试</p>
-<p><img src="/images/typora-user-images/image-20230823092753977.png" alt="image-20230823092753977"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823092753977.png" alt="image-20230823092753977"></p>
 <blockquote>
 <p>多条路由可选，匹配路由最具体的</p>
 </blockquote>
 <p><strong>静态路由配置错误导致路由环路</strong></p>
-<p><img src="/images/typora-user-images/image-20230823092952939.png" alt="image-20230823092952939"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823092952939.png" alt="image-20230823092952939"></p>
 <p><strong>聚合了不存在的网络而导致路由环路</strong></p>
-<p><img src="/images/typora-user-images/image-20230823093254263.png" alt="image-20230823093254263"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823093254263.png" alt="image-20230823093254263"></p>
 <p>解决方案——路由黑洞。黑洞路由的下一跳为null0，这是路由器内部的虚拟接口，IP数据报进入它后就被丢弃</p>
-<p><img src="/images/typora-user-images/image-20230823093412615.png" alt="image-20230823093412615"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823093412615.png" alt="image-20230823093412615"></p>
 <p><strong>网络故障而导致路由环路</strong></p>
-<p><img src="/images/typora-user-images/image-20230823094500996.png" alt="image-20230823094500996"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823094500996.png" alt="image-20230823094500996"></p>
 <p>解决方法：添加故障的网络为黑洞路由，假设一段时间后故障网络恢复了，R1又自动地得出了其接口0的直连网络的路由条目，针对该网络的黑洞网络会自动失效。</p>
 <h2 id="4-6-1-路由选择协议"><a href="#4-6-1-路由选择协议" class="headerlink" title="4.6.1 路由选择协议"></a>4.6.1 路由选择协议</h2><p><strong>复习</strong></p>
 <ol>
@@ -756,49 +756,49 @@
 <li><strong>理解IGP和EGP</strong></li>
 </ol>
 <p><strong>因特网所采用的路由选择协议的主要特点</strong></p>
-<p><img src="/images/typora-user-images/image-20230823094850026.png" alt="image-20230823094850026"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823094850026.png" alt="image-20230823094850026"></p>
 <p><strong>自治系统 AS</strong>：在单一的技术管理下的一组路由器，而这些路由器使用一种 AS 内部的路由选择协议和共同的度量以确定分组在该 AS 内的路由，同时还使用一种 AS 之间的路由选择协议用以确定分组在 AS之间的路由。</p>
 <p>两种<strong>路由选择</strong>：自治系统之间的路由选择简称为域间路由选择，自治系统内部的路由选择简称为域内路由选择。</p>
-<p><img src="/images/typora-user-images/image-20230823095132299.png" alt="image-20230823095132299"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823095132299.png" alt="image-20230823095132299"></p>
 <p><strong>常见的路由选择协议</strong></p>
-<p><img src="/images/typora-user-images/image-20230823095259166.png" alt="image-20230823095259166"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823095259166.png" alt="image-20230823095259166"></p>
 <p>&#x3D;&#x3D;路由器是一种具有多个输入端口和输出端口的专用计算机，其任务是转发分组&#x3D;&#x3D;</p>
 <p>路由器结构可划分为两大部分：</p>
 <p>1、<strong>分组转发部分</strong></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/24878825-af72fd2149d2c01e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="https://upload-images.jianshu.io/upload_images/24878825-af72fd2149d2c01e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
 <p><strong>路由器的端口一般都具有输入和输出功能</strong>，这些实例分出了输入端口和输出端口是更好演示路由基本工作过程</p>
 <p>2、<strong>路由选择部分</strong></p>
 <p>&#x3D;&#x3D;重点&#x3D;&#x3D;：路由选择部分的核心构件是路由选择处理机，它的任务是根据所使用的路由选择协议，周期性地与其他路由器进行路由信息的交互，来更新路由表。如果送交给输入端口的网络层的分组是路由器之间交换路由信息的路由报文，则把这种分组送交给路由选择处理机。<strong>转发表是由路由表得出的</strong>。</p>
-<p><img src="/images/typora-user-images/image-20230823095555395.png" alt="image-20230823095555395"></p>
-<h2 id="4-6-2-路由信息协议RIP"><a href="#4-6-2-路由信息协议RIP" class="headerlink" title="4.6.2 路由信息协议RIP"></a>4.6.2 路由信息协议RIP</h2><p><img src="/images/typora-user-images/image-20230823101955779.png" alt="image-20230823101955779"></p>
-<p><img src="/images/typora-user-images/image-20230823102035762.png" alt="image-20230823102035762"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823095555395.png" alt="image-20230823095555395"></p>
+<h2 id="4-6-2-路由信息协议RIP"><a href="#4-6-2-路由信息协议RIP" class="headerlink" title="4.6.2 路由信息协议RIP"></a>4.6.2 路由信息协议RIP</h2><p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823101955779.png" alt="image-20230823101955779"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823102035762.png" alt="image-20230823102035762"></p>
 <p><strong>更新规则</strong></p>
 <p>详见课件</p>
 <p><strong>“坏消息传播慢”问题</strong></p>
-<p><img src="/images/typora-user-images/image-20230823102323150.png" alt="image-20230823102323150"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823102323150.png" alt="image-20230823102323150"></p>
 <h2 id="4-6-3-开放最短路径优先OSPF"><a href="#4-6-3-开放最短路径优先OSPF" class="headerlink" title="4.6.3 开放最短路径优先OSPF"></a>4.6.3 开放最短路径优先OSPF</h2><p><strong>OSPF(Open Shortest Path First)</strong></p>
 <p>概念</p>
-<img src="/images/typora-user-images/image-20230823103803961.png" alt="image-20230823103803961" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823103803961.png" alt="image-20230823103803961" style="zoom:80%;" />
 
 <p>OSPF的五种分组类型（由IP首部的协议字段值为89表示OSPF协议）（这里不展开介绍，详见课件）：</p>
-<img src="/images/typora-user-images/image-20230823104549555.png" alt="image-20230823104549555" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823104549555.png" alt="image-20230823104549555" style="zoom:80%;" />
 
-<img src="/images/typora-user-images/image-20230823104933459.png" alt="image-20230823104933459" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823104933459.png" alt="image-20230823104933459" style="zoom:80%;" />
 
 
 
 <p><strong>为了使OSPF能够用于规模很大的网络，OSPF把一个自治系统再划分为若干个更小的范围，叫做区域（Area）</strong></p>
-<p><img src="/images/typora-user-images/image-20230823105143045.png" alt="image-20230823105143045"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823105143045.png" alt="image-20230823105143045"></p>
 <h2 id="4-6-4-边界网关协议BGP"><a href="#4-6-4-边界网关协议BGP" class="headerlink" title="4.6.4 边界网关协议BGP"></a>4.6.4 边界网关协议BGP</h2><p><strong>复习</strong></p>
 <ol>
 <li><strong>理解BEG</strong></li>
 </ol>
 <p>BGP（Border Gateway Protocol） 是<strong>不同自治系统的路由器之间</strong>交换路由信息的协议</p>
-<p><img src="/images/typora-user-images/image-20230823105443150.png" alt="image-20230823105443150"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823105443150.png" alt="image-20230823105443150"></p>
 <p>自治系统之间的路由选择必须考虑相关策略（政治，经济，安全等）。由于没有统一的度量，因此也无法找到一条所谓的最佳路由。BGP只能是力求寻找一条能够到达目的网络且比较好的路由（不能兜圈子）。</p>
 <p>BGP发言人：不再赘述。</p>
 <p><strong>直接封装RIP、OSPF和BGP报文的协议</strong>（这三个协议的层次有所争议）</p>
-<img src="/images/typora-user-images/image-20230823105710952.png" alt="image-20230823105710952" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823105710952.png" alt="image-20230823105710952" style="zoom:80%;" />
 
 
 
@@ -807,28 +807,28 @@
 <li><strong>全程高能</strong></li>
 </ol>
 <p><strong>总结：</strong></p>
-<p><img src="/images/typora-user-images/image-20230823112537378.png" alt="image-20230823112537378"></p>
-<p><img src="/images/typora-user-images/image-20230823111821311.png" alt="image-20230823111821311"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823112537378.png" alt="image-20230823112537378"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823111821311.png" alt="image-20230823111821311"></p>
 <ul>
 <li>一个 IP 数据报由<strong>首部</strong>和<strong>数据</strong>两部分组成。</li>
 <li><strong>首部的前一部分是固定长度，共 20 字节，是所有 IP 数据报必须具有的。</strong></li>
 <li>在首部的固定部分的后面是一些可选字段，其长度是可变的。</li>
 </ul>
 <p><strong>IP数据报的首部长度一定是4字节的整数倍</strong></p>
-<img src="/images/typora-user-images/image-20230823111914917.png" alt="image-20230823111914917" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823111914917.png" alt="image-20230823111914917" style="zoom:80%;" />
 
-<img src="/images/typora-user-images/image-20230823111859124.png" alt="image-20230823111859124" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823111859124.png" alt="image-20230823111859124" style="zoom:80%;" />
 
 <p>“区分服务”字段没什么用</p>
-<img src="/images/typora-user-images/image-20230823112051414.png" alt="image-20230823112051414" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823112051414.png" alt="image-20230823112051414" style="zoom:80%;" />
 
 <p>分片过程详见课件。</p>
 <p><strong>生存时间TTL</strong>：以“跳数”为单位，路由器转发P数据报时，将P数据报首部中的该字段的值减1，若不为0就转发，否则就丢弃。</p>
 <p><strong>协议</strong></p>
-<img src="/images/typora-user-images/image-20230823112244283.png" alt="image-20230823112244283" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823112244283.png" alt="image-20230823112244283" style="zoom:80%;" />
 
-<p><img src="/images/typora-user-images/image-20230823112314120.png" alt="image-20230823112314120"></p>
-<img src="/images/typora-user-images/image-20230823112335380.png" alt="image-20230823112335380" style="zoom:80%;" />
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823112314120.png" alt="image-20230823112314120"></p>
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823112335380.png" alt="image-20230823112335380" style="zoom:80%;" />
 
 
 
@@ -846,37 +846,37 @@
 <li>改善网络设置等</li>
 </ul>
 <p><strong>有了这些功能以后，就可以获得网络是否正常，设置是否有误以及设备有何异常等信息，从而便于进行网络上的问题诊断</strong></p>
-<img src="/images/typora-user-images/image-20230823112848914.png" alt="image-20230823112848914" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823112848914.png" alt="image-20230823112848914" style="zoom:80%;" />
 
 <p><strong>ICMP 是 IP 层的协议（因为 ICMP 报文是装在 IP 数据报中，作为其中的数据部分）</strong></p>
-<img src="/images/typora-user-images/image-20230823113002613.png" alt="image-20230823113002613" style="zoom:67%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823113002613.png" alt="image-20230823113002613" style="zoom:67%;" />
 
 <p><strong>终点不可达</strong></p>
-<img src="/images/typora-user-images/image-20230823113045196.png" alt="image-20230823113045196" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823113045196.png" alt="image-20230823113045196" style="zoom:80%;" />
 
 <p><strong>源点抑制</strong></p>
 <p>当路由器或主机由于拥塞而丢弃数据报时，就向源点发送源点抑制报文，使源点知道应当把数据报的发送速率放慢。</p>
-<img src="/images/typora-user-images/image-20230823113133796.png" alt="image-20230823113133796" style="zoom: 80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823113133796.png" alt="image-20230823113133796" style="zoom: 80%;" />
 
 <p><strong>时间超过</strong></p>
 <p>若TTL结果为0，除丢弃该P数据报外，还要向源点发送时间超过报文。</p>
-<img src="/images/typora-user-images/image-20230823113228039.png" alt="image-20230823113228039" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823113228039.png" alt="image-20230823113228039" style="zoom:80%;" />
 
 <p><strong>参数问题</strong></p>
-<img src="/images/typora-user-images/image-20230823113316860.png" alt="image-20230823113316860" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823113316860.png" alt="image-20230823113316860" style="zoom:80%;" />
 
 <p><strong>改变路由（重定向）</strong></p>
 <p>路由器把改变路由报文发送给主机，让主机知道下次应将数据报发送给另外的路由器(可通过更好的路由)</p>
-<img src="/images/typora-user-images/image-20230823113414947.png" alt="image-20230823113414947" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823113414947.png" alt="image-20230823113414947" style="zoom:80%;" />
 
 
 
 <p>ICMP应用——</p>
 <p><strong>分组网间探测PING</strong>（Packet InterNet Groper）</p>
-<p><img src="/images/typora-user-images/image-20230823113523059.png" alt="image-20230823113523059"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823113523059.png" alt="image-20230823113523059"></p>
 <p><strong>跟踪路由(traceroute)</strong></p>
 <p>通过不断增大TTL，就可以从返回的ICMP报文中得知每一步的路由。</p>
-<img src="/images/typora-user-images/image-20230823113646039.png" alt="image-20230823113646039" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823113646039.png" alt="image-20230823113646039" style="zoom:80%;" />
 
 
 
@@ -885,7 +885,7 @@
 <li><strong>理解VPN和NAT、NAPT的工作过程</strong></li>
 </ol>
 <p><em><strong>虚拟专用网VPN（Virtual Private Network）</strong></em></p>
-<p><img src="/images/typora-user-images/image-20230823115653470.png" alt="image-20230823115653470"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823115653470.png" alt="image-20230823115653470"></p>
 <blockquote>
 <p>私有地址只能用于一个机构的内部通信，而不能用于和因特网上的主机通信</p>
 <p>私有地址只能用作本地地址而不能用作全球地址</p>
@@ -901,16 +901,16 @@
 </ul>
 </blockquote>
 <p>部门A和部门B至少需要一个 路由器具有合法的全球IP地址，这样各自的专用网才能利用公用的因特网进行通信。部门A向部门B发送数据流程</p>
-<p><img src="/images/typora-user-images/image-20230823115503311.png" alt="image-20230823115503311"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823115503311.png" alt="image-20230823115503311"></p>
 <p>两个专用网内的主机间发送的数据报是通过了公用的因特网，但在效果上就好像是在本机构的专用网上传送一样。数据报在因特网中可能要经过多个网络和路由器，但从逻辑上看，R1和R2之间好像是一条直通的点对点链路。因此也被称为<strong>IP隧道技术</strong>。</p>
 <p><em><strong>网络地址转换NAT（Network Address Translation）</strong></em></p>
 <p>使用私有地址的主机，如何才能与因特网上使用全球IP地址的主机进行通信？这需要在专用网络连接到因特网的路由器上安装NAT软件。</p>
 <p>专有NAT软件的路由器叫做NAT路由器，它至少有一个有效的外部全球IP地址。这样，所有使用私有地址的主机在和外界通信时，都要在NAT路由器上将其私有地址转换为全球IP地址。</p>
-<img src="/images/typora-user-images/image-20230823115828704.png" alt="image-20230823115828704" style="zoom:67%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823115828704.png" alt="image-20230823115828704" style="zoom:67%;" />
 
 <p>这种基本转换存在一个问题：如果NAT路由器具有N个全球P地址，那么至多只能有N个内网主机能够同时和因特网上的主机通信。</p>
 <p>解决方法：</p>
-<p><img src="/images/typora-user-images/image-20230823115956116.png" alt="image-20230823115956116"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230823115956116.png" alt="image-20230823115956116"></p>
 <blockquote>
 <p>我们现在用的很多家用路由器都是这种NART路由器</p>
 </blockquote>
@@ -919,9 +919,9 @@
 <ol>
 <li><strong>主机到主机、点到点、端到端</strong></li>
 </ol>
-<img src="/images/typora-user-images/image-20230824174842100.png" alt="image-20230824174842100" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230824174842100.png" alt="image-20230824174842100" style="zoom:80%;" />
 
-<img src="/images/typora-user-images/image-20230824174942462.png" alt="image-20230824174942462" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230824174942462.png" alt="image-20230824174942462" style="zoom:80%;" />
 
 
 
@@ -931,14 +931,14 @@
 <li><strong>理解运输层的工作过程</strong></li>
 </ol>
 <p><strong>发送方的复用和接收方的分用</strong></p>
-<img src="/images/typora-user-images/image-20230824175059932.png" alt="image-20230824175059932" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230824175059932.png" alt="image-20230824175059932" style="zoom:80%;" />
 
 <p><strong>多个进程（这里一个端口表示一个进程）</strong> 利用一个运输层协议（或者称为运输层接口）<strong>发送</strong>数据称为 <strong>复用</strong><br><strong>多个进程（这里一个端口表示一个进程）</strong> 利用一个运输层协议（或者称为运输层接口）<strong>接收</strong>时叫做 <strong>分用</strong></p>
-<img src="/images/typora-user-images/image-20230824175222362.png" alt="image-20230824175222362" style="zoom:60%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230824175222362.png" alt="image-20230824175222362" style="zoom:60%;" />
 
 <p>（注意DNS与HTTP，这两个经常用到）</p>
 <p><strong>运输层传输流程</strong>（以DNS服务为例）</p>
-<img src="/images/typora-user-images/image-20230824175507222.png" alt="image-20230824175507222" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230824175507222.png" alt="image-20230824175507222" style="zoom:80%;" />
 
 <ol>
 <li><p>在浏览器输入域名，回车浏览</p>
@@ -976,7 +976,7 @@
 <ol>
 <li><strong>全程高能</strong></li>
 </ol>
-<p>总结：<br><img src="/images/typora-user-images/image-20230824202756873.png" alt="image-20230824202756873" style="zoom:67%;" /></p>
+<p>总结：<br><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230824202756873.png" alt="image-20230824202756873" style="zoom:67%;" /></p>
 <p>概念</p>
 <ul>
 <li><strong>UDP</strong> 和 <strong>TCP</strong> 是TCP&#x2F;IP体系结构<strong>运输层</strong>中的两个重要协议</li>
@@ -984,21 +984,21 @@
 <li>当运输层采用无连接的 <strong>UDP</strong> 协议时，这种逻辑通信信道是一条<strong>不可靠信道</strong>。</li>
 </ul>
 <p>两个对等运输实体在通信时传送的数据单位叫作<strong>运输协议数据单元</strong> TPDU (Transport Protocol Data Unit)。<br>TCP 传送的数据单位协议是 <strong>TCP 报文段</strong>(segment)。<br>UDP 传送的数据单位协议是 <strong>UDP 报文</strong>或<strong>用户数据报</strong>。</p>
-<img src="/images/typora-user-images/image-20230824180115936.png" alt="image-20230824180115936" style="zoom:67%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230824180115936.png" alt="image-20230824180115936" style="zoom:67%;" />
 
 <p>UDP的通信是无连接的，不需要套接字（Socket）</p>
 <p>TCP是面向连接的，TCP之间的通信必须要在两个<strong>套接字</strong>（Socket）之间建立连接</p>
 <p><em><strong>用户数据报协议UDP（User Datagram Protocol）</strong></em></p>
 <p>UDP对应用进程交下来的报文既不合并也不拆分，而是<strong>保留这些报文的边界</strong>（仅仅是加个首部）。换句话说，UDP是面向应用报文的</p>
 <p>UDP向上层提供<strong>无连接不可靠</strong>传输服务。</p>
-<img src="/images/typora-user-images/image-20230824190355989.png" alt="image-20230824190355989" style="zoom: 67%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230824190355989.png" alt="image-20230824190355989" style="zoom: 67%;" />
 
-<img src="/images/typora-user-images/image-20230824200828946.png" alt="image-20230824200828946" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230824200828946.png" alt="image-20230824200828946" style="zoom:80%;" />
 
 <p><em><strong>传输控制协议TCP（Transmission Control Protocol）</strong></em></p>
 <p>使用TCP协议的通信双方，在进行数据传输之前，必须使用“三报文握手”建立TCP连接。TCP连接建立成功后，通信双方之间就好像有一条可靠的通信信道，通信双方使用这条基于TCP连接的可靠信道进行通信</p>
 <p>很显然，TCP仅支持单播，也就是一对一的通信。</p>
-<img src="/images/typora-user-images/image-20230824201149684.png" alt="image-20230824201149684" style="zoom:67%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230824201149684.png" alt="image-20230824201149684" style="zoom:67%;" />
 
 <blockquote>
 <p>发送方</p>
@@ -1022,9 +1022,9 @@
 <p>TCP是面向字节流的，这正是TCP实现可靠传输、流量控制、以及拥塞控制的基础</p>
 <p>本图只画了一个方向的数据流，在实际网络中，基于TCP连接的两端，可以<strong>同时进行TCP报文段的发送和接收</strong></p>
 </blockquote>
-<img src="/images/typora-user-images/image-20230824201415221.png" alt="image-20230824201415221" style="zoom:67%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230824201415221.png" alt="image-20230824201415221" style="zoom:67%;" />
 
-<img src="/images/typora-user-images/image-20230824201446973.png" alt="image-20230824201446973" style="zoom:70%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230824201446973.png" alt="image-20230824201446973" style="zoom:70%;" />
 
 
 
@@ -1033,19 +1033,19 @@
 <li><strong>全程高能</strong></li>
 </ol>
 <p>总结：</p>
-<img src="/images/typora-user-images/image-20230825095006296.png" alt="image-20230825095006296" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230825095006296.png" alt="image-20230825095006296" style="zoom:80%;" />
 
 
 
-<img src="/images/typora-user-images/image-20230825094351984.png" alt="image-20230825094351984" style="zoom:85%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230825094351984.png" alt="image-20230825094351984" style="zoom:85%;" />
 
 <p>如图所示，1和101收到了累计确认，因此滑动窗口，主机A可将发送缓存中序号1~200的字节数据全部删除。201没有收到确认，因此超时重传。</p>
 <p>响应报文的<code>rwnd</code>表示调整滑动窗口的大小。</p>
 <p>收到ack&#x3D;501后，主机A可将发送缓存中序号201~500的字节数据全部删除，因为已经收到了主机B对它们的累计确认。</p>
-<img src="/images/typora-user-images/image-20230825094722864.png" alt="image-20230825094722864" style="zoom:85%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230825094722864.png" alt="image-20230825094722864" style="zoom:85%;" />
 
 <p>发送501~600号字节数据后，发送窗口被调控为0，<strong>不能再发送新数据了</strong>。</p>
-<img src="/images/typora-user-images/image-20230825094852397.png" alt="image-20230825094852397" style="zoom:85%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230825094852397.png" alt="image-20230825094852397" style="zoom:85%;" />
 
 <p>因为零窗口探测报文段也有重传计时器，重传计时器超时后，零窗口探测报文段会被重传，可以打破死锁。</p>
 <h2 id="5-5-TCP的拥塞控制"><a href="#5-5-TCP的拥塞控制" class="headerlink" title="5.5 TCP的拥塞控制"></a>5.5 TCP的拥塞控制</h2><p><strong>复习</strong></p>
@@ -1053,9 +1053,9 @@
 <li><strong>区分流量控制和拥塞控制</strong></li>
 <li><strong>明白慢开始、拥塞避免、快重传、快恢复的过程</strong></li>
 </ol>
-<img src="/images/typora-user-images/image-20230825100859293.png" alt="image-20230825100859293" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230825100859293.png" alt="image-20230825100859293" style="zoom:80%;" />
 
-<img src="/images/typora-user-images/image-20230825101141965.png" alt="image-20230825101141965" style="zoom:85%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230825101141965.png" alt="image-20230825101141965" style="zoom:85%;" />
 
 <blockquote>
 <p>真正的发送窗口值 &#x3D; Min (接收方窗口值，拥塞窗口值)   swnd&#x3D;Min(rwnd, cwnd)</p>
@@ -1072,9 +1072,9 @@
 </ul>
 </li>
 </ul>
-<img src="/images/typora-user-images/image-20230825101440776.png" alt="image-20230825101440776" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230825101440776.png" alt="image-20230825101440776" style="zoom:80%;" />
 
-<img src="/images/typora-user-images/image-20230825101633579.png" alt="image-20230825101633579" style="zoom:67%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230825101633579.png" alt="image-20230825101633579" style="zoom:67%;" />
 
 <p><strong>拥塞避免（congestion avoidance）</strong></p>
 <ul>
@@ -1083,7 +1083,7 @@
 <li>使拥塞窗口 cwnd 按线性规律缓慢增长。</li>
 <li>在拥塞避免阶段，具有 “<strong>加法增大</strong>” (Additive Increase) 的特点。</li>
 </ul>
-<img src="/images/typora-user-images/image-20230825101838916.png" alt="image-20230825101838916" style="zoom:90%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230825101838916.png" alt="image-20230825101838916" style="zoom:90%;" />
 
 
 
@@ -1094,14 +1094,14 @@
 <li>发送方把拥塞窗口cwd又设置为最小值1，并错误地启动慢开始算法，因而降低了传输效率。</li>
 </ul>
 <p><strong>快重传（fast retrasmit）</strong></p>
-<img src="/images/typora-user-images/image-20230825102343978.png" alt="image-20230825102343978" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230825102343978.png" alt="image-20230825102343978" style="zoom:80%;" />
 
 <p><strong>快恢复（fast recovery）</strong></p>
 <p>发送方一旦收到3个重复确认，就知道现在只是丢失了个别的报文段。于是<strong>不启动慢开始</strong>算法，而执行快恢复算法：</p>
 <ul>
 <li>发送方将慢开始门限ssthresh值和拥塞窗口cwnd值调整为当前窗口的一半；开始执行拥塞避免算法。</li>
 </ul>
-<img src="/images/typora-user-images/image-20230825102533788.png" alt="image-20230825102533788" style="zoom:90%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230825102533788.png" alt="image-20230825102533788" style="zoom:90%;" />
 
 
 
@@ -1113,12 +1113,12 @@
 <li>如果超时重传时间RTO的值设置得比RTT0的值小很多，这会引起报文段不必要的重传，使网络负荷增大</li>
 <li>如果超时重传时间RTO的值设置得远大于RTT0的值，这会使重传时间推迟的太长，使网络的空闲时间增大，降低传输效率</li>
 </ul>
-<img src="/images/typora-user-images/image-20230825102817959.png" alt="image-20230825102817959" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230825102817959.png" alt="image-20230825102817959" style="zoom:80%;" />
 
 <p>与加权平均往返时间的相关内容，详见课件。</p>
 <h2 id="5-7-TCP可靠传输的实现"><a href="#5-7-TCP可靠传输的实现" class="headerlink" title="5.7 TCP可靠传输的实现"></a>5.7 TCP可靠传输的实现</h2><p><strong>总结</strong></p>
-<p><img src="/images/typora-user-images/image-20230825103248208.png" alt="image-20230825103248208"></p>
-<img src="/images/typora-user-images/image-20230825103318039.png" alt="image-20230825103318039" style="zoom:80%;" />
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230825103248208.png" alt="image-20230825103248208"></p>
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230825103318039.png" alt="image-20230825103318039" style="zoom:80%;" />
 
 
 
@@ -1133,7 +1133,7 @@
 <li>采用<strong>三报文握手</strong>主要是为了防止已失效的连接请求报文段突然又传送到了，因而产生错误（<strong>避免重复连接</strong>）。</li>
 </ul>
 <p>为什么要“握手”（连接）？</p>
-<img src="/images/typora-user-images/image-20230825105037880.png" alt="image-20230825105037880" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230825105037880.png" alt="image-20230825105037880" style="zoom:80%;" />
 
 <p><strong>“三报文握手”建立连接</strong></p>
 <ul>
@@ -1144,10 +1144,10 @@
 <p>“握手”需要在TCP客户端和服务器之间交换三个TCP报文段</p>
 <p>一开始，TCP服务器、客户端进程均首先<code>创建传输控制块</code>，用来存储TCP连接中的一些重要信息。例如TCP连接表、指向发送和接收缓存的指针、指向重传队列的指针，当前的发送和接收序号等。</p>
 <p>此时，TCP服务器进程就进入监听状态。由于TCP服务器进程是被动等待来自TCP客户端进程的连接请求，因此成为<strong>被动打开</strong>连接。</p>
-<img src="/images/typora-user-images/image-20230825105905673.png" alt="image-20230825105905673" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230825105905673.png" alt="image-20230825105905673" style="zoom:80%;" />
 
 <p>由于TCP连接建立是由TCP客户端主动发起的，因此称为<strong>主动打开</strong>连接。</p>
-<img src="/images/typora-user-images/image-20230825110039719.png" alt="image-20230825110039719" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230825110039719.png" alt="image-20230825110039719" style="zoom:80%;" />
 
 <blockquote>
 <p>然后，在打算建立TCP连接时，向TCP服务器进程发送TCP连接请求报文段，并进入同步已发送状态</p>
@@ -1160,7 +1160,7 @@
 </ul>
 <p>请注意：TCP规定SYN被设置为1的报文段不能携带数据，但要消耗掉一个序号</p>
 </blockquote>
-<img src="/images/typora-user-images/image-20230825110202804.png" alt="image-20230825110202804" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230825110202804.png" alt="image-20230825110202804" style="zoom:80%;" />
 
 <blockquote>
 <p>TCP服务器进程收到TCP连接请求报文段后，如果同意建立连接，则向TCP客户进程发送TCP连接请求确认报文段，并进入同步已接收状态</p>
@@ -1175,7 +1175,7 @@
 </ul>
 <p>请注意：这个报文段也不能携带数据，因为它是SYN被设置为1的报文段，但同样要消耗掉一个序号</p>
 </blockquote>
-<img src="/images/typora-user-images/image-20230825110259014.png" alt="image-20230825110259014" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230825110259014.png" alt="image-20230825110259014" style="zoom:80%;" />
 
 <blockquote>
 <p>TCP客户进程收到TCP连接请求确认报文段后，还要向TCP服务器进程发送一个普通的TCP确认报文段，并进入连接已连接状态</p>
@@ -1190,19 +1190,19 @@
 </ul>
 <p>请注意：TCP规定普通的TCP确认报文段可以携带数据，但如果不携带数据，则不消耗序号</p>
 </blockquote>
-<img src="/images/typora-user-images/image-20230825110613843.png" alt="image-20230825110613843" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230825110613843.png" alt="image-20230825110613843" style="zoom:80%;" />
 
 <blockquote>
 <p>TCP服务器进程收到该确认报文段后也进入连接已建立状态</p>
 <p>现在，TCP双方都进入了连接已建立状态，它们可以基于已建立好的TCP连接，进行可靠的数据传输</p>
 </blockquote>
 <p>为什么TCP客户进程最后还要发送一个普通的TCP确认报文段？能否使用“两报文握手”建立连接？下图实例是“两报文握手”</p>
-<img src="/images/typora-user-images/image-20230825110652328.png" alt="image-20230825110652328" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230825110652328.png" alt="image-20230825110652328" style="zoom:80%;" />
 
 <blockquote>
 <p>为了防止已经失效的连接请求报文段突然又传到服务端，因而产生错误”，这种情况是：一端(client)A发出去的第一个连接请求报文并没有&gt; 丢失，而是因为某些未知的原因在某个网络节点上发生滞留，导致延迟到连接释放以后的某个时间才到达另一端(server)B。本来这是一个&gt; 早已失效的报文段，但是B收到此失效的报文之后，会误认为是A再次发出的一个新的连接请求，于是B端就向A又发出确认报文，表示同&gt; 意建立连接。如果不采用“三次握手”，那么只要B端发出确认报文就会认为新的连接已经建立了，但是A端并没有发出建立连接的请求，因&gt; 此不会去向B端发送数据，B端没有收到数据就会一直等待，这样B端就会白白浪费掉很多资源。<br> 所以并不<strong>多余</strong>，这是为了防止已失效的连接请求报文段突然又传送到了TCP服务器，因而导致错误</p>
 </blockquote>
-<p>总结：<br><img src="/images/typora-user-images/image-20230825110901536.png" alt="image-20230825110901536" style="zoom:80%;" /></p>
+<p>总结：<br><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230825110901536.png" alt="image-20230825110901536" style="zoom:80%;" /></p>
 <h2 id="5-8-2-TCP的连接释放"><a href="#5-8-2-TCP的连接释放" class="headerlink" title="5.8.2 TCP的连接释放"></a>5.8.2 TCP的连接释放</h2><p><strong>复习</strong></p>
 <ol>
 <li><strong>全程高能</strong></li>
@@ -1219,7 +1219,7 @@
 <li>被动等待连接建立的应用进程叫做<strong>TCP服务器</strong> (server)。</li>
 <li><strong>任何一方都可以在数据传送结束后发出连接释放的通知</strong></li>
 </ul>
-<img src="/images/typora-user-images/image-20230825151624321.png" alt="image-20230825151624321" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230825151624321.png" alt="image-20230825151624321" style="zoom:80%;" />
 
 <blockquote>
 <p>TCP客户进程的应用进程通知其主动关闭TCP连接</p>
@@ -1235,7 +1235,7 @@
 </ul>
 <p>请注意：TCP规定终止位FIN等于1的报文段即使不携带数据，也要消耗掉一个序号</p>
 </blockquote>
-<img src="/images/typora-user-images/image-20230825151714204.png" alt="image-20230825151714204" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230825151714204.png" alt="image-20230825151714204" style="zoom:80%;" />
 
 <blockquote>
 <p>TCP服务器进程收到TCP连接释放报文段后，会发送一个普通的TCP确认报文段并进入关闭等待状态</p>
@@ -1249,7 +1249,7 @@
 </li>
 </ul>
 </blockquote>
-<img src="/images/typora-user-images/image-20230825153158081.png" alt="image-20230825153158081" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230825153158081.png" alt="image-20230825153158081" style="zoom:80%;" />
 
 <blockquote>
 <p>TCP服务器进程应该通知高层应用进程，TCP客户进程要断开与自己的TCP连接</p>
@@ -1257,14 +1257,14 @@
 <p>这时的TCP连接属于<strong>半关闭状态</strong>，也就是TCP客户进程已经没有数据要发送了</p>
 <p>但如果TCP服务器进程还有数据要发送，TCP客户进程仍要接收，也就是说从<strong>TCP服务器进程到TCP客户进程这个方向的连接并未关闭</strong>。</p>
 </blockquote>
-<img src="/images/typora-user-images/image-20230825152905011.png" alt="image-20230825152905011" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230825152905011.png" alt="image-20230825152905011" style="zoom:80%;" />
 
 <blockquote>
 <p>TCP客户进程收到TCP确认报文段后就进入终止等待2状态，等待TCP服务器进程发出的TCP连接释放报文段</p>
 <p>若使用TCP服务器进程的应用进程已经没有数据要发送了，应用进程就通知其TCP服务器进程释放连接</p>
 <p>由于TCP连接释放是由TCP客户进程主动发起的，因此TCP服务器进程对TCP连接的释放称为被动关闭连接</p>
 </blockquote>
-<img src="/images/typora-user-images/image-20230825160228887.png" alt="image-20230825160228887" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230825160228887.png" alt="image-20230825160228887" style="zoom:80%;" />
 
 <blockquote>
 <p>TCP服务器进程发送TCP连接释放报文段并进入最后确认状态</p>
@@ -1278,7 +1278,7 @@
 </li>
 </ul>
 </blockquote>
-<img src="/images/typora-user-images/image-20230825160338331.png" alt="image-20230825160338331" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230825160338331.png" alt="image-20230825160338331" style="zoom:80%;" />
 
 <blockquote>
 <p>TCP客户进程收到TCP连接释放报文段后，必须针对该报文段发送普通的TCP确认报文段，之后进入时间等待状态</p>
@@ -1294,7 +1294,7 @@
 <p>TCP服务器进程收到该报文段后就进入关闭状态，而TCP客户进程还要进过2MSL后才能进入关闭状态</p>
 </blockquote>
 <p>TCP客户进程在发送完最后一个确认报文后，为什么不直接进入关闭状态？而是要进入时间等待状态？</p>
-<img src="/images/typora-user-images/image-20230825160544140.png" alt="image-20230825160544140" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230825160544140.png" alt="image-20230825160544140" style="zoom:80%;" />
 
 <blockquote>
 <p>因为时间等待状态以及处于该状态2MSL时长，可以确保TCP服务器进程可以收到最后一个TCP确认报文段而进入关闭状态</p>
@@ -1308,7 +1308,7 @@
 <li>TCP服务器进程以后就不能再收到TCP客户进程发来的数据</li>
 <li>因此，应当有措施使TCP服务器进程不要再白白等待下去</li>
 </ul>
-<img src="/images/typora-user-images/image-20230825160744124.png" alt="image-20230825160744124" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230825160744124.png" alt="image-20230825160744124" style="zoom:80%;" />
 
 
 
@@ -1316,37 +1316,37 @@
 <ol>
 <li><strong>全程高能</strong></li>
 </ol>
-<img src="/images/typora-user-images/image-20230825201019500.png" alt="image-20230825201019500" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230825201019500.png" alt="image-20230825201019500" style="zoom:80%;" />
 
 <p><strong>各字段的作用</strong></p>
 <p>源端口和目的端口</p>
-<img src="/images/typora-user-images/image-20230825201116036.png" alt="image-20230825201116036" style="zoom:85%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230825201116036.png" alt="image-20230825201116036" style="zoom:85%;" />
 
 <p>序号、确认号和确认标志位</p>
-<img src="/images/typora-user-images/image-20230825201242958.png" alt="image-20230825201242958" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230825201242958.png" alt="image-20230825201242958" style="zoom:80%;" />
 
 <p>数据偏移、保留、窗口和校验和</p>
-<img src="/images/typora-user-images/image-20230825201351711.png" alt="image-20230825201351711" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230825201351711.png" alt="image-20230825201351711" style="zoom:80%;" />
 
 <p>同步标志位、终止标志位、复位标志位、推送标志位、紧急标志位和紧急指针</p>
-<img src="/images/typora-user-images/image-20230825201443873.png" alt="image-20230825201443873" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230825201443873.png" alt="image-20230825201443873" style="zoom:80%;" />
 
 <p>选项和填充</p>
-<img src="/images/typora-user-images/image-20230825201500256.png" alt="image-20230825201500256" style="zoom:80%;" />
+<img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/typora-user-images/image-20230825201500256.png" alt="image-20230825201500256" style="zoom:80%;" />
 
 
 
 <h2 id="2-1-网络模型共几层"><a href="#2-1-网络模型共几层" class="headerlink" title="2-1 网络模型共几层"></a>2-1 网络模型共几层</h2><h2 id="2-2-键入网址到网页显示，期间发生了什么？"><a href="#2-2-键入网址到网页显示，期间发生了什么？" class="headerlink" title="2-2 键入网址到网页显示，期间发生了什么？"></a>2-2 键入网址到网页显示，期间发生了什么？</h2><p><strong>一 解析URL</strong></p>
 <p><strong>二 查询服务器域名对应的 IP 地址</strong></p>
 <p>浏览器会先看自身有没有对这个域名的缓存，如果有，就直接返回，如果没有，就去问操作系统，操作系统也会去看自己的缓存，如果有，就直接返回，如果没有，再去 hosts 文件看，也没有，才会去问「本地 DNS 服务器」。</p>
-<p><img src="https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E9%94%AE%E5%85%A5%E7%BD%91%E5%9D%80%E8%BF%87%E7%A8%8B/6.jpg" alt="域名解析的工作流程"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E9%94%AE%E5%85%A5%E7%BD%91%E5%9D%80%E8%BF%87%E7%A8%8B/6.jpg" alt="域名解析的工作流程"></p>
 <p><strong>三 协议栈</strong></p>
-<p><img src="https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E9%94%AE%E5%85%A5%E7%BD%91%E5%9D%80%E8%BF%87%E7%A8%8B/7.jpg" alt="img"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E9%94%AE%E5%85%A5%E7%BD%91%E5%9D%80%E8%BF%87%E7%A8%8B/7.jpg" alt="img"></p>
 <p>应用程序（浏览器）通过调用 Socket 库，来委托协议栈工作。协议栈的上半部分有两块，分别是负<strong>责收发数据的 TCP 和 UDP 协议</strong>，这两个传输协议会接受应用层的委托执行收发数据的操作。</p>
 <p>协议栈的下面一半是<strong>用 IP 协议控制网络包收发操作</strong>，在互联网上传数据时，数据会被切分成一块块的网络包，而将网络包发送给对方的操作就是由 IP 负责的。</p>
 <p>IP 下面的<strong>网卡驱动程序负责控制网卡硬件</strong>，而最下面的<strong>网卡则负责完成实际的收发操作</strong>，也就是对网线中的信号执行发送和接收操作。</p>
 <p>假设客户端有多个网卡，就会有多个 IP 地址，那 IP 头部的源地址应该选择哪个 IP 呢？这个判断相当于在多块网卡中判断应该使用哪个一块网卡来发送包。这个时候就需要根据<strong>路由表</strong>规则，来判断哪一个网卡作为源地址 IP。在 Linux 操作系统，我们可以使用 <code>route -n</code> 命令查看当前系统的路由表。</p>
-<p><img src="https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E9%94%AE%E5%85%A5%E7%BD%91%E5%9D%80%E8%BF%87%E7%A8%8B/15.jpg" alt="路由表"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E9%94%AE%E5%85%A5%E7%BD%91%E5%9D%80%E8%BF%87%E7%A8%8B/15.jpg" alt="路由表"></p>
 <p>我们假设 Web 服务器的目标地址是 <code>192.168.10.200</code>。</p>
 <ol>
 <li>首先先和第一条目的子网掩码（<code>Genmask</code>）进行 <strong>与运算</strong>，得到结果为 <code>192.168.10.0</code>，但是第一个条目的 <code>Destination</code> 是 <code>192.168.3.0</code>，两者不一致所以匹配失败。</li>
@@ -1362,7 +1362,7 @@
 <p><strong>七 出口——网卡</strong></p>
 <p>网络包只是存放在内存中的一串二进制数字信息，没有办法直接发送给对方。因此，我们需要将<strong>数字信息转换为电信号</strong>，才能在网线上传输，也就是说，这才是真正的数据发送过程。</p>
 <p>负责执行这一操作的是<strong>网卡</strong>，要控制网卡还需要靠<strong>网卡驱动程序</strong>。网卡驱动获取网络包之后，会将其<strong>复制</strong>到网卡内的缓存区中，接着会在其<strong>开头加上报头和起始帧分界符，在末尾加上用于检测错误的帧校验序列</strong>。</p>
-<p><img src="https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost4/%E7%BD%91%E7%BB%9C/%E6%95%B0%E6%8D%AE%E5%8C%85.drawio.png" alt="数据包"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost4/%E7%BD%91%E7%BB%9C/%E6%95%B0%E6%8D%AE%E5%8C%85.drawio.png" alt="数据包"></p>
 <ul>
 <li>起始帧分界符是一个用来表示包起始位置的标记</li>
 <li>末尾的 <code>FCS</code>（帧校验序列）用来检查包传输过程是否有损坏</li>
@@ -1370,12 +1370,25 @@
 <p><strong>八 交换机</strong></p>
 <p><strong>九 路由器</strong></p>
 <p><strong>十 目标服务器</strong></p>
-<h2 id="3-1-HTTP"><a href="#3-1-HTTP" class="headerlink" title="3-1 HTTP"></a>3-1 HTTP</h2><p><img src="https://cdn.xiaolincoding.com//mysql/other/6b9bfd38d2684b3f9843ebabf8771212.png" alt="提纲"></p>
+<h2 id="3-1-HTTP"><a href="#3-1-HTTP" class="headerlink" title="3-1 HTTP"></a>3-1 HTTP</h2><p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="https://cdn.xiaolincoding.com//mysql/other/6b9bfd38d2684b3f9843ebabf8771212.png" alt="提纲"></p>
 <h2 id="待录入"><a href="#待录入" class="headerlink" title="待录入"></a>待录入</h2><p>客户端只需给进程分配一个未被占用的端口，而服务端的某些服务需要按约定占据相应的端口。</p>
 <p>若某tcp段的载荷为200字节，序号为100，那么其占有序号100-299，收到的确认序号应为300。</p>
 <p>第三次的ACK在网络中丢失，那么Server 端该TCP连接的状态为SYN_RECV,并且会根据 TCP的超时重传机制，会等待3秒、6秒、12秒后重新发送SYN+ACK包，以便Client重新发送ACK包。</p>
 <p>而Server重发SYN+ACK包的次数，可以通过设置&#x2F;proc&#x2F;sys&#x2F;net&#x2F;ipv4&#x2F;tcp_synack_retries修改，默认值为5.</p>
 <p>如果重发指定次数之后，仍然未收到 client 的ACK应答，那么一段时间后，Server自动关闭这个连接。</p>
-<p><img src="https://pic1.zhimg.com/80/v2-62f64eb0a78690f730de382be7228d1c_720w.webp" alt="img"></p>
+<p><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="https://pic1.zhimg.com/80/v2-62f64eb0a78690f730de382be7228d1c_720w.webp" alt="img"></p>
 <p>tls1.2需四次握手，tls1.3（http3.0）需要三次握手</p>
-</article><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/images/cover/network.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/10/29/%E5%86%B0%E9%BE%99%E8%8D%89%E7%9A%84%E7%AE%97%E6%B3%95%E9%9A%8F%E7%AC%94/" title="冰龙草的算法随笔"><img class="cover" src="/images/cover/icegrass.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">冰龙草的算法随笔</div></div></a></div><div class="next-post pull-right"><a href="/2023/10/29/%E3%80%90ACM%E3%80%91%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%9A%84%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" title="【ACM】最短路的个人总结"><img class="cover" src="/images/cover/acm.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">【ACM】最短路的个人总结</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2"><span class="toc-number">1.</span> <span class="toc-text">1.2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3"><span class="toc-number">2.</span> <span class="toc-text">1.3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4"><span class="toc-number">3.</span> <span class="toc-text">1.4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-1"><span class="toc-number">4.</span> <span class="toc-text">1.5.1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-2"><span class="toc-number">5.</span> <span class="toc-text">1.5.2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-1-3"><span class="toc-number">6.</span> <span class="toc-text">1.6.1~3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-4"><span class="toc-number">7.</span> <span class="toc-text">1.6.4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-7"><span class="toc-number">8.</span> <span class="toc-text">1.7</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-8-1"><span class="toc-number">9.</span> <span class="toc-text">1.8.1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-8-2"><span class="toc-number">10.</span> <span class="toc-text">1.8.2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E7%89%A9%E7%90%86%E5%B1%82%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">11.</span> <span class="toc-text">2.1 物理层的基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E7%89%A9%E7%90%86%E5%B1%82%E4%B8%8B%E9%9D%A2%E7%9A%84%E4%BC%A0%E8%BE%93%E5%AA%92%E4%BD%93"><span class="toc-number">12.</span> <span class="toc-text">2.2 物理层下面的传输媒体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E4%BC%A0%E8%BE%93%E6%96%B9%E5%BC%8F"><span class="toc-number">13.</span> <span class="toc-text">2.3 传输方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E7%BC%96%E7%A0%81%E4%B8%8E%E8%B0%83%E5%88%B6"><span class="toc-number">14.</span> <span class="toc-text">2.3 编码与调制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5%E3%80%81%E4%BF%A1%E9%81%93%E7%9A%84%E6%9E%81%E9%99%90%E5%AE%B9%E9%87%8F"><span class="toc-number">15.</span> <span class="toc-text">2.5、信道的极限容量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-6-%E6%80%BB%E7%BB%93"><span class="toc-number">16.</span> <span class="toc-text">2.6 总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E6%A6%82%E8%BF%B0"><span class="toc-number">17.</span> <span class="toc-text">3.1 数据链路层概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E5%B0%81%E8%A3%85%E6%88%90%E5%B8%A7"><span class="toc-number">18.</span> <span class="toc-text">3.2 封装成帧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E5%B7%AE%E9%94%99%E6%A3%80%E6%B5%8B"><span class="toc-number">19.</span> <span class="toc-text">3.3 差错检测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-%E5%8F%AF%E9%9D%A0%E4%BC%A0%E8%BE%93"><span class="toc-number">20.</span> <span class="toc-text">3.4 可靠传输</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5-%E7%82%B9%E5%AF%B9%E7%82%B9%E5%8D%8F%E8%AE%AEPPP"><span class="toc-number">21.</span> <span class="toc-text">3.5 点对点协议PPP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-6-%E5%AA%92%E4%BD%93%E6%8E%A5%E5%85%A5%E6%8E%A7%E5%88%B6"><span class="toc-number">22.</span> <span class="toc-text">3.6 媒体接入控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-7-1-MAC%E5%9C%B0%E5%9D%80"><span class="toc-number">23.</span> <span class="toc-text">3.7.1 MAC地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-7-2-MAC%E3%80%81IP%E5%9C%B0%E5%9D%80"><span class="toc-number">24.</span> <span class="toc-text">3.7.2 MAC、IP地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-7-3-ARP%E5%8D%8F%E8%AE%AE"><span class="toc-number">25.</span> <span class="toc-text">3.7.3 ARP协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-8-%E9%9B%86%E7%BA%BF%E5%99%A8%E4%B8%8E%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">26.</span> <span class="toc-text">3.8 集线器与交换机的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-9-%E4%BB%A5%E5%A4%AA%E7%BD%91%E4%BA%A4%E6%8D%A2%E6%9C%BA%E8%87%AA%E5%AD%A6%E4%B9%A0%E5%92%8C%E8%BD%AC%E5%8F%91%E5%B8%A7%E7%9A%84%E6%B5%81%E7%A8%8B"><span class="toc-number">27.</span> <span class="toc-text">3.9 以太网交换机自学习和转发帧的流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-10-%E4%BB%A5%E5%A4%AA%E7%BD%91%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%9A%84%E7%94%9F%E6%88%90%E6%A0%91%E5%8D%8F%E8%AE%AESTP"><span class="toc-number">28.</span> <span class="toc-text">3.10 以太网交换机的生成树协议STP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-11-%E8%99%9A%E6%8B%9F%E5%B1%80%E5%9F%9F%E7%BD%91VLAN"><span class="toc-number">29.</span> <span class="toc-text">3.11 虚拟局域网VLAN</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E7%BD%91%E7%BB%9C%E5%B1%82%E6%A6%82%E8%BF%B0"><span class="toc-number">30.</span> <span class="toc-text">4.1 网络层概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E7%BD%91%E7%BB%9C%E5%B1%82%E6%8F%90%E4%BE%9B%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%9C%8D%E5%8A%A1"><span class="toc-number">31.</span> <span class="toc-text">4.2 网络层提供的两种服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-1-%E5%88%86%E7%B1%BB%E7%BC%96%E5%9D%80%E7%9A%84IPv4%E5%9C%B0%E5%9D%80"><span class="toc-number">32.</span> <span class="toc-text">4.3.1 分类编址的IPv4地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-2-%E5%88%92%E5%88%86%E5%AD%90%E7%BD%91%E7%9A%84IPv4%E5%9C%B0%E5%9D%80"><span class="toc-number">33.</span> <span class="toc-text">4.3.2 划分子网的IPv4地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-3-%E6%97%A0%E5%88%86%E7%B1%BB%E7%BC%96%E5%9D%80%E7%9A%84IPv4%E5%9C%B0%E5%9D%80"><span class="toc-number">34.</span> <span class="toc-text">4.3.3 无分类编址的IPv4地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-4-IPv4%E5%9C%B0%E5%9D%80%E7%9A%84%E5%BA%94%E7%94%A8%E8%A7%84%E5%88%92"><span class="toc-number">35.</span> <span class="toc-text">4.3.4 IPv4地址的应用规划</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-IP%E6%95%B0%E6%8D%AE%E6%8A%A5%E7%9A%84%E5%8F%91%E9%80%81%E5%92%8C%E8%BD%AC%E5%8F%91%E8%BF%87%E7%A8%8B"><span class="toc-number">36.</span> <span class="toc-text">4.4 IP数据报的发送和转发过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-5-%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%85%B6%E5%8F%AF%E8%83%BD%E4%BA%A7%E7%94%9F%E7%9A%84%E8%B7%AF%E7%94%B1%E7%8E%AF%E8%B7%AF%E9%97%AE%E9%A2%98"><span class="toc-number">37.</span> <span class="toc-text">4.5 静态路由配置及其可能产生的路由环路问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-6-1-%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9%E5%8D%8F%E8%AE%AE"><span class="toc-number">38.</span> <span class="toc-text">4.6.1 路由选择协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-6-2-%E8%B7%AF%E7%94%B1%E4%BF%A1%E6%81%AF%E5%8D%8F%E8%AE%AERIP"><span class="toc-number">39.</span> <span class="toc-text">4.6.2 路由信息协议RIP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-6-3-%E5%BC%80%E6%94%BE%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E4%BC%98%E5%85%88OSPF"><span class="toc-number">40.</span> <span class="toc-text">4.6.3 开放最短路径优先OSPF</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-6-4-%E8%BE%B9%E7%95%8C%E7%BD%91%E5%85%B3%E5%8D%8F%E8%AE%AEBGP"><span class="toc-number">41.</span> <span class="toc-text">4.6.4 边界网关协议BGP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-7-IPv4%E6%95%B0%E6%8D%AE%E6%8A%A5%E7%9A%84%E9%A6%96%E9%83%A8%E6%A0%BC%E5%BC%8F"><span class="toc-number">42.</span> <span class="toc-text">4.7 IPv4数据报的首部格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-8-%E7%BD%91%E9%99%85%E6%8E%A7%E5%88%B6%E6%8A%A5%E6%96%87%E5%8D%8F%E8%AE%AEICMP"><span class="toc-number">43.</span> <span class="toc-text">4.8 网际控制报文协议ICMP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-9-%E8%99%9A%E6%8B%9F%E4%B8%93%E7%94%A8%E7%BD%91VPN%E4%B8%8E%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2NAT"><span class="toc-number">44.</span> <span class="toc-text">4.9 虚拟专用网VPN与网络地址转换NAT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-%E8%BF%90%E8%BE%93%E5%B1%82%E6%A6%82%E8%BF%B0"><span class="toc-number">45.</span> <span class="toc-text">5.1 运输层概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-%E8%BF%90%E8%BE%93%E5%B1%82%E7%AB%AF%E5%8F%A3%E5%8F%B7%E3%80%81%E5%A4%8D%E7%94%A8%E4%B8%8E%E5%88%86%E7%94%A8%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">46.</span> <span class="toc-text">5.2 运输层端口号、复用与分用的概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-UDP%E5%92%8CTCP%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="toc-number">47.</span> <span class="toc-text">5.3 UDP和TCP的对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-4-TCP%E7%9A%84%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6"><span class="toc-number">48.</span> <span class="toc-text">5.4 TCP的流量控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-5-TCP%E7%9A%84%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6"><span class="toc-number">49.</span> <span class="toc-text">5.5 TCP的拥塞控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-6-TCP%E8%B6%85%E6%97%B6%E9%87%8D%E4%BC%A0%E6%97%B6%E9%97%B4%E7%9A%84%E9%80%89%E6%8B%A9"><span class="toc-number">50.</span> <span class="toc-text">5.6 TCP超时重传时间的选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-7-TCP%E5%8F%AF%E9%9D%A0%E4%BC%A0%E8%BE%93%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">51.</span> <span class="toc-text">5.7 TCP可靠传输的实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-8-1-TCP%E7%9A%84%E8%BF%9E%E6%8E%A5%E5%BB%BA%E7%AB%8B"><span class="toc-number">52.</span> <span class="toc-text">5.8.1 TCP的连接建立</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-8-2-TCP%E7%9A%84%E8%BF%9E%E6%8E%A5%E9%87%8A%E6%94%BE"><span class="toc-number">53.</span> <span class="toc-text">5.8.2 TCP的连接释放</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-9-TCP%E6%8A%A5%E6%96%87%E6%AE%B5%E7%9A%84%E9%A6%96%E9%83%A8%E6%A0%BC%E5%BC%8F"><span class="toc-number">54.</span> <span class="toc-text">5.9 TCP报文段的首部格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B%E5%85%B1%E5%87%A0%E5%B1%82"><span class="toc-number">55.</span> <span class="toc-text">2-1 网络模型共几层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E9%94%AE%E5%85%A5%E7%BD%91%E5%9D%80%E5%88%B0%E7%BD%91%E9%A1%B5%E6%98%BE%E7%A4%BA%EF%BC%8C%E6%9C%9F%E9%97%B4%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">56.</span> <span class="toc-text">2-2 键入网址到网页显示，期间发生了什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-HTTP"><span class="toc-number">57.</span> <span class="toc-text">3-1 HTTP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%85%E5%BD%95%E5%85%A5"><span class="toc-number">58.</span> <span class="toc-text">待录入</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/10/29/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%8BClickHouse-%E5%88%9D%E5%AD%A6/" title="【数据库】初学ClickHouse"><img src="/images/cover/ck.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【数据库】初学ClickHouse"/></a><div class="content"><a class="title" href="/2023/10/29/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%8BClickHouse-%E5%88%9D%E5%AD%A6/" title="【数据库】初学ClickHouse">【数据库】初学ClickHouse</a><time datetime="2023-10-29T14:39:24.000Z" title="发表于 2023-10-29 22:39:24">2023-10-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/29/%E5%86%B0%E9%BE%99%E8%8D%89%E7%9A%84%E5%9B%BE%E8%AE%BA%E7%AC%94%E8%AE%B0/" title="冰龙草的图论笔记"><img src="/images/cover/icegrass.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="冰龙草的图论笔记"/></a><div class="content"><a class="title" href="/2023/10/29/%E5%86%B0%E9%BE%99%E8%8D%89%E7%9A%84%E5%9B%BE%E8%AE%BA%E7%AC%94%E8%AE%B0/" title="冰龙草的图论笔记">冰龙草的图论笔记</a><time datetime="2023-10-29T14:35:32.000Z" title="发表于 2023-10-29 22:35:32">2023-10-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/29/%E5%86%B0%E9%BE%99%E8%8D%89%E7%9A%84%E7%AE%97%E6%B3%95%E9%9A%8F%E7%AC%94/" title="冰龙草的算法随笔"><img src="/images/cover/icegrass.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="冰龙草的算法随笔"/></a><div class="content"><a class="title" href="/2023/10/29/%E5%86%B0%E9%BE%99%E8%8D%89%E7%9A%84%E7%AE%97%E6%B3%95%E9%9A%8F%E7%AC%94/" title="冰龙草的算法随笔">冰龙草的算法随笔</a><time datetime="2023-10-29T14:31:56.000Z" title="发表于 2023-10-29 22:31:56">2023-10-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%B0%A2%E5%B8%8C%E4%BB%81-%E7%AC%94%E8%AE%B0%E6%A2%B3%E7%90%86/" title="计算机网络(谢希仁)笔记梳理"><img src="/images/cover/network.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机网络(谢希仁)笔记梳理"/></a><div class="content"><a class="title" href="/2023/10/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%B0%A2%E5%B8%8C%E4%BB%81-%E7%AC%94%E8%AE%B0%E6%A2%B3%E7%90%86/" title="计算机网络(谢希仁)笔记梳理">计算机网络(谢希仁)笔记梳理</a><time datetime="2023-10-29T14:29:05.000Z" title="发表于 2023-10-29 22:29:05">2023-10-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/29/%E3%80%90ACM%E3%80%91%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%9A%84%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" title="【ACM】最短路的个人总结"><img src="/images/cover/acm.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【ACM】最短路的个人总结"/></a><div class="content"><a class="title" href="/2023/10/29/%E3%80%90ACM%E3%80%91%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%9A%84%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" title="【ACM】最短路的个人总结">【ACM】最短路的个人总结</a><time datetime="2023-10-29T14:26:27.000Z" title="发表于 2023-10-29 22:26:27">2023-10-29</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Blover</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"></div><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+</article><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/images/cover/network.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/10/29/%E5%86%B0%E9%BE%99%E8%8D%89%E7%9A%84%E7%AE%97%E6%B3%95%E9%9A%8F%E7%AC%94/" title="冰龙草的算法随笔"><img class="cover" src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/cover/icegrass.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">冰龙草的算法随笔</div></div></a></div><div class="next-post pull-right"><a href="/2023/10/29/%E3%80%90ACM%E3%80%91%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%9A%84%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" title="【ACM】最短路的个人总结"><img class="cover" src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/cover/acm.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">【ACM】最短路的个人总结</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2"><span class="toc-number">1.</span> <span class="toc-text">1.2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3"><span class="toc-number">2.</span> <span class="toc-text">1.3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4"><span class="toc-number">3.</span> <span class="toc-text">1.4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-1"><span class="toc-number">4.</span> <span class="toc-text">1.5.1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-2"><span class="toc-number">5.</span> <span class="toc-text">1.5.2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-1-3"><span class="toc-number">6.</span> <span class="toc-text">1.6.1~3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-4"><span class="toc-number">7.</span> <span class="toc-text">1.6.4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-7"><span class="toc-number">8.</span> <span class="toc-text">1.7</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-8-1"><span class="toc-number">9.</span> <span class="toc-text">1.8.1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-8-2"><span class="toc-number">10.</span> <span class="toc-text">1.8.2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E7%89%A9%E7%90%86%E5%B1%82%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">11.</span> <span class="toc-text">2.1 物理层的基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E7%89%A9%E7%90%86%E5%B1%82%E4%B8%8B%E9%9D%A2%E7%9A%84%E4%BC%A0%E8%BE%93%E5%AA%92%E4%BD%93"><span class="toc-number">12.</span> <span class="toc-text">2.2 物理层下面的传输媒体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E4%BC%A0%E8%BE%93%E6%96%B9%E5%BC%8F"><span class="toc-number">13.</span> <span class="toc-text">2.3 传输方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E7%BC%96%E7%A0%81%E4%B8%8E%E8%B0%83%E5%88%B6"><span class="toc-number">14.</span> <span class="toc-text">2.3 编码与调制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5%E3%80%81%E4%BF%A1%E9%81%93%E7%9A%84%E6%9E%81%E9%99%90%E5%AE%B9%E9%87%8F"><span class="toc-number">15.</span> <span class="toc-text">2.5、信道的极限容量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-6-%E6%80%BB%E7%BB%93"><span class="toc-number">16.</span> <span class="toc-text">2.6 总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E6%A6%82%E8%BF%B0"><span class="toc-number">17.</span> <span class="toc-text">3.1 数据链路层概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E5%B0%81%E8%A3%85%E6%88%90%E5%B8%A7"><span class="toc-number">18.</span> <span class="toc-text">3.2 封装成帧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E5%B7%AE%E9%94%99%E6%A3%80%E6%B5%8B"><span class="toc-number">19.</span> <span class="toc-text">3.3 差错检测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-%E5%8F%AF%E9%9D%A0%E4%BC%A0%E8%BE%93"><span class="toc-number">20.</span> <span class="toc-text">3.4 可靠传输</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5-%E7%82%B9%E5%AF%B9%E7%82%B9%E5%8D%8F%E8%AE%AEPPP"><span class="toc-number">21.</span> <span class="toc-text">3.5 点对点协议PPP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-6-%E5%AA%92%E4%BD%93%E6%8E%A5%E5%85%A5%E6%8E%A7%E5%88%B6"><span class="toc-number">22.</span> <span class="toc-text">3.6 媒体接入控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-7-1-MAC%E5%9C%B0%E5%9D%80"><span class="toc-number">23.</span> <span class="toc-text">3.7.1 MAC地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-7-2-MAC%E3%80%81IP%E5%9C%B0%E5%9D%80"><span class="toc-number">24.</span> <span class="toc-text">3.7.2 MAC、IP地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-7-3-ARP%E5%8D%8F%E8%AE%AE"><span class="toc-number">25.</span> <span class="toc-text">3.7.3 ARP协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-8-%E9%9B%86%E7%BA%BF%E5%99%A8%E4%B8%8E%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">26.</span> <span class="toc-text">3.8 集线器与交换机的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-9-%E4%BB%A5%E5%A4%AA%E7%BD%91%E4%BA%A4%E6%8D%A2%E6%9C%BA%E8%87%AA%E5%AD%A6%E4%B9%A0%E5%92%8C%E8%BD%AC%E5%8F%91%E5%B8%A7%E7%9A%84%E6%B5%81%E7%A8%8B"><span class="toc-number">27.</span> <span class="toc-text">3.9 以太网交换机自学习和转发帧的流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-10-%E4%BB%A5%E5%A4%AA%E7%BD%91%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%9A%84%E7%94%9F%E6%88%90%E6%A0%91%E5%8D%8F%E8%AE%AESTP"><span class="toc-number">28.</span> <span class="toc-text">3.10 以太网交换机的生成树协议STP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-11-%E8%99%9A%E6%8B%9F%E5%B1%80%E5%9F%9F%E7%BD%91VLAN"><span class="toc-number">29.</span> <span class="toc-text">3.11 虚拟局域网VLAN</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E7%BD%91%E7%BB%9C%E5%B1%82%E6%A6%82%E8%BF%B0"><span class="toc-number">30.</span> <span class="toc-text">4.1 网络层概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E7%BD%91%E7%BB%9C%E5%B1%82%E6%8F%90%E4%BE%9B%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%9C%8D%E5%8A%A1"><span class="toc-number">31.</span> <span class="toc-text">4.2 网络层提供的两种服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-1-%E5%88%86%E7%B1%BB%E7%BC%96%E5%9D%80%E7%9A%84IPv4%E5%9C%B0%E5%9D%80"><span class="toc-number">32.</span> <span class="toc-text">4.3.1 分类编址的IPv4地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-2-%E5%88%92%E5%88%86%E5%AD%90%E7%BD%91%E7%9A%84IPv4%E5%9C%B0%E5%9D%80"><span class="toc-number">33.</span> <span class="toc-text">4.3.2 划分子网的IPv4地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-3-%E6%97%A0%E5%88%86%E7%B1%BB%E7%BC%96%E5%9D%80%E7%9A%84IPv4%E5%9C%B0%E5%9D%80"><span class="toc-number">34.</span> <span class="toc-text">4.3.3 无分类编址的IPv4地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-4-IPv4%E5%9C%B0%E5%9D%80%E7%9A%84%E5%BA%94%E7%94%A8%E8%A7%84%E5%88%92"><span class="toc-number">35.</span> <span class="toc-text">4.3.4 IPv4地址的应用规划</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-IP%E6%95%B0%E6%8D%AE%E6%8A%A5%E7%9A%84%E5%8F%91%E9%80%81%E5%92%8C%E8%BD%AC%E5%8F%91%E8%BF%87%E7%A8%8B"><span class="toc-number">36.</span> <span class="toc-text">4.4 IP数据报的发送和转发过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-5-%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%85%B6%E5%8F%AF%E8%83%BD%E4%BA%A7%E7%94%9F%E7%9A%84%E8%B7%AF%E7%94%B1%E7%8E%AF%E8%B7%AF%E9%97%AE%E9%A2%98"><span class="toc-number">37.</span> <span class="toc-text">4.5 静态路由配置及其可能产生的路由环路问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-6-1-%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9%E5%8D%8F%E8%AE%AE"><span class="toc-number">38.</span> <span class="toc-text">4.6.1 路由选择协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-6-2-%E8%B7%AF%E7%94%B1%E4%BF%A1%E6%81%AF%E5%8D%8F%E8%AE%AERIP"><span class="toc-number">39.</span> <span class="toc-text">4.6.2 路由信息协议RIP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-6-3-%E5%BC%80%E6%94%BE%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E4%BC%98%E5%85%88OSPF"><span class="toc-number">40.</span> <span class="toc-text">4.6.3 开放最短路径优先OSPF</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-6-4-%E8%BE%B9%E7%95%8C%E7%BD%91%E5%85%B3%E5%8D%8F%E8%AE%AEBGP"><span class="toc-number">41.</span> <span class="toc-text">4.6.4 边界网关协议BGP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-7-IPv4%E6%95%B0%E6%8D%AE%E6%8A%A5%E7%9A%84%E9%A6%96%E9%83%A8%E6%A0%BC%E5%BC%8F"><span class="toc-number">42.</span> <span class="toc-text">4.7 IPv4数据报的首部格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-8-%E7%BD%91%E9%99%85%E6%8E%A7%E5%88%B6%E6%8A%A5%E6%96%87%E5%8D%8F%E8%AE%AEICMP"><span class="toc-number">43.</span> <span class="toc-text">4.8 网际控制报文协议ICMP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-9-%E8%99%9A%E6%8B%9F%E4%B8%93%E7%94%A8%E7%BD%91VPN%E4%B8%8E%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2NAT"><span class="toc-number">44.</span> <span class="toc-text">4.9 虚拟专用网VPN与网络地址转换NAT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-%E8%BF%90%E8%BE%93%E5%B1%82%E6%A6%82%E8%BF%B0"><span class="toc-number">45.</span> <span class="toc-text">5.1 运输层概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-%E8%BF%90%E8%BE%93%E5%B1%82%E7%AB%AF%E5%8F%A3%E5%8F%B7%E3%80%81%E5%A4%8D%E7%94%A8%E4%B8%8E%E5%88%86%E7%94%A8%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">46.</span> <span class="toc-text">5.2 运输层端口号、复用与分用的概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-UDP%E5%92%8CTCP%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="toc-number">47.</span> <span class="toc-text">5.3 UDP和TCP的对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-4-TCP%E7%9A%84%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6"><span class="toc-number">48.</span> <span class="toc-text">5.4 TCP的流量控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-5-TCP%E7%9A%84%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6"><span class="toc-number">49.</span> <span class="toc-text">5.5 TCP的拥塞控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-6-TCP%E8%B6%85%E6%97%B6%E9%87%8D%E4%BC%A0%E6%97%B6%E9%97%B4%E7%9A%84%E9%80%89%E6%8B%A9"><span class="toc-number">50.</span> <span class="toc-text">5.6 TCP超时重传时间的选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-7-TCP%E5%8F%AF%E9%9D%A0%E4%BC%A0%E8%BE%93%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">51.</span> <span class="toc-text">5.7 TCP可靠传输的实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-8-1-TCP%E7%9A%84%E8%BF%9E%E6%8E%A5%E5%BB%BA%E7%AB%8B"><span class="toc-number">52.</span> <span class="toc-text">5.8.1 TCP的连接建立</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-8-2-TCP%E7%9A%84%E8%BF%9E%E6%8E%A5%E9%87%8A%E6%94%BE"><span class="toc-number">53.</span> <span class="toc-text">5.8.2 TCP的连接释放</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-9-TCP%E6%8A%A5%E6%96%87%E6%AE%B5%E7%9A%84%E9%A6%96%E9%83%A8%E6%A0%BC%E5%BC%8F"><span class="toc-number">54.</span> <span class="toc-text">5.9 TCP报文段的首部格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B%E5%85%B1%E5%87%A0%E5%B1%82"><span class="toc-number">55.</span> <span class="toc-text">2-1 网络模型共几层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E9%94%AE%E5%85%A5%E7%BD%91%E5%9D%80%E5%88%B0%E7%BD%91%E9%A1%B5%E6%98%BE%E7%A4%BA%EF%BC%8C%E6%9C%9F%E9%97%B4%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">56.</span> <span class="toc-text">2-2 键入网址到网页显示，期间发生了什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-HTTP"><span class="toc-number">57.</span> <span class="toc-text">3-1 HTTP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%85%E5%BD%95%E5%85%A5"><span class="toc-number">58.</span> <span class="toc-text">待录入</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/10/29/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%8BClickHouse-%E5%88%9D%E5%AD%A6/" title="【数据库】初学ClickHouse"><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/cover/ck.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【数据库】初学ClickHouse"/></a><div class="content"><a class="title" href="/2023/10/29/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%8BClickHouse-%E5%88%9D%E5%AD%A6/" title="【数据库】初学ClickHouse">【数据库】初学ClickHouse</a><time datetime="2023-10-29T14:39:24.000Z" title="发表于 2023-10-29 22:39:24">2023-10-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/29/%E5%86%B0%E9%BE%99%E8%8D%89%E7%9A%84%E5%9B%BE%E8%AE%BA%E7%AC%94%E8%AE%B0/" title="冰龙草的图论笔记"><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/cover/icegrass.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="冰龙草的图论笔记"/></a><div class="content"><a class="title" href="/2023/10/29/%E5%86%B0%E9%BE%99%E8%8D%89%E7%9A%84%E5%9B%BE%E8%AE%BA%E7%AC%94%E8%AE%B0/" title="冰龙草的图论笔记">冰龙草的图论笔记</a><time datetime="2023-10-29T14:35:32.000Z" title="发表于 2023-10-29 22:35:32">2023-10-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/29/%E5%86%B0%E9%BE%99%E8%8D%89%E7%9A%84%E7%AE%97%E6%B3%95%E9%9A%8F%E7%AC%94/" title="冰龙草的算法随笔"><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/cover/icegrass.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="冰龙草的算法随笔"/></a><div class="content"><a class="title" href="/2023/10/29/%E5%86%B0%E9%BE%99%E8%8D%89%E7%9A%84%E7%AE%97%E6%B3%95%E9%9A%8F%E7%AC%94/" title="冰龙草的算法随笔">冰龙草的算法随笔</a><time datetime="2023-10-29T14:31:56.000Z" title="发表于 2023-10-29 22:31:56">2023-10-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%B0%A2%E5%B8%8C%E4%BB%81-%E7%AC%94%E8%AE%B0%E6%A2%B3%E7%90%86/" title="计算机网络(谢希仁)笔记梳理"><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/cover/network.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机网络(谢希仁)笔记梳理"/></a><div class="content"><a class="title" href="/2023/10/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%B0%A2%E5%B8%8C%E4%BB%81-%E7%AC%94%E8%AE%B0%E6%A2%B3%E7%90%86/" title="计算机网络(谢希仁)笔记梳理">计算机网络(谢希仁)笔记梳理</a><time datetime="2023-10-29T14:29:05.000Z" title="发表于 2023-10-29 22:29:05">2023-10-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/29/%E3%80%90ACM%E3%80%91%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%9A%84%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" title="【ACM】最短路的个人总结"><img src= "/Loading..." data-lazy-src="/images/loading.gif" data-original="/images/cover/acm.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【ACM】最短路的个人总结"/></a><div class="content"><a class="title" href="/2023/10/29/%E3%80%90ACM%E3%80%91%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%9A%84%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" title="【ACM】最短路的个人总结">【ACM】最短路的个人总结</a><time datetime="2023-10-29T14:26:27.000Z" title="发表于 2023-10-29 22:26:27">2023-10-29</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Blover</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"></div><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body></html>
